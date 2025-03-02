@@ -1,3 +1,16 @@
+# blog/tags.yml
+AI:
+  label: AI
+  description: Posts related to Artificial Intelligence.
+
+Google NotebookLM:
+  label: Google NotebookLM
+  description: Posts related to Google NotebookLM.
+  
+Google:
+  label: Google
+  description: Posts related to Google.
+
 facebook:
   label: Facebook
   permalink: /facebook
@@ -7,13 +20,3 @@ docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus tag description
-
-ai:
-  label: AI
-  permalink: /ai
-  description: AI tag description
-
-google:
-  label: Google Notebooklm
-  permalink: /google-notebooklm 
-  description: Google Notebooklm
