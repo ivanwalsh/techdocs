@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.ivanwalsh.com/docs/blog</id>
     <title>Agile Technical Documentation Blog</title>
-    <updated>2025-01-01T00:00:00.000Z</updated>
+    <updated>2025-01-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.ivanwalsh.com/docs/blog"/>
     <subtitle>Agile Technical Documentation Blog</subtitle>
     <icon>https://www.ivanwalsh.com/docs/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Oliver Burkeman Book Review]]></title>
+        <id>https://www.ivanwalsh.com/docs/blog/oliver-burkeman</id>
+        <link href="https://www.ivanwalsh.com/docs/blog/oliver-burkeman"/>
+        <updated>2025-01-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Review Oliver Burkeman book review]]></summary>
+        <content type="html"><![CDATA[<p>Review Oliver Burkeman book review</p>
+<p>Review Oliver Burkeman book review</p>]]></content>
+        <author>
+            <name>Ivan Walsh</name>
+            <uri>https://github.com/ivanwalsh</uri>
+        </author>
+        <category label="AI" term="AI"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Notebook Primer]]></title>
         <id>https://www.ivanwalsh.com/docs/blog/google-notebook</id>
