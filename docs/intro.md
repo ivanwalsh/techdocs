@@ -1,7 +1,5 @@
 ---
-sidebar_position: 1
+slug: /
 ---
 
-# Tutorial Intro
-
-Let's discover **Docusaurus in less than 5 minutes**.
+This page will be the home page when users visit https://example.com/.
