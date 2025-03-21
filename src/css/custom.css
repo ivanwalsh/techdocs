@@ -1,18 +1,9 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #000000; /* Navy blue */
+  --ifm-color-primary-dark: #001737; /* Darker navy for hover states, etc. */
+  --ifm-color-primary-darker: #001029; /* Even darker navy */
+  --ifm-color-primary-light: #19375d; /* Lighter navy shade */
+  --ifm-color-primary-lighter: #2f4c6e; /* Even lighter navy */
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -27,4 +18,18 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+     font-family: 'Source Sans Pro', sans-serif;
+   }
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-source-sans);
+    color: #000000;
+    margin: 0;
+    letter-spacing: 0;
+    word-spacing: 0.05em;
+    line-height: 1.1em;
+    text-transform: none;
 }
