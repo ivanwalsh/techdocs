@@ -1,13 +1,13 @@
 ---
 id: ivan
 title: About Ivan
-slug: /Ivan
+slug: /ivan
 description: "Ivan"
 ---
 
 # About Ivan
 
-I write, publish, and enhance technical information assets. Great documentation reduces technical support costs, enhances your brand, and encourages customers to use your products.
+My name is Ivan Walsh and I’m a Technical Writer based in Ireland. I help people improve how they write, publish and extend their information assets. In other words, I write technical documentation that people like to read, reduce support requests, and encourage customers to use your products.
 
 Are you seeking an experienced technical writing manager who can modernize your documentation processes? With a proven track record in leadership and change management, I bring expertise in:
 
@@ -85,3 +85,11 @@ Be the primary point of contact for documentation issues, driving improvements t
 ## Who’ve You Worked For?
 
 I’ve worked in the UK, USA, and China with Fortune 500s, start-ups, SMBs, and one-person business owners. IBM, NEC, Intel, US Department of Justice, Misys, Finastra, Bank of Ireland, Agilewords, Escher, and more.
+
+## Location
+
+I’m a Technical Writer based in Dublin, Ireland. 
+
+## Let’s Connect!
+
+You can get me on [X](https://x.com/ivanwalsh) and [LinkedIn](https://www.linkedin.com/in/ivanwalsh/).
