@@ -3,11 +3,11 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Ivan Walsh',
+  tagline: 'Agile Technical Documentation',
   favicon: 'img/favicon.ico',
 
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://ivanwalsh.com',
   baseUrl: '/',
 
   organizationName: 'facebook', // GitHub org/user
@@ -49,9 +49,9 @@ const config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Ivan Walsh',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Ivan Walsh Site Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -62,8 +62,9 @@ const config = {
           label: 'Docs',
         },
         { to: '/blog', label: 'Articles', position: 'left' },
+        { to: '/Ivan', label: 'About Ivan', position: 'left' },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/ivanwalsh',
           label: 'GitHub',
           position: 'right',
         },
@@ -84,20 +85,19 @@ const config = {
         {
           title: 'Community',
           items: [
-            { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus' },
-            { label: 'Discord', href: 'https://discordapp.com/invite/docusaurus' },
-            { label: 'X', href: 'https://x.com/docusaurus' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ivanwalsh/' },
+            { label: 'X', href: 'https://x.com/ivanwalsh' },
           ],
         },
         {
           title: 'More',
           items: [
             { label: 'Blog', to: '/blog' },
-            { label: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
+            { label: 'GitHub', href: 'https://github.com/ivanwalsh' },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ivan Walsh, Technical Writer. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
