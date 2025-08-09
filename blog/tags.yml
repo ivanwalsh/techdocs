@@ -24,3 +24,9 @@ docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus tag description
+  
+Publishing:
+  label: Publishing
+  permalink: /publishing
+  description: Publish technical documentation
+  
