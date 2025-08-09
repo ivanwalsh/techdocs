@@ -1,4 +1,8 @@
 # blog/tags.yml
+Agile:
+  label: Agile
+  description: Posts related to Agile and Scrum for Technical Documentation.
+
 AI:
   label: AI
   description: Posts related to Artificial Intelligence.
