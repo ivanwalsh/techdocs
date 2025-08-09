@@ -73,12 +73,12 @@ const config = {
 			  to: '/blog/tags/agile',
 			},
 			{
-			  label: 'Scrum',
-			  to: '/blog/tags/scrum',
+			  label: 'AI',
+			  to: '/blog/tags/ai',
 			},
 			{
-			  label: 'Writing',
-			  to: '/blog/tags/writing',
+			  label: 'Publishing',
+			  to: '/blog/tags/publishing',
 			},
 		  ],
 		},			
