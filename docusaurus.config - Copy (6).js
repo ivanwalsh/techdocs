@@ -62,26 +62,6 @@ const config = {
           label: 'Docs',
         },
         { to: '/blog', label: 'Articles', position: 'left' },
-		 // ADD YOUR TAG LINKS HERE - Option 1: Dropdown
-		{
-		  type: 'dropdown',
-		  label: 'Topics',
-		  position: 'left',
-		  items: [
-			{
-			  label: 'Agile',
-			  to: '/blog/tags/agile',
-			},
-			{
-			  label: 'Scrum',
-			  to: '/blog/tags/scrum',
-			},
-			{
-			  label: 'Writing',
-			  to: '/blog/tags/writing',
-			},
-		  ],
-		},			
         { to: '/Ivan', label: 'About Ivan', position: 'left' },
         {
           href: 'https://github.com/ivanwalsh',
