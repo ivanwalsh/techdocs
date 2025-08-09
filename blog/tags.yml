@@ -1,10 +1,12 @@
 # blog/tags.yml
 Agile:
   label: Agile
+  permalink: /agile
   description: Posts related to Agile and Scrum for Technical Documentation.
 
 AI:
   label: AI
+  permalink: /ai
   description: Posts related to Artificial Intelligence.
 
 Google NotebookLM:

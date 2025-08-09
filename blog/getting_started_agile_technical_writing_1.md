@@ -15,6 +15,8 @@ As this question, and variations of it, have popped up on Reddit and LinkedIn, I
 
 One thing to say before we start, is that just became a company says it's Agile, doesn't mean it's applying all of the framework. Rather, they may be selectively picking pieces of it, such as using Daily Stand Ups, but not fully embracing the spirit of Agile development. In many cases, they're probably 'Agilefall' (Agile + Waterfall).
 
+<!-- truncate -->
+
 ## What is Agile technical documentation?
 
 Agile technical documentation is a framework that applies Agile principles to the documentation process itself. Instead of creating monolithic documentation sets that may become outdated before the product is released, Agile documentation provides incremental deliverables per sprint that support current needs while remaining flexible enough to adapt with the project.

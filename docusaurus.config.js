@@ -59,7 +59,7 @@ const config = {
           type: 'doc',
           docId: 'intro', // Ensure this matches `intro.md`
           position: 'left',
-          label: 'Docs',
+          label: 'Home',
         },
         { to: '/blog', label: 'Articles', position: 'left' },
 		 // ADD YOUR TAG LINKS HERE - Option 1: Dropdown
@@ -94,7 +94,7 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Start Here',
           items: [
             {
               label: 'Introduction',

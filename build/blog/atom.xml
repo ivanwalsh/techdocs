@@ -1,34 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://your-docusaurus-site.example.com/blog</id>
-    <title>My Site Blog</title>
-    <updated>2025-03-09T00:00:00.000Z</updated>
+    <id>https://ivanwalsh.com/blog</id>
+    <title>Ivan Walsh Blog</title>
+    <updated>2025-08-09T11:59:18.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://your-docusaurus-site.example.com/blog"/>
-    <subtitle>My Site Blog</subtitle>
-    <icon>https://your-docusaurus-site.example.com/img/favicon.ico</icon>
+    <link rel="alternate" href="https://ivanwalsh.com/blog"/>
+    <subtitle>Ivan Walsh Blog</subtitle>
+    <icon>https://ivanwalsh.com/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Antora Setup Instructions]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/antora-setup</id>
-        <link href="https://your-docusaurus-site.example.com/blog/antora-setup"/>
-        <updated>2025-03-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Antora Setup Instructions]]></summary>
-        <content type="html"><![CDATA[<p>Antora Setup Instructions</p>
-<p>Antora Setup Instructions</p>
-<p>Antora setup</p>
-<p><a href="https://gitlab.com/antora/demo/demo-component-a" target="_blank" rel="noopener noreferrer">https://gitlab.com/antora/demo/demo-component-a</a></p>
-<p><a href="https://docs.antora.org/antora/latest/install-and-run-quickstart/" target="_blank" rel="noopener noreferrer">https://docs.antora.org/antora/latest/install-and-run-quickstart/</a></p>
-<p><a href="https://github.com/asciidoctor/asciidoctor-pdf/tree/main/examples" target="_blank" rel="noopener noreferrer">https://github.com/asciidoctor/asciidoctor-pdf/tree/main/examples</a></p>]]></content>
+        <title type="html"><![CDATA[Getting Started with Agile for Technical Writers]]></title>
+        <id>https://ivanwalsh.com/blog/agile-tech-writing-getting-started</id>
+        <link href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started"/>
+        <updated>2025-08-09T11:59:18.000Z</updated>
+        <summary type="html"><![CDATA[How to get started with Agile for Technical Writers]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-can-technical-writers-use-agile-in-software-development-projects">How can technical writers use Agile in software development projects?<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#how-can-technical-writers-use-agile-in-software-development-projects" class="hash-link" aria-label="Direct link to How can technical writers use Agile in software development projects?" title="Direct link to How can technical writers use Agile in software development projects?">​</a></h2>
+<p>As this question, and variations of it, have popped up on Reddit and LinkedIn, I thought I'd share a few observations about my experience of working with Agile/Scrum as a tech writer.</p>
+<p>One thing to say before we start, is that just became a company says it's Agile, doesn't mean it's applying all of the framework. Rather, they may be selectively picking pieces of it, such as using Daily Stand Ups, but not fully embracing the spirit of Agile development. In many cases, they're probably 'Agilefall' (Agile + Waterfall).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-agile-technical-documentation">What is Agile technical documentation?<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#what-is-agile-technical-documentation" class="hash-link" aria-label="Direct link to What is Agile technical documentation?" title="Direct link to What is Agile technical documentation?">​</a></h2>
+<p>Agile technical documentation is a framework that applies Agile principles to the documentation process itself. Instead of creating monolithic documentation sets that may become outdated before the product is released, Agile documentation provides incremental deliverables per sprint that support current needs while remaining flexible enough to adapt with the project.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="agile-documentation-principles">Agile Documentation Principles<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#agile-documentation-principles" class="hash-link" aria-label="Direct link to Agile Documentation Principles" title="Direct link to Agile Documentation Principles">​</a></h2>
+<p>"I want thin documents, and fast." The CEO of a leasing company told me this when I presented him with our Documentation Plan for the next release. This was more than 15 years ago before Agile became mainstream. He was encouraging us to write only what was needed (cut the fluff) and get docs out to review/customers asap.</p>
+<p>So, if you're new to writing in an Agile environment, here are some things to consider:</p>
+<p><strong>Iterative content development</strong> – create units of documentation that can be written, reviewed and signed off per sprint. Then, if the software changes, update accordingly. The aim is to get pieces of the docs delivered per 2- or 3-week sprints, rather than one single document at the very end.</p>
+<p><strong>Collaboration</strong> – develop a collaborative approach with developers, testers and product managers, so docs are worked on during each sprint. Before you adopt this approach, talk to the team and explain how/why you plan to deliver the docs in increments.</p>
+<p><strong>Responding to change</strong> – prepare your documents in such a way that it's easy to update, review, and republish. Flexibility is a key part of Agile. Make sure your document process is aligned accordingly</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="agile-documentation-strategies">Agile Documentation Strategies<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#agile-documentation-strategies" class="hash-link" aria-label="Direct link to Agile Documentation Strategies" title="Direct link to Agile Documentation Strategies">​</a></h2>
+<p>In terms of setting up Agile documents, you have several options. Here's a few to consider:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-story-driven-content">User story-driven content<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#user-story-driven-content" class="hash-link" aria-label="Direct link to User story-driven content" title="Direct link to User story-driven content">​</a></h3>
+<p>Learn how to write user story for the features you plan to document. Of course, you can write user stories for other document tasks as well. The point is to learn how to craft user stories so you're in sync with your company's Agile mindset, and also that each increment you deliver meets the Definition of Done. That is, it meets the problem statement and acceptance criteria for each ticket.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tech-documentation-user-story-example">Tech Documentation user story example<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#tech-documentation-user-story-example" class="hash-link" aria-label="Direct link to Tech Documentation user story example" title="Direct link to Tech Documentation user story example">​</a></h3>
+<p>The following is a simple example of a documentation user story:</p>
+<ul>
+<li><strong>As a</strong> new API developer integrating with our ecommerce system</li>
+<li><strong>I want</strong> step-by-step authentication setup instructions with working code examples</li>
+<li><strong>So that</strong> I can authenticate API calls within 15 minutes without contacting support</li>
+</ul>
+<p><strong>Acceptance Criteria:</strong></p>
+<ul>
+<li>Include prerequisite requirements (API key, development environment)</li>
+<li>Provide code samples in at least 3 programming languages (Python, JavaScript, cURL)</li>
+<li>Show expected request/response format with real examples</li>
+<li>Include common error codes and troubleshooting steps</li>
+<li>Include rate limiting information</li>
+</ul>
+<p><strong>Definition of Done:</strong></p>
+<ul>
+<li>Content reviewed by Developer who hasn't worked on the API</li>
+<li>Verified code examples</li>
+<li>Tested by Product team</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sprint-based-documentation-cycles">Sprint-based documentation cycles<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#sprint-based-documentation-cycles" class="hash-link" aria-label="Direct link to Sprint-based documentation cycles" title="Direct link to Sprint-based documentation cycles">​</a></h3>
+<p>You have several options here. One suggestion is to add a Tech Document ticket to the Dev sprint board per sprint. For me, this creates noise and I'd suggest to avoid it. Instead, create your own board and cut a ticket for each product feature. Then, in the last sprint, you can add a formal tech document ticket the sprint board to ensure it gets prioritized and delivered in time with the release.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="living-documentation-approaches">Living documentation approaches<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#living-documentation-approaches" class="hash-link" aria-label="Direct link to Living documentation approaches" title="Direct link to Living documentation approaches">​</a></h3>
+<p>In this context, 'living' means that the docs develop naturally with the product rather than you having to make manual updates. For instance, if you're using Swagger/OpenAPI specs to generate interactive API documentation, setup your document publishing system so that the correct documents are automatically generated. The same applies if you're integrating content from Git or database schemas generated from databases.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="continuous-feedback-loops">Continuous feedback loops<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#continuous-feedback-loops" class="hash-link" aria-label="Direct link to Continuous feedback loops" title="Direct link to Continuous feedback loops">​</a></h3>
+<p>Setup your docs process so that you can identify gaps, errors, and omissions in the docs. In sprint retrospectives ask product/developers if there's anything that can be improved. Likewise, arrange stakeholder check-ins to assess whether docs meet their needs. Ask Product to help understand customer pain points. Again, I feel a mindset change is often required here. Instead of writing in isolation, look for ways to proactively get feedback so your docs provide maximum value.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="first-steps">First Steps<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#first-steps" class="hash-link" aria-label="Direct link to First Steps" title="Direct link to First Steps">​</a></h2>
+<p>Instead of 'boiling the ocean', I'd suggest to start small and by degrees move your tech document team to an Agile mindset. Creating a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend to print out the Scrum Guide and become familiar with the framework.</p>
+<p>In the coming weeks, I'll go into more depth about tool usage, metrics and some of the common pitfalls to avoid.</p>
+<p>As always, drop me a line if you'd like to know more. My inbox is always open.</p>]]></content>
         <author>
             <name>Ivan Walsh</name>
             <uri>https://github.com/ivanwalsh</uri>
         </author>
-        <category label="AI" term="AI"/>
+        <category label="Agile" term="Agile"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using Antora to Manage Complex Technical Documentation Websites]]></title>
+        <id>https://ivanwalsh.com/blog/antora-setup</id>
+        <link href="https://ivanwalsh.com/blog/antora-setup"/>
+        <updated>2025-03-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Antora to Manage Complex Technical Documentation Websites. Includes product comparison with other static site generators]]></summary>
+        <content type="html"><![CDATA[<p>What's the best tool for managing technical documentation websites?</p>
+<p>You've probably seen something like this on LinkedIn or Reddit. And the answer is, as always, 'it depends'.</p>
+<p>For example, this site is run on Docusaurus, which is pretty easy to setup and maintain. It also works very nicely with Git and our web hosting provider, so for a relatively simple site, it's fine. I should add that you can Docusaurus is not just for lightweight document sites as it has quite a lot of rich features, themes, and a very active community. So, worth a peek if you're looking to get started.</p>
+<p>However, there are a few things it doesn't offer. At least, not out of the box. This leads us to Antora.</p>
+<p>What's the best tool for managing technical documentation websites?</p>
+<p>You've probably seen something like this on LinkedIn or Reddit. And the answer is, as always, 'it depends'.</p>
+<p>For example, this site is run on Docusaurus, which is pretty easy to setup and maintain. It also works very nicely with Git and our web hosting provider, so for a relatively simple site, it's fine. I should add that you can Docusaurus is not just for lightweight document sites as it has quite a lot of rich features, themes, and a very active community. So, worth a peek if you're looking to get started.</p>
+<p>However, there are a few things it doesn't offer. At least, not out of the box. This leads us to Antora.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-antora">What is Antora?<a href="https://ivanwalsh.com/blog/antora-setup#what-is-antora" class="hash-link" aria-label="Direct link to What is Antora?" title="Direct link to What is Antora?">​</a></h2>
+<p>Antora is a static site generator designed specifically for technical documentation. Created by the team behind AsciiDoc, it treats your document set as a collection of 'versioned content sources' rather than a traditional website structure. This allows you to setup "documentation sites" that can aggregate content from multiple repos, branches, and versions into a single website.</p>
+<p>In other words, instead of pulling your documents from a single repo, which is what I'm doing here, you could ingest material from X number of repos and organize them in a seamless manner on the website.</p>
+<p>Versioning is also one of its strong points. For instance, if you want to maintain multiple versions of your documentation simultaneously. You can do something like this in Docusaurus, btw.</p>
+<p><a href="https://docs.antora.org/antora/latest/" target="_blank" rel="noopener noreferrer">Antora documentation</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="antora-use-cases">Antora Use Cases<a href="https://ivanwalsh.com/blog/antora-setup#antora-use-cases" class="hash-link" aria-label="Direct link to Antora Use Cases" title="Direct link to Antora Use Cases">​</a></h2>
+<p>As mentioned above, while you can use tools like Docusaurus, Hugo, and Sphinx, from what I've seen its strength is in the following areas:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="multi-version-documentation-management">Multi-version Documentation Management<a href="https://ivanwalsh.com/blog/antora-setup#multi-version-documentation-management" class="hash-link" aria-label="Direct link to Multi-version Documentation Management" title="Direct link to Multi-version Documentation Management">​</a></h3>
+<p>Once setup, you can maintain documentation for multiple product versions simultaneously. This allows you to pull content from different Git branches/repositories and publish them as separate versions in a single UI.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="distributed-documentation-teams">Distributed Documentation Teams<a href="https://ivanwalsh.com/blog/antora-setup#distributed-documentation-teams" class="hash-link" aria-label="Direct link to Distributed Documentation Teams" title="Direct link to Distributed Documentation Teams">​</a></h3>
+<p>If you work on large projects or have distributed teams with multiple repos, you can aggregate the content from various sources into a single site while maintaining ownership and contribution workflows. While it does take time to configure, you'll see the gains in the long term.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-source-projects">Open Source Projects<a href="https://ivanwalsh.com/blog/antora-setup#open-source-projects" class="hash-link" aria-label="Direct link to Open Source Projects" title="Direct link to Open Source Projects">​</a></h3>
+<p>It's a good fit for products that require community contributions, versioning, and integration with Git workflows.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="component-based-architecture">Component-Based Architecture<a href="https://ivanwalsh.com/blog/antora-setup#component-based-architecture" class="hash-link" aria-label="Direct link to Component-Based Architecture" title="Direct link to Component-Based Architecture">​</a></h3>
+<p>For tech docs teams that work on require cross-referencing between different products and versions, you can use its component-based architecture to coordinate your content workflows.</p>
+<p>For context, Antora's component-based architecture treats documentation as a collection of independent, reusable "components" rather than a monolithic website. As a result, each self-contained documentation unit can be mixed, matched, and assembled into different sites while maintaining their individual identity and versioning.</p>
+<p>Each component has:</p>
+<ul>
+<li>Its own repository (or can share a repository with other components)</li>
+<li>Independent versioning (version 1.0, 2.0, etc.)</li>
+<li>Modular structure (modules containing pages, assets, and partials)</li>
+<li>Separate navigation and content organization</li>
+</ul>
+<p>The following example provides a sample layout:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Company Documentation Site</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── API Gateway (Component)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   ├── Version 3.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   ├── Version 2.1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   └── Version 1.5</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── User Management System (Component)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   ├── Version 2.2</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   └── Version 2.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└── Analytics Dashboard (Component)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ├── Version 1.8</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    └── Version 1.5</span><br></span></code></pre></div></div>
+<p>In this scenario, each component lives in its own Git repo, maintained by different teams, but appears as a unified documentation site to users.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="antora-limitations">Antora Limitations<a href="https://ivanwalsh.com/blog/antora-setup#antora-limitations" class="hash-link" aria-label="Direct link to Antora Limitations" title="Direct link to Antora Limitations">​</a></h2>
+<p>There are a few limitations that you need to be aware of.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="learning-curve">Learning curve<a href="https://ivanwalsh.com/blog/antora-setup#learning-curve" class="hash-link" aria-label="Direct link to Learning curve" title="Direct link to Learning curve">​</a></h3>
+<p>Compared to other tools, there is a bit of a learning curve. If you're familiar with static site generators, you'll understand how it's designed. However, if you're new to this area, it can be a bit tricky to get up and running. There's also a smaller community to help troubleshoot issues, which is unfortunate. Concepts (i.e. playbooks, components, modules, pages) can be overwhelming for tech writers coming from Flare/RoboHelp or less complex tech document tools.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="asciidoc">AsciiDoc<a href="https://ivanwalsh.com/blog/antora-setup#asciidoc" class="hash-link" aria-label="Direct link to AsciiDoc" title="Direct link to AsciiDoc">​</a></h3>
+<p>Probably the main limitation is that you need to write (or migrate) your docs in AsciiDoc.</p>
+<p>The team who created Antora felt that tech writers need a flavor of markdown with more advanced capabilities. While Markdown is fine for simple documentation, it has limitations for more complex technical material that requires advanced formatting, conditional text, and cross-referencing. However, I suspect this puts off many tech writers and developers who are used to writing in Markdown and may be reluctant to put time aside to skill up and migrate existing markdown.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="configuration-management">Configuration Management<a href="https://ivanwalsh.com/blog/antora-setup#configuration-management" class="hash-link" aria-label="Direct link to Configuration Management" title="Direct link to Configuration Management">​</a></h3>
+<p>If you're new to SSGs, you may find the playbook configuration too complex for your sites. Troubleshooting issues regarding Antora's architecture and Git integration deter people from switching over.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dynamic-features">Dynamic Features<a href="https://ivanwalsh.com/blog/antora-setup#dynamic-features" class="hash-link" aria-label="Direct link to Dynamic Features" title="Direct link to Dynamic Features">​</a></h3>
+<p>I haven't explored this too much but from what I understand, it lacks built-in support for features such as user authentication, commenting systems, or implementing real-time content updates without additional tooling.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="deployment-complexity">Deployment Complexity<a href="https://ivanwalsh.com/blog/antora-setup#deployment-complexity" class="hash-link" aria-label="Direct link to Deployment Complexity" title="Direct link to Deployment Complexity">​</a></h3>
+<p>Depending on your Git skill level, you may find its CI/CD pipelines and deployment strategies overly complex.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-ecosystem">Plugin Ecosystem<a href="https://ivanwalsh.com/blog/antora-setup#plugin-ecosystem" class="hash-link" aria-label="Direct link to Plugin Ecosystem" title="Direct link to Plugin Ecosystem">​</a></h3>
+<p>Part of the reason, I use Docusaurus is because there is so much choice in terms of themes, plug-ins and community support. And it's all in markdown which everyone knows.</p>
+<p>In contrast, Antora has a much smaller ecosystem of plugins and extensions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="static-site-generator-comparison">Static Site Generator Comparison<a href="https://ivanwalsh.com/blog/antora-setup#static-site-generator-comparison" class="hash-link" aria-label="Direct link to Static Site Generator Comparison" title="Direct link to Static Site Generator Comparison">​</a></h2>
+<p>The following table identifies the strengths and weakness of Antora and some of the leading SSGs.</p>
+<table><thead><tr><th>Feature/Aspect</th><th><strong>Antora</strong></th><th><strong>Docusaurus</strong></th><th><strong>GitBook</strong></th><th><strong>VuePress/VitePress</strong></th></tr></thead><tbody><tr><td><strong>Primary Focus</strong></td><td>Multi-repo technical docs</td><td>Developer documentation</td><td>Team knowledge base</td><td>Vue.js ecosystem docs</td></tr><tr><td><strong>Content Format</strong></td><td>AsciiDoc only</td><td>Markdown + React/MDX</td><td>Markdown + blocks</td><td>Markdown + Vue</td></tr><tr><td><strong>Learning Curve</strong></td><td>Steep (new concepts + AsciiDoc)</td><td>Moderate (familiar React patterns)</td><td>Easy (WYSIWYG + Markdown)</td><td>Moderate (Vue knowledge helpful)</td></tr><tr><td><strong>Multi-Version Support</strong></td><td>Excellent (built-in, sophisticated)</td><td>Good (built-in versioning)</td><td>Limited (manual organization)</td><td>Manual implementation required</td></tr><tr><td><strong>Multi-Repository</strong></td><td>Native support (core feature)</td><td>Single repo only</td><td>Single workspace model</td><td>Single repo focus</td></tr><tr><td><strong>Cross-References</strong></td><td>Powerful (cross-component/version)</td><td>Basic (within single repo)</td><td>Good (within workspace)</td><td>Basic linking</td></tr><tr><td><strong>Content Reuse</strong></td><td>Advanced (includes, partials, attributes)</td><td>Limited (MDX components)</td><td>Basic (snippets, templates)</td><td>Limited (Vue components)</td></tr><tr><td><strong>Team Collaboration</strong></td><td>Excellent (distributed teams, Git-native)</td><td>Good (GitHub integration)</td><td>Excellent (real-time editing)</td><td>Good (Git-based)</td></tr><tr><td><strong>Setup Complexity</strong></td><td>High (playbooks, components, modules)</td><td>Low (npm create, config file)</td><td>Very low (web interface)</td><td>Low (Vue CLI or manual)</td></tr><tr><td><strong>Build Performance</strong></td><td>Can be slow (multi-repo aggregation)</td><td>Fast (optimized for speed)</td><td>Fast (cloud-based)</td><td>Very fast (Vite/modern tooling)</td></tr><tr><td><strong>Theming/Customization</strong></td><td>Limited themes, complex customization</td><td>Many themes, React-based custom</td><td>Limited (premium plans for custom)</td><td>Flexible (Vue-based theming)</td></tr><tr><td><strong>Plugin Ecosystem</strong></td><td>Small, specialized</td><td>Large, active community</td><td>Growing but limited</td><td>Good (Vue ecosystem)</td></tr><tr><td><strong>Search Integration</strong></td><td>Good (Lunr, external options)</td><td>Excellent (Algolia built-in)</td><td>Excellent (built-in)</td><td>Good (built-in + external)</td></tr><tr><td><strong>Hosting Options</strong></td><td>Flexible (any static host)</td><td>Flexible (Netlify, Vercel, etc.)</td><td>Managed hosting included</td><td>Flexible (any static host)</td></tr><tr><td><strong>Community Size</strong></td><td>Small, niche</td><td>Large, active (Facebook/Meta)</td><td>Large, growing</td><td>Medium (Vue community)</td></tr><tr><td><strong>Documentation Quality</strong></td><td>Comprehensive but complex</td><td>Excellent, beginner-friendly</td><td>Excellent, user-friendly</td><td>Good, Vue-focused</td></tr><tr><td><strong>Mobile Experience</strong></td><td>Good (responsive default theme)</td><td>Excellent (optimized)</td><td>Excellent (native apps)</td><td>Good (responsive)</td></tr><tr><td><strong>Real-time Features</strong></td><td>None (static only)</td><td>Limited (comments via plugins)</td><td>Real-time editing, comments</td><td>None (static only)</td></tr><tr><td><strong>Content Management</strong></td><td>Git-only (technical users)</td><td>Git-based (some CMS integrations)</td><td>Web-based editor</td><td>Git-based</td></tr><tr><td><strong>Internationalization</strong></td><td>Good (attribute-based)</td><td>Excellent (built-in i18n)</td><td>Good (multi-language spaces)</td><td>Good (Vue i18n integration)</td></tr><tr><td><strong>Cost</strong></td><td>Free (open source)</td><td>Free (open source)</td><td>Free tier limited, paid plans</td><td>Free (open source)</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="decision-framework">Decision Framework<a href="https://ivanwalsh.com/blog/antora-setup#decision-framework" class="hash-link" aria-label="Direct link to Decision Framework" title="Direct link to Decision Framework">​</a></h3>
+<p><strong>Choose Antora if:</strong></p>
+<ul>
+<li>Multi-repository documentation is essential</li>
+<li>Team can invest in learning AsciiDoc</li>
+<li>Large-scale documentation challenges</li>
+</ul>
+<p><strong>Choose Docusaurus if:</strong></p>
+<ul>
+<li>Single repository setup is sufficient</li>
+<li>Developer-focused documentation</li>
+<li>Need proven, widely-adopted solution</li>
+</ul>
+<p><strong>Choose GitBook if:</strong></p>
+<ul>
+<li>Non-technical team members need to contribute</li>
+<li>Real-time collaboration is important</li>
+<li>Managed solution preferred over self-hosting</li>
+</ul>
+<p><strong>Choose VuePress/VitePress if:</strong></p>
+<ul>
+<li>Build speed is critical</li>
+<li>Flexible theming requirements</li>
+<li>Technical team comfortable with Vue</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="one-last-thing">One last thing<a href="https://ivanwalsh.com/blog/antora-setup#one-last-thing" class="hash-link" aria-label="Direct link to One last thing" title="Direct link to One last thing">​</a></h2>
+<p>If you're running a relatively small tech document team with a single product, I'd suggest looking at tools, such as Docusaurus, Hugo, Sphinx, and Github Pages. This will allow you get started with publishing your tech docs.</p>
+<p>Once comfortable with the process, you can then look at more complex workflows.</p>
+<p>In the coming weeks, I'll go into more depth about how to setup a tech document website, tool usage, metrics and common pitfalls to avoid.</p>
+<p>As always, drop me a line if you'd like to know more. My inbox is always open.</p>]]></content>
+        <author>
+            <name>Ivan Walsh</name>
+            <uri>https://github.com/ivanwalsh</uri>
+        </author>
+        <category label="Publishing" term="Publishing"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Oliver Burkeman Book Review]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/oliver-burkeman</id>
-        <link href="https://your-docusaurus-site.example.com/blog/oliver-burkeman"/>
+        <id>https://ivanwalsh.com/blog/oliver-burkeman</id>
+        <link href="https://ivanwalsh.com/blog/oliver-burkeman"/>
         <updated>2025-01-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Review Oliver Burkeman book review]]></summary>
         <content type="html"><![CDATA[<p>Review Oliver Burkeman book review</p>
@@ -41,8 +176,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Google Notebook Primer]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/google-notebook</id>
-        <link href="https://your-docusaurus-site.example.com/blog/google-notebook"/>
+        <id>https://ivanwalsh.com/blog/google-notebook</id>
+        <link href="https://ivanwalsh.com/blog/google-notebook"/>
         <updated>2025-01-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A beginner's guide to using Google Notebook for AI projects.]]></summary>
         <content type="html"><![CDATA[<p>This is the summary of a post about Google NotebookLM,</p>
@@ -56,99 +191,5 @@
         <category label="AI" term="AI"/>
         <category label="Google" term="Google"/>
         <category label="Google NotebookLM" term="Google NotebookLM"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/welcome</id>
-        <link href="https://your-docusaurus-site.example.com/blog/welcome"/>
-        <updated>2021-08-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer">blog plugin</a>.</p>
-<p>Here are a few tips you might find useful.</p>
-<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
-<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
-<p>The blog post date can be extracted from filenames, such as:</p>
-<ul>
-<li><code>2019-05-30-welcome.md</code></li>
-<li><code>2019-05-30-welcome/index.md</code></li>
-</ul>
-<p>A blog post folder can be convenient to co-locate blog post images:</p>
-<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://your-docusaurus-site.example.com/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
-<p>The blog supports tags as well!</p>
-<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content>
-        <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
-        </author>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://github.com/yangshun</uri>
-        </author>
-        <category label="Facebook" term="Facebook"/>
-        <category label="Docusaurus" term="Docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MDX Blog Post]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/mdx-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/blog/mdx-blog-post"/>
-        <updated>2021-08-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Blog posts support Docusaurus Markdown features, such as MDX.]]></summary>
-        <content type="html"><![CDATA[<p>Blog posts support <a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noopener noreferrer">Docusaurus Markdown features</a>, such as <a href="https://mdxjs.com/" target="_blank" rel="noopener noreferrer">MDX</a>.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Use the power of React to create interactive blog posts.</p></div></div>
-<!-- -->
-<p>For example, use JSX to create an interactive button:</p>
-<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token operator" style="color:#393A34">&lt;</span><span class="token plain">button onClick</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token arrow operator" style="color:#393A34">=&gt;</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">alert</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">'button clicked!'</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">}</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token maybe-class-name">Click</span><span class="token plain"> me</span><span class="token operator" style="color:#393A34">!</span><span class="token operator" style="color:#393A34">&lt;</span><span class="token operator" style="color:#393A34">/</span><span class="token plain">button</span><span class="token operator" style="color:#393A34">&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<button>Click me!</button>]]></content>
-        <author>
-            <name>Ivan Walsh</name>
-            <uri>https://github.com/ivanwalsh</uri>
-        </author>
-        <category label="Docusaurus" term="Docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Long Blog Post]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/long-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/blog/long-blog-post"/>
-        <updated>2019-05-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[This is the summary of a very long blog post,]]></summary>
-        <content type="html"><![CDATA[<p>This is the summary of a very long blog post,</p>
-<p>Use a <code>&lt;!--</code> <code>truncate</code> <code>--&gt;</code> comment to limit blog post size in the list view.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
-        <author>
-            <name>Ivan Walsh</name>
-            <uri>https://github.com/ivanwalsh</uri>
-        </author>
-        <category label="AI" term="AI"/>
-        <category label="Google" term="Google"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/first-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/blog/first-blog-post"/>
-        <updated>2019-05-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet...]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet...</p>
-<p>...consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
-        <author>
-            <name>Ivan Walsh</name>
-            <uri>https://github.com/ivanwalsh</uri>
-        </author>
-        <category label="AI" term="AI"/>
-        <category label="Google" term="Google"/>
     </entry>
 </feed>

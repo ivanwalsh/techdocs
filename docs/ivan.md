@@ -1,7 +1,7 @@
 ---
 id: ivan
 title: About Ivan
-slug: /ivan
+slug: /Ivan
 description: "Ivan"
 ---
 
