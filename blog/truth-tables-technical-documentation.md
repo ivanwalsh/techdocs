@@ -1,3 +1,12 @@
+---
+slug: truth-tables-technical-documentation
+title: Truth Tables for Technical Documentation
+authors: [ivanwalsh]
+tags: [Agile]
+description: How to use Truth Tables for Technical Documentation
+
+---
+
 # Truth Tables for Technical Documentation
 
 Customer don't want to read the 'happy path' in user guides. Remember, they reluctantly turn to your documents when they're lost. Someone changed a setting and can't figure out how to fix it. Only then do they crack open your docs, search, and go hunting for answers.
@@ -5,6 +14,8 @@ Customer don't want to read the 'happy path' in user guides. Remember, they relu
 Recently, I've been re-reading Roger Pensrose's 'The Emperor's New Mind' and came across a section where he discusses truth tables in the context of classical logic and computation, and their limitations in terms of understanding 'human' consciousness.
 
 As if often the case when you encounter a novel idea, it sparked a few ideas on how to apply this to technical documentation.
+
+<!-- truncate -->
 
 Truth tables offer systematic approach to move beyond "happy path" documentation that assumes everything works perfectly. When users encounter problems, then search documentation, most traditional guides fail to address the complex combinations of conditions that have created the unexpected outcomes. For example, if you treat conditions as boolean inputs and mapping all possible combinations to specific outputs, you can identify and document the edge cases that generate the most support tickets.
 
