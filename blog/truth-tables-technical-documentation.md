@@ -2,7 +2,7 @@
 slug: truth-tables-technical-documentation
 title: Truth Tables for Technical Documentation
 authors: [ivanwalsh]
-tags: [Agile]
+tags: [Technical_Documentation]
 description: How to use Truth Tables for Technical Documentation
 
 ---
