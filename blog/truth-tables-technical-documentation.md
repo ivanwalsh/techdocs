@@ -1,6 +1,6 @@
 ---
 slug: truth-tables-technical-documentation
-title: Truth Tables for Technical Documentation
+title: How to use Truth Tables for Technical Documentation
 authors: [ivanwalsh]
 tags: [Technical_Documentation, Agile]
 description: How to use Truth Tables for Technical Documentation
@@ -11,7 +11,7 @@ description: How to use Truth Tables for Technical Documentation
 
 As readers we tend to skim over the 'happy path' in user guides. In general, we reluctantly turn to documentation when lost, confused, and in a hurry. Typically, someone changed a setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it?
 
-Last week, I was re-reading Roger Pensrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.
+Last week, I was re-reading Roger Penrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.
 
 As if often the case when you encounter a novel concept, it sparked a few ideas on how to apply this to technical documentation.
 
