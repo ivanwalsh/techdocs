@@ -2,36 +2,40 @@
 slug: truth-tables-technical-documentation
 title: Truth Tables for Technical Documentation
 authors: [ivanwalsh]
-tags: [Technical_Documentation]
+tags: [Technical_Documentation, Agile]
 description: How to use Truth Tables for Technical Documentation
 
 ---
 
 # Truth Tables for Technical Documentation
 
-Customer don't want to read the 'happy path' in user guides. Remember, they reluctantly turn to your documents when they're lost. Someone changed a setting and can't figure out how to fix it. Only then do they crack open your docs, search, and go hunting for answers.
+As readers we tend to skim over the 'happy path' in user guides. In general, we reluctantly turn to documentation when lost, confused, and in a hurry. Typically, someone changed a setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it?
 
-Recently, I've been re-reading Roger Pensrose's 'The Emperor's New Mind' and came across a section where he discusses truth tables in the context of classical logic and computation, and their limitations in terms of understanding 'human' consciousness.
+Last week, I was re-reading Roger Pensrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.
 
-As if often the case when you encounter a novel idea, it sparked a few ideas on how to apply this to technical documentation.
+As if often the case when you encounter a novel concept, it sparked a few ideas on how to apply this to technical documentation.
 
 <!-- truncate -->
 
-Truth tables offer systematic approach to move beyond "happy path" documentation that assumes everything works perfectly. When users encounter problems, then search documentation, most traditional guides fail to address the complex combinations of conditions that have created the unexpected outcomes. For example, if you treat conditions as boolean inputs and mapping all possible combinations to specific outputs, you can identify and document the edge cases that generate the most support tickets.
+Truth tables offer systematic approach to move beyond "happy path" documentation that assumes everything works perfectly. 
 
-However, truth tables aren't universally applicable. What I've seen is that they work best for scenarios with 2-3 binary variables affecting clear outcomes, such as API responses, permission matrices, or feature availability. More than that and the tables simply overwhelm users; hierarchical decision trees provide better user experience in this scenario. Truth tables can reduce support costs if implemented correctly instead of leaving users to figure out unexpected errors.
+When users encounter problems, then search online/pdf, most traditional guides fail to address the complex combinations of conditions that have created the unexpected outcomes. 
 
-In this article, we'll look at when boolean thinking adds value to your docs versus when it overcomplicates simple processes. Let's get started.
+Instead, if you treat conditions as boolean inputs and map all possible combinations to specific outputs, you can document the edge cases that generate the most support tickets.
+
+However, truth tables aren't universally applicable. They work best for scenarios with 2-3 binary variables affecting clear outcomes, such as API responses, permission matrices, or feature availability. Higher than that and the tables start to overwhelm the reader; hierarchical decision trees provide better user experience in this scenario. In terms of cost benefits, truth tables can potentially reduce support costs if implemented correctly instead of leaving users to figure out unexpected errors and create support tickets in frustration.
+
+In this article, we'll look at when *boolean thinking* adds value to your docs and when it can overcomplicate simpler processes. Let's get started.
 
 ## Downside of happy paths
 
-Traditional documents follow a happy path. This frustrates users when they step outside this path as the generic 'one size fits all' instructions offer limited value.
+Traditional documents follow a happy path. This frustrates users when they step outside this path: the generic 'one size fits all' instructions offer only limited usefulness.
 
 - Traditional docs assume ideal conditions. Everything must work perfectly, like an AND operation where all inputs must be true
 - Real-world scenarios demand resilience. Users need help when ANY condition fails, like an OR operation that provides alternatives
 - Truth tables help expose edge cases that are often overlooked
 
-**Note**: If most users can work out the happy path by themselves, it begs the question where you should prioritize your documentation tasks.
+**Note**: If most users can work out the happy path by themselves, it begs the question where you should prioritize your documentation tasks. We'll discuss this in later articles.
 
 ## When to use Truth Tables in Tech Docs
 
@@ -176,6 +180,6 @@ To resolve this, use truth tables to document what happens when conditions aren'
 
 ## Further reading
 
-- Review of Roger Penrose, The Emperor's New Mind
-- BBC: Truth Tables
-- UXPin: What is a Happy Path
+- [Review of Roger Penrose, The Emperor's New Mind](https://web-archive.southampton.ac.uk/cogprints.org/432/1/penrose.htm)
+- [BBC: Truth Tables](https://www.bbc.co.uk/bitesize/guides/zr33rwx/revision/4)
+- [UXPin: What is a Happy Path](https://www.uxpin.com/studio/blog/what-is-happy-path-in-ux-design/)
