@@ -9,34 +9,36 @@ description: How to use Truth Tables for Technical Documentation Part 1
 
 # Truth Tables for Technical Documentation
 
-As readers we tend to skim over the 'happy path' in user guides. In general, we reluctantly turn to documentation when lost, confused, and in a hurry. Typically, someone changed a setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it?
+When we're in the role of a 'reader' we tend to skim over the 'happy path' in user guides and other types of documentation. Quite often we only turn to documentation when lost, confused, or uncertain. For instance, someone changed a parameter setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it? What should I search for? 
 
-Last week, I was re-reading Roger Penrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.
+I mention this as last week, I started to listen to Roger Penrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.
 
-As if often the case when you encounter a novel concept, it sparked a few ideas on how to apply this to technical documentation.
+On the way home from my walk, I began to think if I could apply this concept to technical documentation.
 
 <!-- truncate -->
 
-Truth tables offer systematic approach to move beyond "happy path" documentation that assumes everything works perfectly. 
+Truth tables offer a systematic approach to move beyond "happy path" documentation that assumes everything works perfectly. 
 
-When users encounter problems, then search online/pdf, most traditional guides fail to address the complex combinations of conditions that have created the unexpected outcomes. 
+When you encounter a problem (say configuring RoboHelp), then search online for the answer, most traditional doc sets will fail to address the complex combinations of conditions that may have created the unexpected outcome. 
 
-Instead, if you treat conditions as boolean inputs and map all possible combinations to specific outputs, you can document the edge cases that generate the most support tickets.
+Instead, if you as a tech writer treat conditions as *boolean* inputs and map all possible combinations to specific outputs, you can document the edge cases that generate these issues.
 
-However, truth tables aren't universally applicable. They work best for scenarios with 2-3 binary variables affecting clear outcomes, such as API responses, permission matrices, or feature availability. Higher than that and the tables start to overwhelm the reader; hierarchical decision trees provide better user experience in this scenario. In terms of cost benefits, truth tables can potentially reduce support costs if implemented correctly instead of leaving users to figure out unexpected errors and create support tickets in frustration.
+However, truth tables aren't universally applicable. They work best for scenarios with 2-3 binary variables that affect clear outcomes, such as API responses, permission matrices, or feature availability. Once you go higher than that, the tables become increasingly complex and overwhelm the reader; hierarchical decision trees provide better user experience in this scenario. 
+
+In terms of cost benefits, truth tables can potentially reduce support costs if implemented correctly. Instead of leaving users to figure out unexpected errors and creating support tickets in frustration, you can anticipate their concerns and provide the necessary information.
 
 In this article, we'll look at when *boolean thinking* adds value to your docs and when it can overcomplicate simpler processes. Let's get started.
 
 ## Downside of happy paths
 
-Traditional documents follow a happy path. This frustrates users when they step outside this path: the generic 'one size fits all' instructions offer only limited usefulness.
+As mentioned, traditional documents follow a happy path. However, this can frustrate users when they step outside this path: the generic 'one size fits all' instructions offer only limited usefulness.
 
-- Traditional docs assume ideal conditions. Everything must work perfectly, like an AND operation where all inputs must be true
+- Traditional documents assume ideal conditions. Everything must work perfectly, like an AND operation where all inputs must be true
 - Real-world scenarios demand resilience. Users need help when ANY condition fails, like an OR operation that provides alternatives
 - Truth tables help expose edge cases that are often overlooked
 
-**Note**: If most users can work out the happy path by themselves, it begs the question where you should prioritize your documentation tasks. We'll discuss this in later articles.
-
+**Note**: If most users can work out the happy path by themselves, focus your documentation efforts on the failure scenarios and edge cases where users actually get stuck
+ 
 ## When to use Truth Tables in Tech Docs
 
 Here are some things to keep in mind when determining potential truth table candidates.
@@ -50,7 +52,7 @@ Use truth tables in tech docs when:
 
 To give a little more context, consider the following:
 
-**Potential candidate**: "When does the 'Export' button appear on the Sales Report screen?"
+**Potential candidate**: "When does the 'Export' button appear on the 'Sales Report' screen?"
 - Variables: Admin rights (Y/N), Data exists (Y/N), Feature enabled (Y/N)
 - Clear binary outcomes, affects user workflow
 
@@ -63,7 +65,7 @@ Here are four potential use cases:
 - **API documents** – identify what may occur if the user changes multiple settings and how this will affect the response.
 - **Permissions** – rather than listing all permissions, use a matrix to illustrate which set of permissions gives you access to which parts of the product.
 - **Troubleshooting and Configuration** – illustrate what happens if/when you change one or more settings. For instance, if the configuration likely to create a non-obvious response or error message that may be hard to troubleshoot without context.
-- **FAQs** – most FAQS are atomic answers but often lack context. Increase value by anticipating how the user may have created this issue in the first place. Was it due to a permission, config setting, set of parameter changes, or some non-obvious setting they may have changed
+- **FAQs** – most FAQS give atomic answers but often lack context. Increase value by anticipating how the user may have created this issue in the first place. Was it due to a permission, config setting, set of parameter changes, or some non-obvious setting they may have changed
 
 ## When NOT use Truth Tables in Tech Docs
 
@@ -78,7 +80,7 @@ Here are some examples of where they're not required:
 
 ## How to Manage Complex Truth Tables
 
-When you have multiple inputs, the size of the table can become unwieldly. Here's how to address this.
+When you have multiple inputs, the size of the table can become unwieldy. Here's how to address this.
 
 Imagine access to a premium dashboard depends on three conditions:
 - A = Active subscription
@@ -131,7 +133,7 @@ Using this approach, users only need to process one condition at a time. Each "N
 
 ### Avoid Complexity
 
-While 2/3 variables truth tables work well, use decision trees when you have 4+ variables (16+ scenarios).
+With 2 or 3 variables, truth tables work well; use decision trees when you have 4+ variables (16+ scenarios).
 
 If you find yourself writing mostly 'No' outcomes with similar error messages, consider restructuring your approach.
 
@@ -140,6 +142,7 @@ If you find yourself writing mostly 'No' outcomes with similar error messages, c
 Here's a simple example of a truth table for a user getting access to a software product.
 
 The user can access a premium feature only if they:
+
 - A = Have an active subscription
 - B = Have completed account verification
 
@@ -166,17 +169,17 @@ The goal is to map all the possible inputs to a specific output.
 
 ### Start with a specific use case
 
-If you're interested in implementing this concept, I'd suggest you identify a high-priority document which provides real customer value. For instance, an Onboarding Guide which will have lots of complex settings.
+To implement this concept effectively, I'd suggest you identify a high-priority document that directly affects user success. For instance, an 'On-boarding Guide' with multiple configuration settings.
 
-First, focus on a specific section of the guide, then walk the onboarding team through the revised document and study their feedback. What parts work for them? Where is it too complicated? Does it simplify or complicate the instructions.
+Begin with one specific section, rather than trying to boil the ocean. Create your truth table for that section, then walk the on-boarding team through the revised document. Ask specific questions: Does this resolve issue faster? What parts could be refined? Are decision points clear? Does it simplify or complicate the instructions.
 
-By starting with a small proof of concept, you'll get a sense of what works. Following this, you can apply similar updates to the rest of your document set.
+This small-scale pilot will give you concrete data on whether truth tables improve your documentation. Once you validate the approach, you can systematically apply it to other complex sections where multiple conditions affect user outcomes.
 
 ## Summary
 
 When technical documentation assumes everything works perfectly (i.e. all conditions are true), it will fail users who encounter partial failures or missing prerequisites.
 
-To resolve this, use truth tables to document what happens when conditions aren't met—the scenarios our users actually face.
+To resolve this, use truth tables to document what happens when conditions aren't met—the scenarios your users actually face.
 
 ## Further reading
 
