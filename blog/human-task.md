@@ -25,7 +25,7 @@ These innovations were far from painless for those who lost their jobs.
 
 Change is rarely clean.
 
-So, what impact is AI going to have on those who work in technical documentation.  
+So, what impact will AI have on those who work in technical documentation? 
 
 One way of approaching this is to consider the difference between ‘jobs’ and ‘tasks’.
 
@@ -38,6 +38,7 @@ So, tor those in tech docs, this means taking stock of human work v mechanical w
 To make this actionable, I've created a matrix to identify the human tasks which will be hard (or harder) for AI to replicate. 
 
 | Task Category | Example Tasks | AI Impact Score | Human Value-Add | Your Strategic Action |
+|--------------|---------------|-----------------|-----------------|----------------------|
 | Content Development | Drafts, generic text, summaries. | High | Context, tone, and brand voice. | Automate & Refine: Use AI for drafts, then add your domain expertise. |
 | Research | Reviewing specs, feedback, code. | High | Synthesizing data and strategic insights. | Collaborate with AI: Let AI handle the data, you focus on the "why." |
 | Formatting & Editing | Style guides, grammar, converting docs. | High | Audience understanding and narrative flow. | Automate: Use tools to automate workflows so you can focus on more specialist areas. |
