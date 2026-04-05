@@ -33,3 +33,35 @@ h1, h2, h3, h4, h5 {
     line-height: 1.1em;
     text-transform: none;
 }
+
+/* Underline body-content links so readers can see they're clickable.
+   Scoped to article/markdown content so navbar, sidebar, footer, and
+   tag pills are left alone. */
+.markdown a,
+article a,
+.theme-doc-markdown a,
+.main-wrapper .container a[href] {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.markdown a:hover,
+article a:hover,
+.theme-doc-markdown a:hover,
+.main-wrapper .container a[href]:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+/* Keep navbar, sidebar, footer, pagination, breadcrumbs, and tag pills clean */
+.navbar a,
+.footer a,
+.menu a,
+.pagination-nav a,
+.breadcrumbs a,
+.theme-doc-sidebar-item-link a,
+a.badge,
+a.tag,
+a[class*="tag_"] {
+    text-decoration: none;
+}
