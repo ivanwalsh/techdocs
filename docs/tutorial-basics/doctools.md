@@ -38,8 +38,8 @@ Here's how each one earns that:
 | **OpenAPI / Swagger / Postman** | Specs are retrieval-grounded so LLMs describe real endpoints, not invented ones. For instance, you give Claude your actual OpenAPI spec file first, then say: "Describe the /payments endpoint exactly as defined in this spec. Don't add anything that isn't here."
 Claude then  writes from the real contract — the real parameters, the real status codes, the real response shape. | Regulators can read the spec; engineers can test it; it's the contract |
 | **Docusaurus** | Fast iteration, MDX for embedding live examples, easy to theme | Versioned publishing aligned to service releases; static output for secure hosting |
-| **Confluence / Jira** | Where PMs and model owners document decisions | Where compliance, legal, and risk teams read — I can't ignore them |
-| **Adobe RoboHelp** | Rarely the right tool for AI work | Still required by some banks for in-application help and CHM output |
+| **Confluence / Jira** | Where Product and Devs document decisions | Where compliance, legal, and risk teams read the outputs |
+| **Adobe RoboHelp** | Rarely the right tool for AI work | Still required by some banks for in-application help and PDF output |
 
 ## Where the market is heading — and why I'm watching it
 
@@ -47,10 +47,10 @@ Claude then  writes from the real contract — the real parameters, the real sta
 |---|---|---|
 | **LangChain** | Maturing from prototype glue to production orchestration; competition from LlamaIndex, LangGraph, and native provider SDKs | I treat it as one option, not the default — I'll pick the lightest framework that solves the problem |
 | **Claude** | Growing adoption in regulated industries; longer context, stronger tool use, better reasoning | My primary drafting model for fintech work; I re-evaluate the model landscape every quarter |
-| **Markdown** | Expanding through MDX, CommonMark, and semantic extensions; remains the lingua franca | Safe long-term bet — whatever comes next will import Markdown |
+| **Markdown** | Expanding through MDX, CommonMark, and semantic extensions | Safe long-term bet — whatever comes next will import Markdown |
 | **Git / GitHub / GitHub Actions** | Copilot and AI review tools landing directly in the PR flow | My review pipeline is starting to include AI-assisted checks as well as human ones |
 | **OpenAPI / Swagger / Postman** | OpenAPI 3.1 consolidation; AsyncAPI for event-driven systems; Postman leaning into AI-generated tests | I keep specs OpenAPI 3.1-clean so downstream tools (and LLMs) don't choke on legacy syntax |
-| **Docusaurus** | Strong momentum for public docs; competition from Mintlify, Nextra, Starlight | I stay on Docusaurus because versioning and MDX are mature; I watch the alternatives |
+| **Docusaurus** | Strong momentum for public docs; competition from Mintlify, Nextra, Starlight | I stay on Docusaurus because versioning and MDX are mature |
 | **Confluence / Jira** | Atlassian leaning hard into AI (Rovo, Atlassian Intelligence) | Useful for stakeholder-facing content; I keep source-of-truth in Git, not Confluence |
 | **Adobe RoboHelp** | Declining in new projects; still entrenched in regulated enterprise | I maintain the skill but don't recommend it for greenfield work |
 
