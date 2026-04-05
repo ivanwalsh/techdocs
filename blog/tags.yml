@@ -4,10 +4,35 @@ Agile:
   permalink: /agile
   description: Posts related to Agile and Scrum for Technical Documentation.
 
-AI:
+ai:
   label: AI
   permalink: /ai
   description: Posts related to Artificial Intelligence.
+
+mcp:
+  label: MCP
+  permalink: /mcp
+  description: Posts related to Model Context Protocol and MCP servers.
+
+documentation:
+  label: Documentation
+  permalink: /documentation
+  description: Posts about documentation practices and technical writing.
+
+fintech:
+  label: FinTech
+  permalink: /fintech
+  description: Posts related to financial technology and regulated financial services.
+
+product-management:
+  label: Product Management
+  permalink: /product-management
+  description: Posts about product management for technical and AI products.
+
+technical-writing:
+  label: Technical Writing
+  permalink: /technical-writing
+  description: Posts about technical writing and documentation strategy.
 
 Google NotebookLM:
   label: Google NotebookLM

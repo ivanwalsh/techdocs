@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Ivan Walsh Blog</title>
+        <link>https://ivanwalsh.com/blog</link>
+        <description>Ivan Walsh Blog</description>
+        <lastBuildDate>Sat, 04 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[What is an MCP server and why does it need documentation?]]></title>
+            <link>https://ivanwalsh.com/blog/what-is-an-mcp-server</link>
+            <guid>https://ivanwalsh.com/blog/what-is-an-mcp-server</guid>
+            <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Most teams shipping AI products are not documenting the MCP layer that connects the model to everything else. Here is why that matters and what to do about it.]]></description>
+            <content:encoded><![CDATA[<p>Most teams shipping AI products in 2026 are focused on the model. Which one to use, how to fine-tune it, how to evaluate its outputs. What they are not focused on, almost universally, is the layer that connects the model to everything else.</p>
+<p>That layer is the MCP server. And almost nobody is documenting it.</p>
+<p>This is a problem. Not an inconvenience but a genuine technical risk, and in regulated industries, a compliance risk too. A developer joining a project finds an MCP server in the codebase with no tool reference, no input schema, no error documentation. The model is using it. Nobody knows exactly how. The person who built it left six months ago.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="where-technical-writers-fit-in">Where technical writers fit in<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#where-technical-writers-fit-in" class="hash-link" aria-label="Direct link to Where technical writers fit in" title="Direct link to Where technical writers fit in">​</a></h2>
+<p>Here is what makes this problem different from every other documentation gap in software development: by the time a technical writer is typically brought in, it is too late.</p>
+<p>In most software projects, documentation happens after the build. A writer gets access to a finished product, interviews the developers, and works backwards to produce something useful. This approach is imperfect but workable for conventional software. The product does not change its behaviour based on what the writer produces.</p>
+<p>MCP servers break this model entirely. The documentation is not a description of how the system works. It is an input to how the system works. The tool descriptions, the input schemas, the parameter constraints are all read by the AI model at runtime and directly shape its behaviour. If a technical writer reviews a finished MCP server and finds the descriptions vague, rewriting them is not a documentation task. It is a product change.</p>
+<p>This means technical writers need to be involved during development, not after it. Specifically, they need to be in the room when tool schemas are being defined, asking the questions the AI model will implicitly need answered. What does this tool do in plain terms? What happens when this parameter is missing? What does a valid response look like when the upstream system is unavailable?</p>
+<p>These are documentation questions. They are also product design questions. A technical writer who understands MCP is doing both simultaneously.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-note-for-product-managers">A note for Product Managers<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#a-note-for-product-managers" class="hash-link" aria-label="Direct link to A note for Product Managers" title="Direct link to A note for Product Managers">​</a></h2>
+<p>If you are a Product Manager delivering AI products, the Definition of Done for any user story that involves an MCP server should include documentation sign-off. Not as a checkbox, but as a quality gate.</p>
+<p>Specifically, the DoD should require:</p>
+<ul>
+<li>Every tool exposed by the MCP server has a description precise enough for the AI model to select it correctly</li>
+<li>Every input parameter has a documented type, requirement status, valid range, and null behaviour</li>
+<li>Every error code has a documented meaning and expected handling path</li>
+<li>A worked example exists for every tool, showing a realistic input and expected output</li>
+<li>Authentication and permission requirements are documented explicitly, not assumed</li>
+</ul>
+<p>The rationale is simple. A user story that ships an undocumented MCP tool is not done. The model's behaviour with that tool is undefined. In regulated industries, that unpredictability carries a compliance cost that typically exceeds the cost of writing the documentation in the first place.</p>
+<p>Treat MCP documentation the same way you treat automated tests. Not something that happens after the sprint, but something that gates the story closing.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-an-mcp-server-actually-is">What an MCP server actually is<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#what-an-mcp-server-actually-is" class="hash-link" aria-label="Direct link to What an MCP server actually is" title="Direct link to What an MCP server actually is">​</a></h2>
+<p>MCP stands for Model Context Protocol, an open standard developed by Anthropic that defines how AI models communicate with external tools, data sources, and services.</p>
+<p>An MCP server is a program that implements this protocol. It exposes a set of capabilities that an AI model can discover and use at runtime. Think of it as the bridge between an AI system and the outside world, the thing that lets a model check a database, call an API, read a file, or trigger an action in another system.</p>
+<p>If a REST API is a waiter who takes your order and brings food, an MCP server is a waiter who also reads the menu aloud, tells the AI which dishes are available today, and describes each one in enough detail for the AI to decide what to order.</p>
+<p>An MCP server exposes three types of primitives:</p>
+<ul>
+<li>Tools: actions the AI can take, such as calling an API, running a calculation, or submitting a form</li>
+<li>Resources: data the AI can read, such as files, database records, or live feeds</li>
+<li>Prompts: reusable templates the AI can invoke for structured tasks</li>
+</ul>
+<p>Each of these needs to be documented. But the way they need to be documented is different from anything most technical writers have encountered before.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-mcp-documentation-is-harder-than-api-documentation">Why MCP documentation is harder than API documentation<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#why-mcp-documentation-is-harder-than-api-documentation" class="hash-link" aria-label="Direct link to Why MCP documentation is harder than API documentation" title="Direct link to Why MCP documentation is harder than API documentation">​</a></h2>
+<p>When you document a REST API, your primary reader is a developer. A developer can read the docs, ask a question on Slack, experiment in Postman, and iterate until something works. The documentation is a starting point, not the final word.</p>
+<p>When you document an MCP server, your primary reader is an AI model.</p>
+<p>The model cannot ask questions. It cannot experiment. It reads the tool schema at runtime and makes decisions based entirely on what is written there. If the description is vague, the model picks the wrong tool. If the input schema is incomplete, the model formats the request incorrectly. If error codes are undocumented, the model cannot handle failures gracefully.</p>
+<p>None of this produces an obvious error. The model does not throw an exception when it misunderstands a tool description. It simply behaves incorrectly, and the root cause is documentation quality, not model capability.</p>
+<p>This reframes what documentation means in an AI system. The description field in an MCP tool schema is not metadata. It is a runtime instruction. Writing it poorly has direct consequences for how the product behaves.</p>
+<p>In regulated industries, those consequences can extend beyond bad user experience into compliance exposure. A tool that processes a transaction without a clearly documented permission model is not just a documentation gap. It is an audit gap.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-five-things-every-mcp-server-document-needs">The five things every MCP server document needs<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#the-five-things-every-mcp-server-document-needs" class="hash-link" aria-label="Direct link to The five things every MCP server document needs" title="Direct link to The five things every MCP server document needs">​</a></h2>
+<p>Based on working with AI systems in regulated financial environments, there are five components that every MCP server document needs to contain.</p>
+<p><strong>1. Tool inventory.</strong> A complete list of every tool the server exposes, with a one-line description of what each one does. This is the table of contents for the AI model, the first thing it reads to understand what is available.</p>
+<p><strong>2. Input schema per tool.</strong> Every parameter, its type, whether it is required, and what a valid value looks like. Include edge cases. What happens if a parameter is null? What is the valid range for a numeric field? A schema that says <code>amount: number</code> is not sufficient. <code>amount: number, required, minimum 0, maximum 10,000,000, GBP value</code> is.</p>
+<p><strong>3. Output schema per tool.</strong> What the tool returns on success, what it returns on failure, and what each error code means. AI models need to interpret responses, not just send requests. Undocumented error codes produce silent failures where the model receives an unexpected response and has no documented path for handling it.</p>
+<p><strong>4. Authentication and permissions.</strong> How the server authenticates requests, and which tools require which permission levels. This section is often omitted from internal MCP servers on the assumption that everyone already knows. In financial services, the permission model for an AI tool frequently has direct regulatory implications, so assuming prior knowledge is not an option.</p>
+<p><strong>5. Usage examples.</strong> At least one worked example per tool: a realistic input and the expected output. This is the section AI models use most heavily during inference. A concrete example anchors the abstract schema to real-world use and significantly reduces the likelihood of malformed requests.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-note-for-financial-services-teams">A note for financial services teams<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#a-note-for-financial-services-teams" class="hash-link" aria-label="Direct link to A note for financial services teams" title="Direct link to A note for financial services teams">​</a></h2>
+<p>The five components above apply to any MCP server, but in financial services each one carries additional weight. A tool description that omits a rate-limiting clause can produce behaviour that breaches a trading rule. An undocumented error code can create a gap in an audit trail. Documentation in this context is part of the control framework, not an afterthought.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="do-this-today">Do this today<a href="https://ivanwalsh.com/blog/what-is-an-mcp-server#do-this-today" class="hash-link" aria-label="Direct link to Do this today" title="Direct link to Do this today">​</a></h2>
+<p>If your team has built an MCP server, do one thing before the end of the week. Open the server code and count how many tools it exposes. Then open the documentation, whatever exists, and check whether each tool has a description, a complete input schema, a documented output, and at least one worked example.</p>
+<p>In most teams, the answer will be that some tools are partially documented and several have nothing at all. That gap is not a documentation backlog. It is an active risk to product quality, to developer onboarding, and in regulated environments, to compliance.</p>
+<p>If you are a technical writer, use that audit as the basis for a conversation with your engineering and product leads this week. Bring the list of undocumented tools and a proposed documentation standard. Frame it not as a writing task but as a product quality issue, because that is what it is.</p>
+<p>If you are a Product Manager, add MCP documentation to your Definition of Done before the next sprint starts. One line in the DoD now prevents weeks of remediation later.</p>
+<p>If you are an engineering lead, block half a day in the next sprint to work through the tool inventory with your technical writer present. The output should be an agreed documentation standard for every MCP tool your team ships, established before anyone writes another line of schema code.</p>
+<p>The teams that get this right now will have a significant operational advantage over those who treat documentation as something to sort out later. In AI product development, later rarely arrives.</p>
+<p><strong>About the author</strong></p>
+<p>Ivan Walsh is a Technical Writer based in Dublin, Ireland, specialising in AI-ready documentation for regulated financial platforms. He works with global financial institutions on API documentation, RAG-ready content, and chatbot integration guides for systems where precision and compliance are non-negotiable.</p>
+<p>Connect with Ivan on <a href="https://www.linkedin.com/in/ivanwalsh/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>]]></content:encoded>
+            <category>MCP</category>
+            <category>Documentation</category>
+            <category>AI</category>
+            <category>FinTech</category>
+            <category>Product Management</category>
+            <category>Technical Writing</category>
+        </item>
+        <item>
+            <title><![CDATA[The Human Task]]></title>
+            <link>https://ivanwalsh.com/blog/human-task</link>
+            <guid>https://ivanwalsh.com/blog/human-task</guid>
+            <pubDate>Sat, 23 Aug 2025 11:37:27 GMT</pubDate>
+            <description><![CDATA[Why AI isn't coming for your job but the *tasks* that make up your job.]]></description>
+            <content:encoded><![CDATA[<p>AI isn't coming for your job.</p>
+<p>It's coming for the <em>tasks</em> that make up your job.</p>
+<p>This isn’t a new story.</p>
+<p>If you’ve ever read a James Bond novel, you’ll remember the typing pool. Highly trained typists who could type super-fast and send confidential reports to the four corners of the world to stymie the latest villain. You don’t see too many typing tools any more. When the typewriter arrived, the typing pool as we knew vanished.</p>
+<p>Likewise, when telephone systems improved, the job of the manual switchboard operator (‘I’ll put you through now’) disappeared.</p>
+<p>These innovations were far from painless for those who lost their jobs.</p>
+<p>Change is rarely clean.</p>
+<p>So, what impact will AI have on those who work in technical documentation?</p>
+<p>One way of approaching this is to consider the difference between ‘jobs’ and ‘tasks’.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ai-impact-matrix-for-technical-writers">AI Impact Matrix for Technical Writers<a href="https://ivanwalsh.com/blog/human-task#ai-impact-matrix-for-technical-writers" class="hash-link" aria-label="Direct link to AI Impact Matrix for Technical Writers" title="Direct link to AI Impact Matrix for Technical Writers">​</a></h2>
+<p>As mentioned above, technology doesn't replace people; it replaces tasks. And today, the tasks being replaced are cognitive.</p>
+<p>So, tor those in tech docs, this means taking stock of human work v mechanical work.</p>
+<p>To make this actionable, I've created a matrix to identify the human tasks which will be hard (or harder) for AI to replicate.</p>
+<table><thead><tr><th>Task Category</th><th>Example Tasks</th><th>AI Impact Score</th><th>Human Value-Add</th><th>Your Strategic Action</th></tr></thead><tbody><tr><td>Content Development</td><td>Drafts, generic text, summaries.</td><td>High</td><td>Context, tone, and brand voice.</td><td>Automate &amp; Refine: Use AI for drafts, then add your domain expertise.</td></tr><tr><td>Research</td><td>Reviewing specs, feedback, code.</td><td>High</td><td>Synthesizing data and strategic insights.</td><td>Collaborate with AI: Let AI handle the data, you focus on the "why."</td></tr><tr><td>Formatting &amp; Editing</td><td>Style guides, grammar, converting docs.</td><td>High</td><td>Audience understanding and narrative flow.</td><td>Automate: Use tools to automate workflows so you can focus on more specialist areas.</td></tr><tr><td>User Interaction</td><td>Interviews, feedback sessions, human connections.</td><td>Low</td><td>Empathy, active listening, and trust.</td><td>Lean into these human interactions. Refine them to become the essential link between the Dev, Product and Users.</td></tr><tr><td>Planning</td><td>Content strategy, information architecture.</td><td>Low</td><td>Creative problem-solving and long-term vision.</td><td>Develop your vision of how the docs should be structured, planned, improved. AI can assist, but not lead.</td></tr><tr><td>Stakeholder Management</td><td>Presenting plans, negotiating, resolving conflicts.</td><td>Very Low</td><td>Communication, persuasion, EQ.</td><td>The human touch is impossible for AI to replicate.</td></tr></tbody></table>
+<p>Instead of: "Will AI take my job?"</p>
+<p>Ask: "Which parts of my job are human, and which are mechanical?"</p>
+<p>I feel we’re now at an inflection point where technical writers no longer need to <em>write</em> everything but need to pivot and own the more human tasks.</p>]]></content:encoded>
+            <category>Technical Documentation</category>
+        </item>
+        <item>
+            <title><![CDATA[How to use Truth Tables for Technical Documentation]]></title>
+            <link>https://ivanwalsh.com/blog/truth-tables-technical-documentation</link>
+            <guid>https://ivanwalsh.com/blog/truth-tables-technical-documentation</guid>
+            <pubDate>Sun, 17 Aug 2025 11:34:33 GMT</pubDate>
+            <description><![CDATA[How to use Truth Tables for Technical Documentation Part 1]]></description>
+            <content:encoded><![CDATA[<p>When we're in the role of a 'reader' we tend to skim over the 'happy path' in user guides and other types of documentation. Quite often we only turn to documentation when lost, confused, or uncertain. For instance, someone changed a parameter setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it? What should I search for?</p>
+<p>I mention this as last week, I started to listen to Roger Penrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.</p>
+<p>On the way home from my walk, I began to think if I could apply this concept to technical documentation.</p>
+<p>Truth tables offer a systematic approach to move beyond "happy path" documentation that assumes everything works perfectly.</p>
+<p>When you encounter a problem (say configuring RoboHelp), then search online for the answer, most traditional doc sets will fail to address the complex combinations of conditions that may have created the unexpected outcome.</p>
+<p>Instead, if you as a tech writer treat conditions as <em>boolean</em> inputs and map all possible combinations to specific outputs, you can document the edge cases that generate these issues.</p>
+<p>However, truth tables aren't universally applicable. They work best for scenarios with 2-3 binary variables that affect clear outcomes, such as API responses, permission matrices, or feature availability. Once you go higher than that, the tables become increasingly complex and overwhelm the reader; hierarchical decision trees provide better user experience in this scenario.</p>
+<p>In terms of cost benefits, truth tables can potentially reduce support costs if implemented correctly. Instead of leaving users to figure out unexpected errors and creating support tickets in frustration, you can anticipate their concerns and provide the necessary information.</p>
+<p>In this article, we'll look at when <em>boolean thinking</em> adds value to your docs and when it can overcomplicate simpler processes. Let's get started.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="downside-of-happy-paths">Downside of happy paths<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#downside-of-happy-paths" class="hash-link" aria-label="Direct link to Downside of happy paths" title="Direct link to Downside of happy paths">​</a></h2>
+<p>As mentioned, traditional documents follow a happy path. However, this can frustrate users when they step outside this path: the generic 'one size fits all' instructions offer only limited usefulness.</p>
+<ul>
+<li>Traditional documents assume ideal conditions. Everything must work perfectly, like an AND operation where all inputs must be true</li>
+<li>Real-world scenarios demand resilience. Users need help when ANY condition fails, like an OR operation that provides alternatives</li>
+<li>Truth tables help expose edge cases that are often overlooked</li>
+</ul>
+<p><strong>Note</strong>: If most users can work out the happy path by themselves, focus your documentation efforts on the failure scenarios and edge cases where users actually get stuck</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-to-use-truth-tables-in-tech-docs">When to use Truth Tables in Tech Docs<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#when-to-use-truth-tables-in-tech-docs" class="hash-link" aria-label="Direct link to When to use Truth Tables in Tech Docs" title="Direct link to When to use Truth Tables in Tech Docs">​</a></h2>
+<p>Here are some things to keep in mind when determining potential truth table candidates.</p>
+<p>Use truth tables in tech docs when:</p>
+<ul>
+<li>Multiple conditions affect the same outcome</li>
+<li>Users frequently meet 'unexpected' results</li>
+<li>Support tickets related to specific feature combinations</li>
+<li>Permissions or config settings interact in non-obvious ways</li>
+</ul>
+<p>To give a little more context, consider the following:</p>
+<p><strong>Potential candidate</strong>: "When does the 'Export' button appear on the 'Sales Report' screen?"</p>
+<ul>
+<li>Variables: Admin rights (Y/N), Data exists (Y/N), Feature enabled (Y/N)</li>
+<li>Clear binary outcomes, affects user workflow</li>
+</ul>
+<p><strong>Poor candidate</strong>: "How to write burndown report"</p>
+<ul>
+<li>Too subjective, no clear binary conditions</li>
+<li>Better served by traditional writing guidelines</li>
+</ul>
+<p>Here are four potential use cases:</p>
+<ul>
+<li><strong>API documents</strong> – identify what may occur if the user changes multiple settings and how this will affect the response.</li>
+<li><strong>Permissions</strong> – rather than listing all permissions, use a matrix to illustrate which set of permissions gives you access to which parts of the product.</li>
+<li><strong>Troubleshooting and Configuration</strong> – illustrate what happens if/when you change one or more settings. For instance, if the configuration likely to create a non-obvious response or error message that may be hard to troubleshoot without context.</li>
+<li><strong>FAQs</strong> – most FAQS give atomic answers but often lack context. Increase value by anticipating how the user may have created this issue in the first place. Was it due to a permission, config setting, set of parameter changes, or some non-obvious setting they may have changed</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-not-use-truth-tables-in-tech-docs">When NOT use Truth Tables in Tech Docs<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#when-not-use-truth-tables-in-tech-docs" class="hash-link" aria-label="Direct link to When NOT use Truth Tables in Tech Docs" title="Direct link to When NOT use Truth Tables in Tech Docs">​</a></h2>
+<p>To be clear, you don't need to use truth tables for every piece of documentation.</p>
+<p>Here are some examples of where they're not required:</p>
+<ul>
+<li>Linear processes with no branching. For example, "Update your password"</li>
+<li>Single-variable outcomes. For instance, if a feature is only available with a specific plan.</li>
+<li>Well-understood happy paths that rarely fail.</li>
+<li>Processes with multiple variables. Instead, develop a set of procedures or work instructions to cover different scenarios.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-manage-complex-truth-tables">How to Manage Complex Truth Tables<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#how-to-manage-complex-truth-tables" class="hash-link" aria-label="Direct link to How to Manage Complex Truth Tables" title="Direct link to How to Manage Complex Truth Tables">​</a></h2>
+<p>When you have multiple inputs, the size of the table can become unwieldy. Here's how to address this.</p>
+<p>Imagine access to a premium dashboard depends on three conditions:</p>
+<ul>
+<li>A = Active subscription</li>
+<li>B = Account verified</li>
+<li>C = Admin permissions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-8-row-truth-table">The 8-Row Truth Table<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#the-8-row-truth-table" class="hash-link" aria-label="Direct link to The 8-Row Truth Table" title="Direct link to The 8-Row Truth Table">​</a></h3>
+<table><thead><tr><th>Subscription</th><th>Verified</th><th>Admin</th><th>Dashboard Access</th><th>User Experience</th></tr></thead><tbody><tr><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Full access granted</td></tr><tr><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>"Contact admin for permissions"</td></tr><tr><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>"Please verify your account"</td></tr><tr><td>Yes</td><td>No</td><td>No</td><td>No</td><td>"Verify account and contact admin"</td></tr><tr><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>"Subscription required"</td></tr><tr><td>No</td><td>Yes</td><td>No</td><td>No</td><td>"Subscription required"</td></tr><tr><td>No</td><td>No</td><td>Yes</td><td>No</td><td>"Subscription required"</td></tr><tr><td>No</td><td>No</td><td>No</td><td>No</td><td>"Subscription required"</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="result-overly-complex-table">Result: Overly Complex Table<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#result-overly-complex-table" class="hash-link" aria-label="Direct link to Result: Overly Complex Table" title="Direct link to Result: Overly Complex Table">​</a></h3>
+<p>This table is difficult to scan. Seven scenarios result in "No access," but with different explanations. This provides little value to users as they'll have to process multiple variables simultaneously to understand their situation.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alternative-approach-hierarchical-decision-tree">Alternative Approach: Hierarchical Decision Tree<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#alternative-approach-hierarchical-decision-tree" class="hash-link" aria-label="Direct link to Alternative Approach: Hierarchical Decision Tree" title="Direct link to Alternative Approach: Hierarchical Decision Tree">​</a></h3>
+<p>Instead of one overwhelming truth table, break it into a logical sequence:</p>
+<p><strong>Step 1: Check Subscription</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Has Active Subscription?</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── No → "Upgrade to access premium features" [STOP]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└── Yes → Continue to Step 2</span><br></span></code></pre></div></div>
+<p><strong>Step 2: Check Verification</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Account Verified?</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── No → "Verify your account to continue" [STOP]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└── Yes → Continue to Step 3</span><br></span></code></pre></div></div>
+<p><strong>Step 3: Check Permissions</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Has Admin Permissions?</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── No → "Contact your administrator for dashboard access"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└── Yes → "Dashboard access granted"</span><br></span></code></pre></div></div>
+<p>Using this approach, users only need to process one condition at a time. Each "No" provides specific next steps. This also makes it easier to update individual decision points.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="avoid-complexity">Avoid Complexity<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#avoid-complexity" class="hash-link" aria-label="Direct link to Avoid Complexity" title="Direct link to Avoid Complexity">​</a></h3>
+<p>With 2 or 3 variables, truth tables work well; use decision trees when you have 4+ variables (16+ scenarios).</p>
+<p>If you find yourself writing mostly 'No' outcomes with similar error messages, consider restructuring your approach.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="truth-table-simple-example">Truth Table Simple Example<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#truth-table-simple-example" class="hash-link" aria-label="Direct link to Truth Table Simple Example" title="Direct link to Truth Table Simple Example">​</a></h2>
+<p>Here's a simple example of a truth table for a user getting access to a software product.</p>
+<p>The user can access a premium feature only if they:</p>
+<ul>
+<li>A = Have an active subscription</li>
+<li>B = Have completed account verification</li>
+</ul>
+<table><thead><tr><th>Has Subscription</th><th>Verified Account</th><th>Can Access Feature</th></tr></thead><tbody><tr><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Yes</td><td>No</td><td>No</td></tr><tr><td>No</td><td>Yes</td><td>No</td></tr><tr><td>No</td><td>No</td><td>No</td></tr></tbody></table>
+<p>This shows all possible combinations and their outcomes. Only when both conditions are met (row 1) can the user access the feature.</p>
+<p><strong>Takeaway</strong>: Truth tables help us think systematically about all possible scenarios, not just the "happy path" where everything works perfectly.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-start">How to Start<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#how-to-start" class="hash-link" aria-label="Direct link to How to Start" title="Direct link to How to Start">​</a></h2>
+<p>If you want to get past the happy path, so to speak, here's how you can setup a simple truth table for your next document set.</p>
+<p>The goal is to map all the possible inputs to a specific output.</p>
+<ol>
+<li><strong>Define the Scope</strong> – identify all of the variables/conditions that affect the outcome.</li>
+<li><strong>Map all possibilities</strong> – create a matrix that captures all potential conditions (yes/no, true/false). For two variables, that's four rows. For three variables, it's eight. Make sure you don't miss any scenarios.</li>
+<li><strong>Predict the outcome</strong> – for each row, identify the exact, predictable outcome. Does the user see the 'Add to Cart' button? When is this button greyed out? This forces you to explicitly clarify when and why each user interface control appears, and under which condition features/controls appears in the UI/API/Data feed etc.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="start-with-a-specific-use-case">Start with a specific use case<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#start-with-a-specific-use-case" class="hash-link" aria-label="Direct link to Start with a specific use case" title="Direct link to Start with a specific use case">​</a></h3>
+<p>To implement this concept effectively, I'd suggest you identify a high-priority document that directly affects user success. For instance, an 'On-boarding Guide' with multiple configuration settings.</p>
+<p>Begin with one specific section, rather than trying to boil the ocean. Create your truth table for that section, then walk the on-boarding team through the revised document. Ask specific questions: Does this resolve issue faster? What parts could be refined? Are decision points clear? Does it simplify or complicate the instructions.</p>
+<p>This small-scale pilot will give you concrete data on whether truth tables improve your documentation. Once you validate the approach, you can systematically apply it to other complex sections where multiple conditions affect user outcomes.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>When technical documentation assumes everything works perfectly (i.e. all conditions are true), it will fail users who encounter partial failures or missing prerequisites.</p>
+<p>To resolve this, use truth tables to document what happens when conditions aren't met—the scenarios your users actually face.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="further-reading">Further reading<a href="https://ivanwalsh.com/blog/truth-tables-technical-documentation#further-reading" class="hash-link" aria-label="Direct link to Further reading" title="Direct link to Further reading">​</a></h2>
+<ul>
+<li><a href="https://web-archive.southampton.ac.uk/cogprints.org/432/1/penrose.htm" target="_blank" rel="noopener noreferrer">Review of Roger Penrose, The Emperor's New Mind</a></li>
+<li><a href="https://www.bbc.co.uk/bitesize/guides/zr33rwx/revision/4" target="_blank" rel="noopener noreferrer">BBC: Truth Tables</a></li>
+<li><a href="https://www.uxpin.com/studio/blog/what-is-happy-path-in-ux-design/" target="_blank" rel="noopener noreferrer">UXPin: What is a Happy Path</a></li>
+</ul>]]></content:encoded>
+            <category>Technical Documentation</category>
+            <category>Agile</category>
+        </item>
+        <item>
+            <title><![CDATA[Getting Started with Agile for Technical Writers]]></title>
+            <link>https://ivanwalsh.com/blog/agile-tech-writing-getting-started</link>
+            <guid>https://ivanwalsh.com/blog/agile-tech-writing-getting-started</guid>
+            <pubDate>Sat, 09 Aug 2025 11:59:18 GMT</pubDate>
+            <description><![CDATA[How to get started with Agile for Technical Writers]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-can-technical-writers-use-agile-in-software-development-projects">How can technical writers use Agile in software development projects?<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#how-can-technical-writers-use-agile-in-software-development-projects" class="hash-link" aria-label="Direct link to How can technical writers use Agile in software development projects?" title="Direct link to How can technical writers use Agile in software development projects?">​</a></h2>
+<p>As this question, and variations of it, have popped up on Reddit and LinkedIn, I thought I'd share a few observations about my experience of working with Agile/Scrum as a tech writer.</p>
+<p>One thing to say before we start, is that just became a company says it's Agile, doesn't mean it's applying all of the framework. Rather, they may be selectively picking pieces of it, such as using Daily Stand Ups, but not fully embracing the spirit of Agile development. In many cases, they're probably 'Agilefall' (Agile + Waterfall).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-agile-technical-documentation">What is Agile technical documentation?<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#what-is-agile-technical-documentation" class="hash-link" aria-label="Direct link to What is Agile technical documentation?" title="Direct link to What is Agile technical documentation?">​</a></h2>
+<p>Agile technical documentation is a framework that applies Agile principles to the documentation process itself. Instead of creating monolithic documentation sets that may become outdated before the product is released, Agile documentation provides incremental deliverables per sprint that support current needs while remaining flexible enough to adapt with the project.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="agile-documentation-principles">Agile Documentation Principles<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#agile-documentation-principles" class="hash-link" aria-label="Direct link to Agile Documentation Principles" title="Direct link to Agile Documentation Principles">​</a></h2>
+<p>"I want thin documents, and fast." The CEO of a leasing company told me this when I presented him with our Documentation Plan for the next release. This was more than 15 years ago before Agile became mainstream. He was encouraging us to write only what was needed (cut the fluff) and get docs out to review/customers asap.</p>
+<p>So, if you're new to writing in an Agile environment, here are some things to consider:</p>
+<p><strong>Iterative content development</strong> – create units of documentation that can be written, reviewed and signed off per sprint. Then, if the software changes, update accordingly. The aim is to get pieces of the docs delivered per 2- or 3-week sprints, rather than one single document at the very end.</p>
+<p><strong>Collaboration</strong> – develop a collaborative approach with developers, testers and product managers, so docs are worked on during each sprint. Before you adopt this approach, talk to the team and explain how/why you plan to deliver the docs in increments.</p>
+<p><strong>Responding to change</strong> – prepare your documents in such a way that it's easy to update, review, and republish. Flexibility is a key part of Agile. Make sure your document process is aligned accordingly</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="agile-documentation-strategies">Agile Documentation Strategies<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#agile-documentation-strategies" class="hash-link" aria-label="Direct link to Agile Documentation Strategies" title="Direct link to Agile Documentation Strategies">​</a></h2>
+<p>In terms of setting up Agile documents, you have several options. Here's a few to consider:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-story-driven-content">User story-driven content<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#user-story-driven-content" class="hash-link" aria-label="Direct link to User story-driven content" title="Direct link to User story-driven content">​</a></h3>
+<p>Learn how to write user story for the features you plan to document. Of course, you can write user stories for other document tasks as well. The point is to learn how to craft user stories so you're in sync with your company's Agile mindset, and also that each increment you deliver meets the Definition of Done. That is, it meets the problem statement and acceptance criteria for each ticket.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tech-documentation-user-story-example">Tech Documentation user story example<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#tech-documentation-user-story-example" class="hash-link" aria-label="Direct link to Tech Documentation user story example" title="Direct link to Tech Documentation user story example">​</a></h3>
+<p>The following is a simple example of a documentation user story:</p>
+<ul>
+<li><strong>As a</strong> new API developer integrating with our ecommerce system</li>
+<li><strong>I want</strong> step-by-step authentication setup instructions with working code examples</li>
+<li><strong>So that</strong> I can authenticate API calls within 15 minutes without contacting support</li>
+</ul>
+<p><strong>Acceptance Criteria:</strong></p>
+<ul>
+<li>Include prerequisite requirements (API key, development environment)</li>
+<li>Provide code samples in at least 3 programming languages (Python, JavaScript, cURL)</li>
+<li>Show expected request/response format with real examples</li>
+<li>Include common error codes and troubleshooting steps</li>
+<li>Include rate limiting information</li>
+</ul>
+<p><strong>Definition of Done:</strong></p>
+<ul>
+<li>Content reviewed by Developer who hasn't worked on the API</li>
+<li>Verified code examples</li>
+<li>Tested by Product team</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sprint-based-documentation-cycles">Sprint-based documentation cycles<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#sprint-based-documentation-cycles" class="hash-link" aria-label="Direct link to Sprint-based documentation cycles" title="Direct link to Sprint-based documentation cycles">​</a></h3>
+<p>You have several options here. One suggestion is to add a Tech Document ticket to the Dev sprint board per sprint. For me, this creates noise and I'd suggest to avoid it. Instead, create your own board and cut a ticket for each product feature. Then, in the last sprint, you can add a formal tech document ticket the sprint board to ensure it gets prioritized and delivered in time with the release.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="living-documentation-approaches">Living documentation approaches<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#living-documentation-approaches" class="hash-link" aria-label="Direct link to Living documentation approaches" title="Direct link to Living documentation approaches">​</a></h3>
+<p>In this context, 'living' means that the docs develop naturally with the product rather than you having to make manual updates. For instance, if you're using Swagger/OpenAPI specs to generate interactive API documentation, setup your document publishing system so that the correct documents are automatically generated. The same applies if you're integrating content from Git or database schemas generated from databases.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="continuous-feedback-loops">Continuous feedback loops<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#continuous-feedback-loops" class="hash-link" aria-label="Direct link to Continuous feedback loops" title="Direct link to Continuous feedback loops">​</a></h3>
+<p>Setup your docs process so that you can identify gaps, errors, and omissions in the docs. In sprint retrospectives ask product/developers if there's anything that can be improved. Likewise, arrange stakeholder check-ins to assess whether docs meet their needs. Ask Product to help understand customer pain points. Again, I feel a mindset change is often required here. Instead of writing in isolation, look for ways to proactively get feedback so your docs provide maximum value.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="first-steps">First Steps<a href="https://ivanwalsh.com/blog/agile-tech-writing-getting-started#first-steps" class="hash-link" aria-label="Direct link to First Steps" title="Direct link to First Steps">​</a></h2>
+<p>Instead of 'boiling the ocean', I'd suggest to start small and by degrees move your tech document team to an Agile mindset. Creating a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend to print out the Scrum Guide and become familiar with the framework.</p>
+<p>In the coming weeks, I'll go into more depth about tool usage, metrics and some of the common pitfalls to avoid.</p>
+<p>As always, drop me a line if you'd like to know more. My inbox is always open.</p>]]></content:encoded>
+            <category>Agile</category>
+        </item>
+        <item>
+            <title><![CDATA[Using Antora to Manage Complex Technical Documentation Websites]]></title>
+            <link>https://ivanwalsh.com/blog/antora-setup</link>
+            <guid>https://ivanwalsh.com/blog/antora-setup</guid>
+            <pubDate>Sun, 09 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Learn how to use Antora to Manage Complex Technical Documentation Websites. Includes product comparison with other static site generators]]></description>
+            <content:encoded><![CDATA[<p>What's the best tool for managing technical documentation websites?</p>
+<p>You've probably seen something like this on LinkedIn or Reddit. And the answer is, as always, 'it depends'.</p>
+<p>For example, this site is run on Docusaurus, which is pretty easy to setup and maintain. It also works very nicely with Git and our web hosting provider, so for a relatively simple site, it's fine. I should add that you can Docusaurus is not just for lightweight document sites as it has quite a lot of rich features, themes, and a very active community. So, worth a peek if you're looking to get started.</p>
+<p>However, there are a few things it doesn't offer. At least, not out of the box. This leads us to Antora.</p>
+<p>What's the best tool for managing technical documentation websites?</p>
+<p>You've probably seen something like this on LinkedIn or Reddit. And the answer is, as always, 'it depends'.</p>
+<p>For example, this site is run on Docusaurus, which is pretty easy to setup and maintain. It also works very nicely with Git and our web hosting provider, so for a relatively simple site, it's fine. I should add that you can Docusaurus is not just for lightweight document sites as it has quite a lot of rich features, themes, and a very active community. So, worth a peek if you're looking to get started.</p>
+<p>However, there are a few things it doesn't offer. At least, not out of the box. This leads us to Antora.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-antora">What is Antora?<a href="https://ivanwalsh.com/blog/antora-setup#what-is-antora" class="hash-link" aria-label="Direct link to What is Antora?" title="Direct link to What is Antora?">​</a></h2>
+<p>Antora is a static site generator designed specifically for technical documentation. Created by the team behind AsciiDoc, it treats your document set as a collection of 'versioned content sources' rather than a traditional website structure. This allows you to setup "documentation sites" that can aggregate content from multiple repos, branches, and versions into a single website.</p>
+<p>In other words, instead of pulling your documents from a single repo, which is what I'm doing here, you could ingest material from X number of repos and organize them in a seamless manner on the website.</p>
+<p>Versioning is also one of its strong points. For instance, if you want to maintain multiple versions of your documentation simultaneously. You can do something like this in Docusaurus, btw.</p>
+<p><a href="https://docs.antora.org/antora/latest/" target="_blank" rel="noopener noreferrer">Antora documentation</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="antora-use-cases">Antora Use Cases<a href="https://ivanwalsh.com/blog/antora-setup#antora-use-cases" class="hash-link" aria-label="Direct link to Antora Use Cases" title="Direct link to Antora Use Cases">​</a></h2>
+<p>As mentioned above, while you can use tools like Docusaurus, Hugo, and Sphinx, from what I've seen its strength is in the following areas:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="multi-version-documentation-management">Multi-version Documentation Management<a href="https://ivanwalsh.com/blog/antora-setup#multi-version-documentation-management" class="hash-link" aria-label="Direct link to Multi-version Documentation Management" title="Direct link to Multi-version Documentation Management">​</a></h3>
+<p>Once setup, you can maintain documentation for multiple product versions simultaneously. This allows you to pull content from different Git branches/repositories and publish them as separate versions in a single UI.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="distributed-documentation-teams">Distributed Documentation Teams<a href="https://ivanwalsh.com/blog/antora-setup#distributed-documentation-teams" class="hash-link" aria-label="Direct link to Distributed Documentation Teams" title="Direct link to Distributed Documentation Teams">​</a></h3>
+<p>If you work on large projects or have distributed teams with multiple repos, you can aggregate the content from various sources into a single site while maintaining ownership and contribution workflows. While it does take time to configure, you'll see the gains in the long term.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-source-projects">Open Source Projects<a href="https://ivanwalsh.com/blog/antora-setup#open-source-projects" class="hash-link" aria-label="Direct link to Open Source Projects" title="Direct link to Open Source Projects">​</a></h3>
+<p>It's a good fit for products that require community contributions, versioning, and integration with Git workflows.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="component-based-architecture">Component-Based Architecture<a href="https://ivanwalsh.com/blog/antora-setup#component-based-architecture" class="hash-link" aria-label="Direct link to Component-Based Architecture" title="Direct link to Component-Based Architecture">​</a></h3>
+<p>For tech docs teams that work on require cross-referencing between different products and versions, you can use its component-based architecture to coordinate your content workflows.</p>
+<p>For context, Antora's component-based architecture treats documentation as a collection of independent, reusable "components" rather than a monolithic website. As a result, each self-contained documentation unit can be mixed, matched, and assembled into different sites while maintaining their individual identity and versioning.</p>
+<p>Each component has:</p>
+<ul>
+<li>Its own repository (or can share a repository with other components)</li>
+<li>Independent versioning (version 1.0, 2.0, etc.)</li>
+<li>Modular structure (modules containing pages, assets, and partials)</li>
+<li>Separate navigation and content organization</li>
+</ul>
+<p>The following example provides a sample layout:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Company Documentation Site</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── API Gateway (Component)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   ├── Version 3.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   ├── Version 2.1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   └── Version 1.5</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── User Management System (Component)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   ├── Version 2.2</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   └── Version 2.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└── Analytics Dashboard (Component)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ├── Version 1.8</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    └── Version 1.5</span><br></span></code></pre></div></div>
+<p>In this scenario, each component lives in its own Git repo, maintained by different teams, but appears as a unified documentation site to users.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="antora-limitations">Antora Limitations<a href="https://ivanwalsh.com/blog/antora-setup#antora-limitations" class="hash-link" aria-label="Direct link to Antora Limitations" title="Direct link to Antora Limitations">​</a></h2>
+<p>There are a few limitations that you need to be aware of.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="learning-curve">Learning curve<a href="https://ivanwalsh.com/blog/antora-setup#learning-curve" class="hash-link" aria-label="Direct link to Learning curve" title="Direct link to Learning curve">​</a></h3>
+<p>Compared to other tools, there is a bit of a learning curve. If you're familiar with static site generators, you'll understand how it's designed. However, if you're new to this area, it can be a bit tricky to get up and running. There's also a smaller community to help troubleshoot issues, which is unfortunate. Concepts (i.e. playbooks, components, modules, pages) can be overwhelming for tech writers coming from Flare/RoboHelp or less complex tech document tools.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="asciidoc">AsciiDoc<a href="https://ivanwalsh.com/blog/antora-setup#asciidoc" class="hash-link" aria-label="Direct link to AsciiDoc" title="Direct link to AsciiDoc">​</a></h3>
+<p>Probably the main limitation is that you need to write (or migrate) your docs in AsciiDoc.</p>
+<p>The team who created Antora felt that tech writers need a flavor of markdown with more advanced capabilities. While Markdown is fine for simple documentation, it has limitations for more complex technical material that requires advanced formatting, conditional text, and cross-referencing. However, I suspect this puts off many tech writers and developers who are used to writing in Markdown and may be reluctant to put time aside to skill up and migrate existing markdown.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="configuration-management">Configuration Management<a href="https://ivanwalsh.com/blog/antora-setup#configuration-management" class="hash-link" aria-label="Direct link to Configuration Management" title="Direct link to Configuration Management">​</a></h3>
+<p>If you're new to SSGs, you may find the playbook configuration too complex for your sites. Troubleshooting issues regarding Antora's architecture and Git integration deter people from switching over.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dynamic-features">Dynamic Features<a href="https://ivanwalsh.com/blog/antora-setup#dynamic-features" class="hash-link" aria-label="Direct link to Dynamic Features" title="Direct link to Dynamic Features">​</a></h3>
+<p>I haven't explored this too much but from what I understand, it lacks built-in support for features such as user authentication, commenting systems, or implementing real-time content updates without additional tooling.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="deployment-complexity">Deployment Complexity<a href="https://ivanwalsh.com/blog/antora-setup#deployment-complexity" class="hash-link" aria-label="Direct link to Deployment Complexity" title="Direct link to Deployment Complexity">​</a></h3>
+<p>Depending on your Git skill level, you may find its CI/CD pipelines and deployment strategies overly complex.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-ecosystem">Plugin Ecosystem<a href="https://ivanwalsh.com/blog/antora-setup#plugin-ecosystem" class="hash-link" aria-label="Direct link to Plugin Ecosystem" title="Direct link to Plugin Ecosystem">​</a></h3>
+<p>Part of the reason, I use Docusaurus is because there is so much choice in terms of themes, plug-ins and community support. And it's all in markdown which everyone knows.</p>
+<p>In contrast, Antora has a much smaller ecosystem of plugins and extensions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="static-site-generator-comparison">Static Site Generator Comparison<a href="https://ivanwalsh.com/blog/antora-setup#static-site-generator-comparison" class="hash-link" aria-label="Direct link to Static Site Generator Comparison" title="Direct link to Static Site Generator Comparison">​</a></h2>
+<p>The following table identifies the strengths and weakness of Antora and some of the leading SSGs.</p>
+<table><thead><tr><th>Feature/Aspect</th><th><strong>Antora</strong></th><th><strong>Docusaurus</strong></th><th><strong>GitBook</strong></th><th><strong>VuePress/VitePress</strong></th></tr></thead><tbody><tr><td><strong>Primary Focus</strong></td><td>Multi-repo technical docs</td><td>Developer documentation</td><td>Team knowledge base</td><td>Vue.js ecosystem docs</td></tr><tr><td><strong>Content Format</strong></td><td>AsciiDoc only</td><td>Markdown + React/MDX</td><td>Markdown + blocks</td><td>Markdown + Vue</td></tr><tr><td><strong>Learning Curve</strong></td><td>Steep (new concepts + AsciiDoc)</td><td>Moderate (familiar React patterns)</td><td>Easy (WYSIWYG + Markdown)</td><td>Moderate (Vue knowledge helpful)</td></tr><tr><td><strong>Multi-Version Support</strong></td><td>Excellent (built-in, sophisticated)</td><td>Good (built-in versioning)</td><td>Limited (manual organization)</td><td>Manual implementation required</td></tr><tr><td><strong>Multi-Repository</strong></td><td>Native support (core feature)</td><td>Single repo only</td><td>Single workspace model</td><td>Single repo focus</td></tr><tr><td><strong>Cross-References</strong></td><td>Powerful (cross-component/version)</td><td>Basic (within single repo)</td><td>Good (within workspace)</td><td>Basic linking</td></tr><tr><td><strong>Content Reuse</strong></td><td>Advanced (includes, partials, attributes)</td><td>Limited (MDX components)</td><td>Basic (snippets, templates)</td><td>Limited (Vue components)</td></tr><tr><td><strong>Team Collaboration</strong></td><td>Excellent (distributed teams, Git-native)</td><td>Good (GitHub integration)</td><td>Excellent (real-time editing)</td><td>Good (Git-based)</td></tr><tr><td><strong>Setup Complexity</strong></td><td>High (playbooks, components, modules)</td><td>Low (npm create, config file)</td><td>Very low (web interface)</td><td>Low (Vue CLI or manual)</td></tr><tr><td><strong>Build Performance</strong></td><td>Can be slow (multi-repo aggregation)</td><td>Fast (optimized for speed)</td><td>Fast (cloud-based)</td><td>Very fast (Vite/modern tooling)</td></tr><tr><td><strong>Theming/Customization</strong></td><td>Limited themes, complex customization</td><td>Many themes, React-based custom</td><td>Limited (premium plans for custom)</td><td>Flexible (Vue-based theming)</td></tr><tr><td><strong>Plugin Ecosystem</strong></td><td>Small, specialized</td><td>Large, active community</td><td>Growing but limited</td><td>Good (Vue ecosystem)</td></tr><tr><td><strong>Search Integration</strong></td><td>Good (Lunr, external options)</td><td>Excellent (Algolia built-in)</td><td>Excellent (built-in)</td><td>Good (built-in + external)</td></tr><tr><td><strong>Hosting Options</strong></td><td>Flexible (any static host)</td><td>Flexible (Netlify, Vercel, etc.)</td><td>Managed hosting included</td><td>Flexible (any static host)</td></tr><tr><td><strong>Community Size</strong></td><td>Small, niche</td><td>Large, active (Facebook/Meta)</td><td>Large, growing</td><td>Medium (Vue community)</td></tr><tr><td><strong>Documentation Quality</strong></td><td>Comprehensive but complex</td><td>Excellent, beginner-friendly</td><td>Excellent, user-friendly</td><td>Good, Vue-focused</td></tr><tr><td><strong>Mobile Experience</strong></td><td>Good (responsive default theme)</td><td>Excellent (optimized)</td><td>Excellent (native apps)</td><td>Good (responsive)</td></tr><tr><td><strong>Real-time Features</strong></td><td>None (static only)</td><td>Limited (comments via plugins)</td><td>Real-time editing, comments</td><td>None (static only)</td></tr><tr><td><strong>Content Management</strong></td><td>Git-only (technical users)</td><td>Git-based (some CMS integrations)</td><td>Web-based editor</td><td>Git-based</td></tr><tr><td><strong>Internationalization</strong></td><td>Good (attribute-based)</td><td>Excellent (built-in i18n)</td><td>Good (multi-language spaces)</td><td>Good (Vue i18n integration)</td></tr><tr><td><strong>Cost</strong></td><td>Free (open source)</td><td>Free (open source)</td><td>Free tier limited, paid plans</td><td>Free (open source)</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="decision-framework">Decision Framework<a href="https://ivanwalsh.com/blog/antora-setup#decision-framework" class="hash-link" aria-label="Direct link to Decision Framework" title="Direct link to Decision Framework">​</a></h3>
+<p><strong>Choose Antora if:</strong></p>
+<ul>
+<li>Multi-repository documentation is essential</li>
+<li>Team can invest in learning AsciiDoc</li>
+<li>Large-scale documentation challenges</li>
+</ul>
+<p><strong>Choose Docusaurus if:</strong></p>
+<ul>
+<li>Single repository setup is sufficient</li>
+<li>Developer-focused documentation</li>
+<li>Need proven, widely-adopted solution</li>
+</ul>
+<p><strong>Choose GitBook if:</strong></p>
+<ul>
+<li>Non-technical team members need to contribute</li>
+<li>Real-time collaboration is important</li>
+<li>Managed solution preferred over self-hosting</li>
+</ul>
+<p><strong>Choose VuePress/VitePress if:</strong></p>
+<ul>
+<li>Build speed is critical</li>
+<li>Flexible theming requirements</li>
+<li>Technical team comfortable with Vue</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="one-last-thing">One last thing<a href="https://ivanwalsh.com/blog/antora-setup#one-last-thing" class="hash-link" aria-label="Direct link to One last thing" title="Direct link to One last thing">​</a></h2>
+<p>If you're running a relatively small tech document team with a single product, I'd suggest looking at tools, such as Docusaurus, Hugo, Sphinx, and Github Pages. This will allow you get started with publishing your tech docs.</p>
+<p>Once comfortable with the process, you can then look at more complex workflows.</p>
+<p>In the coming weeks, I'll go into more depth about how to setup a tech document website, tool usage, metrics and common pitfalls to avoid.</p>
+<p>As always, drop me a line if you'd like to know more. My inbox is always open.</p>]]></content:encoded>
+            <category>Publishing</category>
+        </item>
+    </channel>
+</rss>
