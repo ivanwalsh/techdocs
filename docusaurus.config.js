@@ -4,16 +4,15 @@ import { themes as prismThemes } from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Ivan Walsh',
-  tagline: 'Agile Technical Documentation',
+  tagline: 'AI-Ready Technical Documentation',
   favicon: 'img/favicon.ico',
 
   url: 'https://ivanwalsh.com',
   baseUrl: '/',
 
-  organizationName: 'facebook', // GitHub org/user
-  projectName: 'docusaurus', // GitHub repo
+  projectName: 'techdocs', // GitHub repo
 
-  onBrokenLinks: 'warn', // Avoid breaking build for minor issues
+  onBrokenLinks: 'throw', // Fail the build if any internal link is broken
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {

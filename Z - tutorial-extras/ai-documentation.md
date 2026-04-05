@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# AI Documentation
+# Learning Path for AI-Ready Documentation
 
 Artificial intelligence is transforming how documentation is created, managed, and consumed. AI tools can automate repetitive tasks like content generation, translation, and formatting, freeing up writers to focus on higher-value tasks. AI-powered chatbots and search engines enhance user experience by providing instant, context-aware answers to user queries. Additionally, machine learning algorithms analyze user behavior and feedback to identify gaps in documentation, enabling data-driven improvements. This trend not only improves the efficiency of documentation teams but also enhances the accessibility and relevance of content for end-users.
 
@@ -19,11 +19,6 @@ To master **AI-driven documentation**, follow this structured training plan:
    - Understand the basics of NLP and its applications in documentation.
    - Explore tools like **spaCy**, **NLTK**, and **Hugging Face Transformers**.
    - Key resources: NLP tutorials, online courses (e.g., Coursera, Udemy).
-
-#### 3. **Explore AI-Powered Writing Tools**
-   - Learn how to use tools like **Grammarly**, **ProWritingAid**, or **ChatGPT** for content creation and editing.
-   - Understand their strengths and limitations.
-   - Key resources: Tool documentation, hands-on practice.
 
 #### 4. **Master AI-Driven Content Generation**
    - Learn how to use AI to generate documentation drafts, FAQs, and summaries.
