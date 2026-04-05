@@ -61,4 +61,14 @@ Technical_Documentation:
   label: Technical Documentation
   permalink: /technical_documentation
   description: Technical Documentation
+
+claude:
+  label: Claude
+  permalink: /claude
+  description: Posts related to Claude AI.
+
+AI-readability:
+  label: AI Readability
+  permalink: /ai-readability
+  description: Posts about making documentation readable and useful for AI models.
   

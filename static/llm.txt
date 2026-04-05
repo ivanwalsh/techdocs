@@ -1,0 +1,37 @@
+# Ivan Walsh Technical Documentation
+
+## About
+
+This file is a lightweight discovery index for the Ivan Walsh documentation site. It is served from the site root at /llm.txt.
+
+## Main site links
+
+- Home: https://ivanwalsh.com/
+- Docs overview: https://ivanwalsh.com/
+- Articles: https://ivanwalsh.com/blog
+- About Ivan: https://ivanwalsh.com/Ivan
+- Newsletter: https://ivanwalsh.com/newsletter
+
+## AI and LLM-related links
+
+- LLM Knowledge Base: https://ivanwalsh.com/blog/llm-knowledge-bases
+- AI tag page: https://ivanwalsh.com/blog/tags/ai
+
+## Tutorial and documentation guides
+
+- Agile tutorial: https://ivanwalsh.com/tutorial-basics/agile
+- AI tutorial: https://ivanwalsh.com/tutorial-basics/ai
+- API tutorial: https://ivanwalsh.com/tutorial-basics/api
+- Docs-as-code guide: https://ivanwalsh.com/tutorial-basics/docs-as-code
+- Doc tools guide: https://ivanwalsh.com/tutorial-basics/doctools
+- Documentation manager: https://ivanwalsh.com/tutorial-basics/documentation-manager
+
+## Notable blog posts
+
+- Antora setup: https://ivanwalsh.com/blog/2025-03-09-antora
+- Human task: https://ivanwalsh.com/blog/human-task
+- Truth tables for technical documentation: https://ivanwalsh.com/blog/truth-tables-technical-documentation
+
+## Notes
+
+This file is intended for LLM-friendly discovery and indexing of the main site sections.

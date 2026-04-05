@@ -83,6 +83,13 @@ const config = {
 		},			
         { to: '/Ivan', label: 'About Ivan', position: 'left' },
         {
+          href: '/llm.txt',
+          label: 'LLM.txt',
+          position: 'right',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        },
+        {
           href: 'https://github.com/ivanwalsh',
           label: 'GitHub',
           position: 'right',

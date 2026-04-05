@@ -15,6 +15,8 @@ When Andrej Karpathy shared his approach to LLM-powered personal knowledge bases
 
 I've spent the last several weeks designing a version of this system for my own work — a knowledge base sitting at the intersection of payments infrastructure, regulatory compliance, and emerging AI tooling in financial services. Here's what I've found, what I'm building with, and why I think this approach genuinely outperforms every knowledge capture method I've used before.
 
+<!-- truncate -->
+
 ## The problem it's solving
 
 In fintech, knowledge is perishable and fragmented. Regulatory guidance from the Central Bank of Ireland lands in a PDF. A thread about PSD3 implications lives in Slack. A competitor's API documentation sits in a browser tab someone bookmarked six months ago. A post-mortem from a failed payment rail integration is buried in a Jira ticket nobody reads. The tools we've used to manage this — Confluence, Notion, shared Google Drives — are fundamentally *passive containers*. They store what you put in, they don't synthesise, cross-reference, or surface connections.
