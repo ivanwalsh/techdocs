@@ -2,14 +2,79 @@
 sidebar_position: 4
 ---
 
-# Docs-As-Code
+# Docs-as-Code
 
-​​What is documentation as code?
+*What would it look like if your documentation moved at the same speed as your software?*
 
-Documentation as code is the process of creating and maintaining documentation using the same tools that you use to code. 
+That's the question docs-as-code is really trying to answer. Everything else — the Markdown, the Git repos, the CI pipelines, the pull requests — is just the plumbing. For me, docs-as-code isn't a toolchain. It's a working assumption: **documentation is a deliverable of the engineering process, not a separate thing that happens afterwards.**
 
-- **Gitbook**: [https://www.gitbook.com/blog/what-is-docs-as-code](https://www.gitbook.com/blog/what-is-docs-as-code)  
+The industry definitions make the same point:
 
-"Documentation as Code (Docs as Code) refers to a philosophy that you should be writing documentation with the same tools as code."
+> "Documentation as code is the process of creating and maintaining documentation using the same tools that you use to code."
+> — [Gitbook](https://www.gitbook.com/blog/what-is-docs-as-code)
 
-- **Write The Docs**: [https://www.writethedocs.org/guide/docs-as-code/](https://www.writethedocs.org/guide/docs-as-code/)  
+> "Documentation as Code (Docs as Code) refers to a philosophy that you should be writing documentation with the same tools as code."
+> — [Write The Docs](https://www.writethedocs.org/guide/docs-as-code/)
+
+I'd add one thing to those definitions: same *tools* is the easy part. Same *cadence, standards, and accountability* is the part that actually matters.
+
+## Why I moved to docs-as-code
+
+I spent years working in Word docs, wikis, and legacy CMS platforms where the documentation lived in a different universe from the code it described. Versions drifted. Reviews were optional. A new release would ship and the docs would catch up a week later, or not at all.
+
+Docs-as-code fixed that problem for me, not because Markdown is magical, but because it puts documentation into the same pipeline that engineers already trust. When a writer opens a pull request, it's reviewed like any other PR. When a build fails because a link is broken or a code sample doesn't compile, it blocks the release the same way a failing unit test would. The documentation stops being optional.
+
+## What I mean by docs-as-code in practice
+
+When I set up a docs-as-code workflow for a team, these are the pieces I put in place:
+
+- **Markdown (or MDX) as the source format** — plain text, diff-able, reviewable, portable. No proprietary binary formats.
+- **Git as the system of record** — every docs change is a commit, with an author, a message, and a history. Every change is traceable.
+- **Pull requests for every change** — no direct pushes to main. A writer's PR is reviewed by an SME or a peer writer, the same way a developer's PR is reviewed.
+- **CI pipelines that lint, test, and build the docs** — style linting, broken-link checking, spell-checking, spec validation, sample compilation. If it can be checked automatically, it is.
+- **Automated publishing** — merges to main deploy the site. No manual "publish" button, no staging drift.
+- **Versioning aligned to the product** — docs branches and tags track the releases of the software they describe.
+- **A static site generator at the top** — Docusaurus, in my case, but Hugo, MkDocs, and others work fine. The generator is the cheapest piece of the stack.
+
+## The parts I care about most
+
+Most people write about docs-as-code as a tooling story. I don't think that's the interesting part. The interesting part is what it changes about how writers work.
+
+### Writers in the same repo as engineers
+
+When the writers are in the same repo, they see the commits. They see the tickets. They see the PRs. They stop being consumers of engineering output and start being participants in the engineering process. On my teams, writers are expected to read the engineering PRs that affect their docs, and engineers are expected to review the docs PRs that describe their features.
+
+### The Definition of Done includes docs
+
+A feature isn't done when the code is merged. It's done when the docs are live, reviewed, and accurate. That's the single biggest cultural shift docs-as-code enables, and it's the one that most teams get wrong. If your sprint review celebrates shipped features with missing documentation, you don't have docs-as-code. You have Markdown in Git.
+
+### Review is the quality gate
+
+In a docs-as-code workflow, the pull request is where quality actually happens. I treat the docs review the way an engineering lead treats a code review: with standards, with pushback, and with a willingness to request changes. An unreviewed docs PR is a liability.
+
+### CI catches what humans miss
+
+I lean heavily on automated checks. Style linting (Vale), spell-checking, broken-link detection, OpenAPI validation, example execution, code sample compilation. Anything a machine can catch cheaply, I get a machine to catch, so the human review can focus on the things only a human can judge — clarity, accuracy, narrative, tone.
+
+## Where docs-as-code meets AI
+
+This is where the story gets interesting for me right now. A docs-as-code pipeline is the ideal substrate for AI-assisted writing, because everything is text, everything is in Git, and everything is reviewable.
+
+In a docs-as-code workflow, I can have an LLM draft a section, open a PR with the draft, run it through the same linting and review as any human PR, and either merge or reject based on the same standards. The AI is just another contributor, held to the same bar.
+
+Without docs-as-code, you can't do that cleanly. The AI output has nowhere to land, no review gate, no audit trail. Docs-as-code is what makes AI-assisted documentation safe.
+
+## Where teams get stuck
+
+The failures I see most often are not technical. They are organisational:
+
+- **Writers who aren't comfortable in Git** — fixable with training, but you have to actually invest in the training.
+- **Engineers who refuse to review docs PRs** — fatal if the team lead doesn't enforce it.
+- **A Definition of Done that quietly excludes docs** — the silent killer of every docs-as-code initiative I've seen.
+- **Tooling chosen before workflow is agreed** — teams pick Docusaurus or MkDocs and then try to retrofit a process around it. I do it the other way around.
+
+## Tying it back to the pipeline
+
+If you want to see a working docs-as-code pipeline end-to-end — including the OpenAPI validation, AI model cards, RAG-ready content, and CI publishing — that's what the reference repo is for: [github.com/ivanwalsh/ai-fintech-docs-pipeline](https://github.com/ivanwalsh/ai-fintech-docs-pipeline).
+
+Docs-as-code is what lets my documentation move at the cadence of the engineering team, pass the same quality gates, and stay honest over time. Everything else I do — AI-assisted drafting, Agile sprint alignment, throughput monitoring — rides on top of it.
