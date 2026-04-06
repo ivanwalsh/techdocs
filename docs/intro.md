@@ -1,6 +1,7 @@
 ---
 id: intro
 title: AI-Ready Technical Documentation
+sidebar_position: 1
 slug: /
 description: "Learn how to structure, optimize, and publish documentation for both human and AI consumption."
 ---
@@ -41,18 +42,60 @@ I can guide your team through transitions, optimize workflows, and deliver high-
 Explore the core concepts of AI-Ready Technical Documentation:
 
 ### Foundations
-- **[Content Strategy](/tutorial-basics/content-strategy)** — How to structure and organize documentation for discoverability and user flow
-- **[Writing & Style Fundamentals](/tutorial-basics/writing-style-fundamentals)** — Core technical writing principles, voice, tone, and best practices
-- **[Documentation Metrics](/tutorial-basics/documentation-metrics)** — How to measure if your documentation is actually working
+
+<div className="card-grid">
+<a href="/tutorial-basics/content-strategy" className="card-item">
+<h4>Content Strategy</h4>
+<p>How to structure and organize documentation for discoverability and user flow</p>
+</a>
+<a href="/tutorial-basics/writing-style-fundamentals" className="card-item">
+<h4>Writing & Style Fundamentals</h4>
+<p>Core technical writing principles, voice, tone, and best practices</p>
+</a>
+<a href="/tutorial-basics/documentation-metrics" className="card-item">
+<h4>Documentation Metrics</h4>
+<p>How to measure if your documentation is actually working</p>
+</a>
+</div>
 
 ### AI Integration
-- **[LLM Optimization](/tutorial-basics/llm-optimization)** — Making documentation work for machine reading (llms.txt, context quality, hallucination reduction)
-- **[AI-Assisted API Documentation](/tutorial-basics/ai-assisted-api-documentation)** — Using AI as a co-pilot inside a disciplined API docs workflow
+
+<div className="card-grid">
+<a href="/tutorial-basics/llm-optimization" className="card-item">
+<h4>LLM Optimization</h4>
+<p>Making documentation work for machine reading — llms.txt, context quality, hallucination reduction</p>
+</a>
+<a href="/tutorial-basics/ai-assisted-api-documentation" className="card-item">
+<h4>AI-Assisted API Documentation</h4>
+<p>Using AI as a co-pilot inside a disciplined API docs workflow</p>
+</a>
+</div>
 
 ### Methodologies
-- **[Agile Technical Documentation](/tutorial-basics/agile)** — Running docs teams inside Agile delivery with ceremonies, tools, and metrics
-- **[AI-Ready Documentation for Regulated Financial Platforms](/tutorial-basics/ai)** — Weaving AI into writing, review, and publishing workflows
-- **[API Documentation in the Age of AI](/tutorial-basics/api)** — How to orchestrate AI into API docs without hallucinating endpoints
-- **[Docs-as-Code](/tutorial-basics/docs-as-code)** — Making documentation move at the same speed as software
-- **[Doc Tools](/tutorial-basics/doctools)** — Which tools to reach for and why
-- **[Technical Documentation Manager](/tutorial-basics/documentation-manager)** — The role and responsibilities of a docs manager
+
+<div className="card-grid">
+<a href="/tutorial-basics/agile" className="card-item">
+<h4>Agile Technical Documentation</h4>
+<p>Running docs teams inside Agile delivery with ceremonies, tools, and metrics</p>
+</a>
+<a href="/tutorial-basics/ai" className="card-item">
+<h4>AI-Ready Documentation for Regulated Financial Platforms</h4>
+<p>Weaving AI into writing, review, and publishing workflows</p>
+</a>
+<a href="/tutorial-basics/api" className="card-item">
+<h4>API Documentation in the Age of AI</h4>
+<p>How to orchestrate AI into API docs without hallucinating endpoints</p>
+</a>
+<a href="/tutorial-basics/docs-as-code" className="card-item">
+<h4>Docs-as-Code</h4>
+<p>Making documentation move at the same speed as software</p>
+</a>
+<a href="/tutorial-basics/doctools" className="card-item">
+<h4>Doc Tools</h4>
+<p>Which tools to reach for and why</p>
+</a>
+<a href="/tutorial-basics/documentation-manager" className="card-item">
+<h4>Technical Documentation Manager</h4>
+<p>The role and responsibilities of a docs manager</p>
+</a>
+</div>

@@ -4,6 +4,11 @@ Agile:
   permalink: /agile
   description: Posts related to Agile and Scrum for Technical Documentation.
 
+api:
+  label: API Documentation
+  permalink: /api
+  description: Posts about API documentation, design, and developer experience.
+
 ai:
   label: AI
   permalink: /ai

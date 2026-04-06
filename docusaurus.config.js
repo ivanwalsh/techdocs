@@ -76,8 +76,24 @@ const config = {
 			  to: '/blog/tags/ai',
 			},
 			{
+			  label: 'API Documentation',
+			  to: '/tutorial-basics/api',
+			},
+			{
+			  label: 'FinTech',
+			  to: '/blog/tags/fintech',
+			},
+			{
+			  label: 'MCP',
+			  to: '/blog/tags/mcp',
+			},
+			{
 			  label: 'Publishing',
 			  to: '/blog/tags/publishing',
+			},
+			{
+			  label: 'Technical Writing',
+			  to: '/blog/tags/technical-writing',
 			},
 		  ],
 		},			

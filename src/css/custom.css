@@ -34,15 +34,15 @@ h1, h2, h3, h4, h5 {
     text-transform: none;
 }
 
-/* Underline body-content links so readers can see they're clickable.
+/* Style body-content links with blue color instead of underlines.
    Scoped to article/markdown content so navbar, sidebar, footer, and
    tag pills are left alone. */
 .markdown a,
 article a,
 .theme-doc-markdown a,
 .main-wrapper .container a[href] {
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
+    text-decoration: none;
+    color: #007C89;
 }
 
 .markdown a:hover,
@@ -50,7 +50,91 @@ article a:hover,
 .theme-doc-markdown a:hover,
 .main-wrapper .container a[href]:hover {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    color: #005F6B;
+}
+
+/* Footer styling */
+.footer {
+    background: #f5f5f7;
+    color: #495057;
+}
+
+.footer a {
+    color: #495057;
+}
+
+.footer a:hover {
+    color: #007C89;
+}
+
+[data-theme='dark'] .footer {
+    background: #1a1a2e;
+    color: #c9d1d9;
+}
+
+[data-theme='dark'] .footer a {
+    color: #c9d1d9;
+}
+
+[data-theme='dark'] .footer a:hover {
+    color: #29d5b0;
+}
+
+/* Card grid for Start Here section */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-item {
+    display: block;
+    background: #e8e9eb;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    text-decoration: none !important;
+    color: inherit !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-item:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.card-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+    color: #1a1a1a;
+}
+
+.card-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6e6e73;
+    line-height: 1.5;
+}
+
+[data-theme='dark'] .card-item {
+    background: #1a1a2e;
+}
+
+[data-theme='dark'] .card-item h4 {
+    color: #e6e6e6;
+}
+
+[data-theme='dark'] .card-item p {
+    color: #8b949e;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Keep navbar, sidebar, footer, pagination, breadcrumbs, and tag pills clean */
