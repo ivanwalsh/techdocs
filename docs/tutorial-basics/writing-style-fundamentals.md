@@ -1,5 +1,6 @@
 ---
 sidebar_position: 8
+description: Core technical writing principles — voice, tone, structure, and clarity — and the deliberate choices that make documentation effective for humans and AI systems.
 ---
 
 # Writing & Style Fundamentals

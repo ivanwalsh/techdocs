@@ -1,5 +1,6 @@
 ---
 sidebar_position: 6
+description: The role and responsibilities of a Technical Documentation Manager — leading teams, building workflows, and bridging complex technical information and end users.
 ---
 
 # Technical Documentation Manager

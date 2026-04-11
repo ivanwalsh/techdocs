@@ -1,0 +1,80 @@
+# robots.txt for ivanwalsh.com
+#
+# This site publishes AI-ready technical documentation. Training, retrieval,
+# and user-triggered fetches by AI crawlers are explicitly permitted. An
+# llms.txt discovery index is available at /llms.txt and the full content
+# bundle at /llms-full.txt.
+
+# ---------------------------------------------------------------------------
+# OpenAI
+# ---------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Anthropic
+# ---------------------------------------------------------------------------
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Perplexity
+# ---------------------------------------------------------------------------
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Google (Gemini / Vertex AI training opt-in)
+# ---------------------------------------------------------------------------
+User-agent: Google-Extended
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Apple Intelligence
+# ---------------------------------------------------------------------------
+User-agent: Applebot-Extended
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Meta (Llama)
+# ---------------------------------------------------------------------------
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Amazon
+# ---------------------------------------------------------------------------
+User-agent: Amazonbot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Common Crawl (used as a training corpus by many model providers)
+# ---------------------------------------------------------------------------
+User-agent: CCBot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Default — allow everything else (traditional search engines, etc.)
+# ---------------------------------------------------------------------------
+User-agent: *
+Allow: /
+
+Sitemap: https://ivanwalsh.com/sitemap.xml

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 11
+description: Using AI as a co-pilot inside a disciplined API docs workflow — where AI helps, where it is risky, and the guardrails that keep it accurate.
 ---
 
 # AI-Assisted API Documentation

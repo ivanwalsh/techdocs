@@ -1,0 +1,2069 @@
+# Ivan Walsh Technical Documentation — Full Content
+
+## About
+
+This file is the full-content companion to /llms.txt. It concatenates every tutorial and blog post on ivanwalsh.com as raw Markdown so AI agents can ingest the whole site in a single fetch. Follows the llms-full.txt convention of the llms.txt standard.
+
+Generated: 2026-04-11
+
+## Contents
+
+### Tutorials
+
+- AI-Ready Documentation for Regulated Financial Platforms: https://ivanwalsh.com/tutorial-basics/ai
+- Agile Technical Documentation: https://ivanwalsh.com/tutorial-basics/agile
+- API Documentation in the Age of AI: https://ivanwalsh.com/tutorial-basics/api
+- Docs-as-Code: https://ivanwalsh.com/tutorial-basics/docs-as-code
+- Doc Tools: https://ivanwalsh.com/tutorial-basics/doctools
+- Technical Documentation Manager: https://ivanwalsh.com/tutorial-basics/documentation-manager
+- Content Strategy: https://ivanwalsh.com/tutorial-basics/content-strategy
+- Writing & Style Fundamentals: https://ivanwalsh.com/tutorial-basics/writing-style-fundamentals
+- Documentation Metrics: https://ivanwalsh.com/tutorial-basics/documentation-metrics
+- LLM Optimization: https://ivanwalsh.com/tutorial-basics/llm-optimization
+- AI-Assisted API Documentation: https://ivanwalsh.com/tutorial-basics/ai-assisted-api-documentation
+- View as Markdown: https://ivanwalsh.com/tutorial-basics/view-as-markdown
+
+### Blog posts
+
+- MCP server documentation — the five things most teams get wrong: https://ivanwalsh.com/blog/mcp-documentation-mistakes
+- What Is an AI Model Card? A Plain-Language Guide for Technical Writers: https://ivanwalsh.com/blog/what-is-an-ai-model-card
+- LLM Knowledge Bases: https://ivanwalsh.com/blog/llm-knowledge-bases
+- What is an MCP server and why does it need documentation?: https://ivanwalsh.com/blog/what-is-an-mcp-server
+- Why I Added an llms.txt to My Documentation Site — and You Should Too: https://ivanwalsh.com/blog/why-i-added-llms-txt-to-my-docs-site
+- Using Antora to Manage Complex Technical Documentation Websites: https://ivanwalsh.com/blog/antora-setup
+- Getting Started with Agile for Technical Writers: https://ivanwalsh.com/blog/agile-tech-writing-getting-started
+- How to use Truth Tables for Technical Documentation: https://ivanwalsh.com/blog/truth-tables-technical-documentation
+- The Human Task: https://ivanwalsh.com/blog/human-task
+
+---
+
+# AI-Ready Documentation for Regulated Financial Platforms
+
+Source: https://ivanwalsh.com/tutorial-basics/ai
+
+# AI-Ready Documentation for Regulated Financial Platforms
+
+It's been about three years since I started using ChatGPT and other AI tools in my day-to-day writing workflow, and in that time my view of what a technical writer actually does has shifted quite a bit. I know it's a bit of a cliché, but I don't think AI will replace technical writers. What I do think is that technical writers will start using AI as part of their daily workflow — and the ones who don't will fall behind quickly. On this site, I try to show how I weave AI into how I edit, write, review, and publish tech docs.
+
+The model is not the product. The documentation around it is.
+
+When an AI system ships inside a regulated financial platform — a lending engine, a trading assistant, a KYC workflow, a fraud-scoring service — the model itself is rarely what trips a team up. What trips them up is everything that surrounds the model: the API contracts, the model cards, the audit trails, the retrieval corpus feeding the chatbot, the change log the regulator asks for six months later. That surrounding layer is documentation, and in a regulated environment it is not optional. It is the product.
+
+Most engineering teams I've worked with treat documentation as the last mile. In AI-for-fintech, I'd argue it's the first mile. It's the thing the compliance team reads before the model ever reaches production, the thing the RAG pipeline ingests to answer customer questions, and the thing an auditor will pull up two years from now to ask *why did this model deny this loan on this date?*
+
+## Why I think technical writers are critical to AI product delivery
+
+What I'm not seeing enough of in the IT industry are trends towards using technical writers as architects of the content layer that AI systems actually depend on. A technical writer who understands AI systems, regulated workflows, and docs-as-code tooling is the person who keeps all of this coherent. Not by writing prose at the end of a sprint, but by shaping the documentation architecture from day one — alongside the engineers, the model owners, the legal team, and the platform leads.
+
+In my own work, that role looks like this:
+
+- **Designing the documentation contract** between model teams, API teams, and compliance, so every model shipped has a model card with a regulatory audit trail, every endpoint has a spec a regulator can read, and every change is traceable.
+- **Structuring content so it's machine-readable first** — because the same documentation now has to feed a RAG system, a customer-facing chatbot, an internal MCP server, and a human reader, all from one source.
+- **Treating documentation as code** — versioned, linted, reviewed, tested in CI, deployed through a pipeline — so documentation moves at the same cadence as the software it describes.
+- **Owning the vocabulary** so that the term *"credit decision"* means the same thing in the API reference, the model card, the chatbot response, and the regulator's report.
+
+Without a writer doing this work, I see teams end up with a model that ships faster than its documentation, a RAG system grounded in stale PDFs, and a compliance narrative assembled in a panic the week before audit.
+
+## What I mean by AI-ready documentation
+
+For me, AI-ready documentation is documentation that a language model, a retrieval pipeline, a developer, and a regulator can all use without translation. In practice, that means:
+
+- **REST API references** generated from a single source of truth (OpenAPI), versioned alongside the service, and published on every merge.
+- **AI model cards** with dedicated sections for regulatory audit trails — training data lineage, evaluation methodology, known limitations, fairness assessments, version history, and the decisions made at each gate.
+- **RAG-ready content** chunked, tagged, and structured so a retrieval system grounds its answers in the right section, not a neighbouring paragraph from an unrelated product line.
+- **MCP server documentation** that describes the tools, schemas, and guardrails exposed to model clients, so the model connecting to your financial data knows what it can and cannot do.
+- **Chatbot-ready corpora** for customer-facing AI assistants, with governance applied at the content layer so the bot cannot fabricate a product feature or misstate a regulated term.
+
+## A working docs-as-code pipeline I maintain
+
+To show what this looks like in practice, I maintain a reference pipeline:
+
+**[github.com/ivanwalsh/ai-fintech-docs-pipeline](https://github.com/ivanwalsh/ai-fintech-docs-pipeline)**
+
+It's a docs-as-code pipeline for AI product documentation in regulated financial services. I built it to demonstrate how to structure, lint, version, and deploy technical documentation for AI financial products, including:
+
+- REST API references generated and validated in CI
+- AI model cards with regulatory audit trail sections
+- RAG-ready content for financial chatbot integrations
+- Linting and style enforcement at the pull-request level
+- Versioned publishing aligned to service releases
+
+It's opinionated, minimal, and built to be forked.
+
+## Where I'm spending my time right now
+
+- **MCP servers** — designing and documenting the tool layer that connects models to internal financial systems safely.
+- **RAG pipelines** — structuring source content so retrieval systems ground on the correct, current, and compliant version of the truth.
+- **AI chatbots for financial products** — shaping the knowledge base, guardrails, and evaluation harness so the bot is accurate, auditable, and on-brand.
+- **AI-powered technical documentation websites** — using AI to accelerate how I write, review, and publish, without surrendering the editorial standards a regulated platform requires.
+
+## Get in touch
+
+If you're shipping an AI product into a regulated financial environment and your documentation isn't yet treated as a first-class deliverable, in my experience that's usually the cheapest problem to fix and the most expensive one to ignore. I help teams fix it.
+
+- GitHub: [github.com/ivanwalsh](https://github.com/ivanwalsh)
+- LinkedIn: [linkedin.com/in/ivanwalsh](https://www.linkedin.com/in/ivanwalsh/)
+
+---
+
+# Agile Technical Documentation
+
+Source: https://ivanwalsh.com/tutorial-basics/agile
+
+# Agile Technical Documentation
+
+I've been running technical documentation teams inside Agile delivery for longer than I've been using AI tools, and if I'm honest, the two go hand in hand now. Agile gave me the cadence. AI gave me the throughput. What I'm going to walk through here is how I actually run a remote tech docs team inside a Scrum setup — the ceremonies I keep, the tools I use, and the metrics I care about.
+
+## Running a remote tech docs team
+
+Most of the teams I've managed in the last few years have been fully remote, often across three or four time zones. That setup breaks quickly if you try to run it with ad-hoc chat and goodwill, so I treat the Agile ceremonies as the scaffolding that holds everything else together. The writers know what they're doing today, what they're doing this sprint, and how their work lines up against the engineering deliverables. Without that, remote docs teams drift.
+
+I've also learned not to over-ceremonialise. My rule of thumb is: if a meeting isn't producing a decision, a hand-off, or a blocker being removed, I kill it. Writers are doing deep work, and deep work and status meetings are natural enemies.
+
+## Daily standups
+
+I keep standups to 15 minutes, hard stop. Each writer answers the same three questions — what I finished yesterday, what I'm working on today, what's blocking me. I run them async on the days where time zones make a live call painful (usually a short thread in Slack or Teams), and live on the days the team is overlapping.
+
+The thing I pay attention to in standups is not the *yesterday/today* — I can see that in Jira. What I'm listening for is the *blocker*. Nine times out of ten, the blocker is that engineering hasn't merged something, or a product manager owes the writer a decision, or an API hasn't stabilised. My job in the standup is to clear that blocker before the end of the day. If I can't, I escalate it.
+
+## Sprint planning sessions
+
+I plan docs sprints on the same cadence as the engineering sprints the docs are supporting — usually two weeks. In planning I walk the team through the engineering backlog for the upcoming sprint, and together we identify which stories have a documentation deliverable attached. Every engineering story that ships customer-visible behaviour gets a linked docs ticket. No exceptions.
+
+I estimate docs work in story points, not hours. I know that's debated, but in my experience points force the team to think about relative complexity — a tricky API reference is a bigger piece of work than a longer but routine how-to guide, and hours hide that. Over time, I build up a velocity baseline for the team and for each writer, and that's what I use to forecast.
+
+## Retrospectives
+
+I run retros every sprint, 45 minutes, and I protect them. I've learned the hard way that the retro is the only ceremony where the team gets to tell me the process is broken, so I don't skip it, even when the sprint has been clean.
+
+The format I use is simple: what worked, what didn't, what we're going to change next sprint. I cap the "change" list at two items per retro. Any more than that and nothing actually changes.
+
+## Kanban and Jira for tracking sprints
+
+I run the docs board in Jira (or whatever the engineering team is already using — I'd rather be in the same tool than in a separate one). The columns I keep are: Backlog, Ready for Draft, Drafting, In Review, Ready to Publish, Published. Every docs ticket is linked to the engineering story or epic it supports, so I can trace a published page back to the feature that triggered it and forward to the release it shipped in.
+
+For pieces of work that don't fit the sprint rhythm — long-form guides, information architecture projects, style guide work — I run a parallel Kanban board with WIP limits. Sprint work and continuous work have different shapes, and pretending they don't just frustrates the writers.
+
+## Keeping docs aligned to software deliverables
+
+This is the part I care about most. The question I ask at every sprint review is: *did the docs ship with the software, or did the docs ship after?* If the docs shipped after, that's a process failure, and I want to know why.
+
+The way I keep them aligned:
+
+- Every engineering story with customer-visible behaviour has a linked docs ticket, created in planning, not after the fact.
+- Writers are invited to engineering refinement sessions, not as observers but as participants — if the writer can't explain the feature in plain English in refinement, the story isn't ready.
+- Docs tickets follow the same Definition of Done as engineering tickets: reviewed, merged, deployed. A docs ticket is not done when the draft is written. It's done when the content is live.
+- Release notes are drafted incrementally across the sprint, not assembled in a panic on release day.
+
+## Monitoring throughput — the part I really care about
+
+This is where the Agile data pays for itself. I use the sprint data — Jira history, cycle times, points completed, review turnaround — to monitor the throughput of the writers and the health of the team. Not to micromanage individuals, but to spot patterns before they become problems.
+
+The metrics I actually look at:
+
+- **Velocity per writer and per team** — trending over the last six sprints, not a single number. I'm looking for drift, not absolutes.
+- **Cycle time from Drafting to Published** — if this is creeping up, the bottleneck is almost always in review, and I need to fix the review process.
+- **Review turnaround time** — how long a docs PR sits waiting for SME or editorial review. This is usually my single biggest lever.
+- **Ratio of planned vs. unplanned work** — if more than 20% of a sprint is unplanned, the intake process is broken.
+- **Docs-to-engineering ship alignment** — the percentage of engineering stories in a release that shipped with their docs live on the same day. This is the number I report upward.
+
+I treat this data the way an engineering manager treats DORA metrics: as a conversation starter, not a performance review. When a writer's cycle time spikes, I don't assume they're slow. I assume they're blocked, and I go find the blocker.
+
+## Where Agile, AI, and docs-as-code meet
+
+The reason I combine all of this — Agile ceremonies, Jira data, docs-as-code pipelines, and AI tools — is that each one compensates for the weakness of the others. Agile gives me cadence and visibility. Docs-as-code gives me the same velocity as engineering. AI gives each writer leverage on the draft-edit-review loop. And the throughput data tells me whether any of it is actually working.
+
+If you want to see how I put the technical side of this together — the pipeline, the linting, the CI, the publishing — that's over on the [AI page](./ai.md) and in the reference repo: [github.com/ivanwalsh/ai-fintech-docs-pipeline](https://github.com/ivanwalsh/ai-fintech-docs-pipeline).
+
+---
+
+# API Documentation in the Age of AI
+
+Source: https://ivanwalsh.com/tutorial-basics/api
+
+# API Documentation in the Age of AI
+
+*Should you be using AI to write your API documentation?*
+
+My honest answer is: yes, but not the way most people are doing it. The teams I see getting value from AI on API docs are the ones who treat it as a co-pilot inside a carefully orchestrated pipeline. The teams getting burned are the ones who hand an LLM a half-finished OpenAPI spec and ask it to "just write the docs." That's the shortcut that produces hallucinated endpoints, invented parameters, and a reference that looks polished and is quietly wrong in ways a developer will only discover at 2am on a Saturday.
+
+So this page isn't really about *whether* to use AI for API docs. It's about **how I use it**, where I put the guardrails, and why I keep a human in the loop at every step.
+
+## What I've learned the hard way
+
+The first time I let an LLM loose on a Swagger / OpenAPI spec without enough guardrails, it confidently documented three endpoints that did not exist. They looked plausible. The paths were sensible. The request bodies had the right shape. A reviewer skimming the PR would have merged it. That was the moment I stopped thinking of AI as a writer and started thinking of it as an *unreliable but fast colleague* — extremely helpful, but one whose output I verify before it goes anywhere near a developer.
+
+Since then, I've built my API documentation process around a handful of rules I don't break.
+
+## The four types of API documentation I care about
+
+Before I talk about AI, it's worth being clear about what I'm actually producing. When I say "API documentation" I mean four distinct deliverables, each with a different audience and a different failure mode:
+
+- **Reference documentation** — the contract. Endpoints, parameters, request and response shapes, error codes, auth. This has to be exact. An error here breaks integrations.
+- **Tutorials** — the onboarding path. A new developer should be able to go from zero to a working call in under ten minutes.
+- **Examples** — real request/response pairs, in context, against a known state.
+- **Code samples** — runnable snippets in the languages your consumers actually use.
+
+Each of these has a different relationship with AI. The reference needs the tightest guardrails. The tutorials benefit most from AI drafting. Examples sit in the middle.
+
+## How I orchestrate AI into the API docs process
+
+This is the workflow I've landed on after a lot of iteration. It's deliberately boring, and that's the point.
+
+### 1. The OpenAPI spec is the source of truth — not the LLM
+
+I never let the LLM invent the contract. The OpenAPI spec is generated from the code, or hand-authored and validated in CI, and it is the single source of truth for what endpoints exist, what parameters they accept, and what they return. Every piece of reference documentation is generated *from* the spec or *grounded in* the spec. If the LLM wants to describe an endpoint, it has to be given the spec's definition of that endpoint and told to describe it — never to invent it.
+
+### 2. Retrieval, not recall
+
+When I use an LLM to draft or refine reference content, I ground it in the actual spec file via retrieval. The model doesn't get to rely on its training data's memory of "what a typical /users endpoint looks like." It gets the exact definition of *this* endpoint, for *this* service, at *this* version, and it writes against that. This one change eliminates most hallucinated endpoints on its own.
+
+### 3. Strict prompting with explicit "do not invent" constraints
+
+My drafting prompts include explicit instructions: *do not describe parameters not present in the spec; do not invent status codes; if information is missing, say so and stop*. I'd rather the model refuse to answer than fill a gap with a plausible-sounding fiction. Saying "I don't know" is a feature, not a failure.
+
+### 4. Linting the spec before the LLM ever sees it
+
+Before AI touches anything, the OpenAPI spec is linted — Spectral rules for naming, required fields, description completeness, example presence. If the spec is malformed, the docs will be malformed. Garbage in, polished garbage out.
+
+### 5. Human-in-the-loop review at every gate
+
+This is the one I won't compromise on. Every LLM-generated or LLM-refined section goes through a human reviewer before it ships. For reference docs, that reviewer is either the engineer who owns the endpoint or a writer who has verified the behaviour against a live call. No AI-generated content reaches production unreviewed. Ever.
+
+### 6. Automated verification where I can get it
+
+For the parts of the process I can automate, I do. Examples are executed against a sandbox and the responses compared to what the docs claim. Code samples are compiled and run in CI. If a sample breaks, the build breaks. This catches a whole class of errors that humans skim over.
+
+### 7. Change traceability
+
+Every docs change is tied to a spec change, a PR, and a reviewer. When a regulator or a partner team asks *why does this endpoint's documentation say X?*, I can answer in thirty seconds.
+
+## What goes wrong when you skip the guardrails
+
+I've seen all of these in the wild, several of them on my own projects before I tightened the process:
+
+- **Invented endpoints** — the LLM generates documentation for a plausible-sounding path that does not exist in the service.
+- **Invented parameters** — an endpoint that takes three fields is documented as taking five, because the model "knows" what a typical request of this kind looks like.
+- **Drifted status codes** — the docs claim 404 on a condition the service actually returns 409 for.
+- **Silent version drift** — the docs describe v2 behaviour but the spec has moved to v3 and no one notices because the prose still reads well.
+- **Confident wrong examples** — request/response pairs that look right but would never round-trip against the real service.
+
+Each of these is a trust failure. API documentation is a contract, and a contract that lies is worse than no contract at all. Developers who get burned once stop trusting the docs, and once that trust is gone, the docs are a liability rather than an asset.
+
+## Why the human in the loop isn't optional
+
+I lean on AI heavily in my API docs process. It drafts, it refines, it rewrites tutorials into better prose, it generates code samples across languages, it catches inconsistencies I'd miss. But I never ship AI output unreviewed, and I never let the model be the final authority on what's true about the API.
+
+The human in the loop is the person who says: *I called this endpoint. I saw this response. This documentation matches reality.* No LLM can do that, and pretending otherwise is how trust breaks.
+
+## Tying it back to the pipeline
+
+If you want to see how this fits into a broader docs-as-code workflow — the linting, the CI, the publishing, the model cards — the reference pipeline is over here: [github.com/ivanwalsh/ai-fintech-docs-pipeline](https://github.com/ivanwalsh/ai-fintech-docs-pipeline). It shows how I wire OpenAPI specs, AI-assisted drafting, and human review into a single pipeline that moves at the speed of the engineering team without sacrificing accuracy.
+
+AI is a genuine force multiplier on API documentation. It just isn't a substitute for the process around it.
+
+---
+
+# Docs-as-Code
+
+Source: https://ivanwalsh.com/tutorial-basics/docs-as-code
+
+# Docs-as-Code
+
+*What would it look like if your documentation moved at the same speed as your software?*
+
+That's the question docs-as-code is really trying to answer. Everything else — the Markdown, the Git repos, the CI pipelines, the pull requests — is just the plumbing. For me, docs-as-code isn't a toolchain. It's a working assumption: **documentation is a deliverable of the engineering process, not a separate thing that happens afterwards.**
+
+The industry definitions make the same point:
+
+> "Documentation as code is the process of creating and maintaining documentation using the same tools that you use to code."
+> — [Gitbook](https://www.gitbook.com/blog/what-is-docs-as-code)
+
+> "Documentation as Code (Docs as Code) refers to a philosophy that you should be writing documentation with the same tools as code."
+> — [Write The Docs](https://www.writethedocs.org/guide/docs-as-code/)
+
+I'd add one thing to those definitions: same *tools* is the easy part. Same *cadence, standards, and accountability* is the part that actually matters.
+
+## Why I moved to docs-as-code
+
+I spent years working in Word docs, wikis, and legacy CMS platforms where the documentation lived in a different universe from the code it described. Versions drifted. Reviews were optional. A new release would ship and the docs would catch up a week later, or not at all.
+
+Docs-as-code fixed that problem for me, not because Markdown is magical, but because it puts documentation into the same pipeline that engineers already trust. When a writer opens a pull request, it's reviewed like any other PR. When a build fails because a link is broken or a code sample doesn't compile, it blocks the release the same way a failing unit test would. The documentation stops being optional.
+
+## What I mean by docs-as-code in practice
+
+When I set up a docs-as-code workflow for a team, these are the pieces I put in place:
+
+- **Markdown (or MDX) as the source format** — plain text, diff-able, reviewable, portable. No proprietary binary formats.
+- **Git as the system of record** — every docs change is a commit, with an author, a message, and a history. Every change is traceable.
+- **Pull requests for every change** — no direct pushes to main. A writer's PR is reviewed by an SME or a peer writer, the same way a developer's PR is reviewed.
+- **CI pipelines that lint, test, and build the docs** — style linting, broken-link checking, spell-checking, spec validation, sample compilation. If it can be checked automatically, it is.
+- **Automated publishing** — merges to main deploy the site. No manual "publish" button, no staging drift.
+- **Versioning aligned to the product** — docs branches and tags track the releases of the software they describe.
+- **A static site generator at the top** — Docusaurus, in my case, but Hugo, MkDocs, and others work fine. The generator is the cheapest piece of the stack.
+
+## The parts I care about most
+
+Most people write about docs-as-code as a tooling story. I don't think that's the interesting part. The interesting part is what it changes about how writers work.
+
+### Writers in the same repo as engineers
+
+When the writers are in the same repo, they see the commits. They see the tickets. They see the PRs. They stop being consumers of engineering output and start being participants in the engineering process. On my teams, writers are expected to read the engineering PRs that affect their docs, and engineers are expected to review the docs PRs that describe their features.
+
+### The Definition of Done includes docs
+
+A feature isn't done when the code is merged. It's done when the docs are live, reviewed, and accurate. That's the single biggest cultural shift docs-as-code enables, and it's the one that most teams get wrong. If your sprint review celebrates shipped features with missing documentation, you don't have docs-as-code. You have Markdown in Git.
+
+### Review is the quality gate
+
+In a docs-as-code workflow, the pull request is where quality actually happens. I treat the docs review the way an engineering lead treats a code review: with standards, with pushback, and with a willingness to request changes. An unreviewed docs PR is a liability.
+
+### CI catches what humans miss
+
+I lean heavily on automated checks. Style linting (Vale), spell-checking, broken-link detection, OpenAPI validation, example execution, code sample compilation. Anything a machine can catch cheaply, I get a machine to catch, so the human review can focus on the things only a human can judge — clarity, accuracy, narrative, tone.
+
+## Where docs-as-code meets AI
+
+This is where the story gets interesting for me right now. A docs-as-code pipeline is the ideal substrate for AI-assisted writing, because everything is text, everything is in Git, and everything is reviewable.
+
+In a docs-as-code workflow, I can have an LLM draft a section, open a PR with the draft, run it through the same linting and review as any human PR, and either merge or reject based on the same standards. The AI is just another contributor, held to the same bar.
+
+Without docs-as-code, you can't do that cleanly. The AI output has nowhere to land, no review gate, no audit trail. Docs-as-code is what makes AI-assisted documentation safe.
+
+## Where teams get stuck
+
+The failures I see most often are not technical. They are organisational:
+
+- **Writers who aren't comfortable in Git** — fixable with training, but you have to actually invest in the training.
+- **Engineers who refuse to review docs PRs** — fatal if the team lead doesn't enforce it.
+- **A Definition of Done that quietly excludes docs** — the silent killer of every docs-as-code initiative I've seen.
+- **Tooling chosen before workflow is agreed** — teams pick Docusaurus or MkDocs and then try to retrofit a process around it. I do it the other way around.
+
+## Tying it back to the pipeline
+
+If you want to see a working docs-as-code pipeline end-to-end — including the OpenAPI validation, AI model cards, RAG-ready content, and CI publishing — that's what the reference repo is for: [github.com/ivanwalsh/ai-fintech-docs-pipeline](https://github.com/ivanwalsh/ai-fintech-docs-pipeline).
+
+Docs-as-code is what lets my documentation move at the cadence of the engineering team, pass the same quality gates, and stay honest over time. Everything else I do — AI-assisted drafting, Agile sprint alignment, throughput monitoring — rides on top of it.
+
+---
+
+# Doc Tools
+
+Source: https://ivanwalsh.com/tutorial-basics/doctools
+
+# Doc Tools
+
+*Which tools do I actually reach for when I'm writing technical docs for AI and banking projects — and why those, not the hundred alternatives?*
+
+I've been asked this enough times that it's worth writing down. The short version: I pick tools that are trusted inside regulated engineering teams, that fit a docs-as-code pipeline, and that I can defend to a compliance reviewer without flinching. The long version is this page.
+
+Below is the working set. Each one earns its place for a specific reason, and I'll explain where each fits, what it's good at, and what I watch for in the market around it.
+
+## The tools I use, at a glance
+
+| Tool | What I use it for | Why it's in my stack |
+|---|---|---|
+| **LangChain** | Orchestrating RAG pipelines, chaining LLM calls, connecting models to internal knowledge bases | The de-facto framework for production LLM apps — structures my RAG and agent prototypes in code my engineers already read |
+| **Claude** | Drafting, editing, reviewing docs; analysing OpenAPI specs; generating code samples | Long context windows, strong instruction-following, and conservative hallucination profile for regulated content |
+| **Markdown** | Source format for all documentation | Plain text, diff-able, reviewable, portable across every toolchain I've ever touched |
+| **Git / GitHub / GitHub Actions** | Version control, PR-based review, CI for linting, link-checking, spec validation, publishing | The backbone of docs-as-code — the same pipeline engineers already trust |
+| **OpenAPI / Swagger / Postman** | API contract definition, validation, interactive testing, reference doc generation | A single source of truth for the API contract that humans, tools, and LLMs can all consume |
+| **Docusaurus** | Static site generator for public docs, internal handbooks, reference pipelines | MDX support, versioning, fast builds, and a sane React-based customisation path. This site is createde with Docusaurus |
+| **Confluence / Jira** | Design docs, brainstorming notes, internal wikis; ticket-linked docs work | As this is where non-engineering stakeholders typically live, I track and update docs in here |
+| **Adobe RoboHelp** | Legacy help systems, context-sensitive help, regulated enterprise content still published as PDF/HTML5 | Popular in banking and enterprise environments. Madcap Flare is also very good |
+
+## Why these, specifically, for AI and banking work
+
+AI and financial services sit at a strange intersection. AI projects move fast and generate a lot of machine-consumable content (specs, model cards, RAG). Banking projects move carefully and require SOC2 audit trails, traceability, and tools that compliance teams have already blessed. The tools I use have to satisfy both sides.
+
+Here's how each one earns that:
+
+| Tool | AI project fit | Banking project fit |
+|---|---|---|
+| **LangChain** | Directly used to build the RAG and agent systems I'm documenting | Helps me understand the architecture I'm writing about, so the docs are accurate |
+| **Claude** | Drafts model cards, refines tutorials, generates reference material from specs | Strong at following strict prompts for regulated content |
+| **Markdown** | Ingestible by every RAG pipeline I've built | Diff-able for audit trails; no proprietary binary formats to lock content away |
+| **Git / GitHub Actions** | Every AI-drafted change is a PR with a human reviewer, ie the review gate | Change traceability from commit to reviewer to deployed page for compliance |
+| **OpenAPI / Swagger / Postman** | Specs are retrieval-grounded so LLMs describe real endpoints, not invented ones. For instance, you give Claude your actual OpenAPI spec file first, then say: "Describe the /payments endpoint exactly as defined in this spec. Don't add anything that isn't here."
+Claude then  writes from the real contract — the real parameters, the real status codes, the real response shape. | Regulators can read the spec; engineers can test it; it's the contract |
+| **Docusaurus** | Fast iteration, MDX for embedding live examples, easy to theme | Versioned publishing aligned to service releases; static output for secure hosting |
+| **Confluence / Jira** | Where Product and Devs document decisions | Where compliance, legal, and risk teams read the outputs |
+| **Adobe RoboHelp** | Rarely the right tool for AI work | Still required by some banks for in-application help and PDF output |
+
+## Where the market is heading — and why I'm watching it
+
+| Tool | Market trend (what I'm watching) | What it means for my practice |
+|---|---|---|
+| **LangChain** | Maturing from prototype glue to production orchestration; competition from LlamaIndex, LangGraph, and native provider SDKs | I treat it as one option, not the default — I'll pick the lightest framework that solves the problem |
+| **Claude** | Growing adoption in regulated industries; longer context, stronger tool use, better reasoning | My primary drafting model for fintech work; I re-evaluate the model landscape every quarter |
+| **Markdown** | Expanding through MDX, CommonMark, and semantic extensions | Safe long-term bet — whatever comes next will import Markdown |
+| **Git / GitHub / GitHub Actions** | Copilot and AI review tools landing directly in the PR flow | My review pipeline is starting to include AI-assisted checks as well as human ones |
+| **OpenAPI / Swagger / Postman** | OpenAPI 3.1 consolidation; AsyncAPI for event-driven systems; Postman leaning into AI-generated tests | I keep specs OpenAPI 3.1-clean so downstream tools (and LLMs) don't choke on legacy syntax |
+| **Docusaurus** | Strong momentum for public docs; competition from Mintlify, Nextra, Starlight | I stay on Docusaurus because versioning and MDX are mature |
+| **Confluence / Jira** | Atlassian leaning hard into AI (Rovo, Atlassian Intelligence) | Useful for stakeholder-facing content; I keep source-of-truth in Git, not Confluence |
+| **Adobe RoboHelp** | Declining in new projects; still entrenched in regulated enterprise | I maintain the skill but don't recommend it for greenfield work |
+
+## How these fit together in a pipeline
+
+The tools aren't a shopping list. They compose:
+
+- **OpenAPI / Swagger** defines the contract. **Postman** tests it. A **GitHub Actions** workflow lints the spec in CI.
+- **Claude** drafts the reference prose, grounded in the spec via retrieval — often orchestrated through **LangChain** during prototyping.
+- The draft lands as **Markdown** in a **GitHub** pull request. A human reviewer approves or rejects it.
+- On merge, **GitHub Actions** builds the **Docusaurus** site and publishes it.
+- Stakeholder-facing summaries and tickets live in **Confluence / Jira**, linked back to the Git-managed source.
+- Where a legacy banking product still requires CHM or context-sensitive help, **Adobe RoboHelp** handles the output format while the source stays in Markdown.
+
+That's the actual working pipeline — not a theoretical one. It's what I build for teams who need AI-assisted throughput without losing the audit trail.
+
+## What I don't use, and why
+
+Briefly, because it comes up:
+
+- **Monolithic CCMS platforms** for greenfield AI work — too heavy, too closed, and poor fit for docs-as-code.
+- **Wiki-only workflows** as the system of record — no review gate, no versioning, no CI.
+- **Hand-rolled static site generators** when Docusaurus already solves the problem.
+
+The stack above is deliberately conservative. In regulated environments, boring and traceable beats clever and novel every time.
+
+## Tying it back to the pipeline
+
+If you want to see how these tools compose end-to-end — the linting, the CI, the publishing, the model cards — that's what the reference repo is for: [github.com/ivanwalsh/ai-fintech-docs-pipeline](https://github.com/ivanwalsh/ai-fintech-docs-pipeline).
+
+---
+
+# Technical Documentation Manager
+
+Source: https://ivanwalsh.com/tutorial-basics/documentation-manager
+
+# Technical Documentation Manager
+
+Discussions about the role of a Technical Documentation Manager.
+
+## What is a Technical Documentation Manager?
+
+A Technical Documentation Manager plays a pivotal role in ensuring that an organization's technical documentation is accurate, accessible, and user-friendly. 
+
+This role oversees the creation, maintenance, and distribution of documentation that supports products, services, and internal processes. They collaborate closely with cross-functional teams, including developers, product managers, and support staff, to ensure that documentation aligns with product features, user needs, and business goals. The manager is responsible for implementing efficient documentation workflows, adopting modern tools and methodologies (such as docs-as-code and Agile practices), and ensuring that content is consistently updated to reflect the latest product changes. Their leadership ensures that documentation not only reduces support costs but also enhances the user experience and strengthens the brand.
+
+In addition to managing content, a Technical Documentation Manager is often tasked with building and mentoring a team of technical writers. They focus on fostering a culture of continuous improvement, encouraging innovation in documentation practices, and leveraging data and user feedback to refine content. By staying abreast of industry trends, such as AI-driven documentation platforms and automated publishing systems, they ensure that the organization remains at the forefront of technical communication. 
+
+Ultimately, their work bridges the gap between complex technical information and end-users, empowering customers to effectively use products while supporting the organization's strategic objectives.
+
+---
+
+# Content Strategy
+
+Source: https://ivanwalsh.com/tutorial-basics/content-strategy
+
+# Content Strategy
+
+Documentation without structure is just scattered information. A content strategy ensures your documentation provides a coherent, discoverable path for users to find exactly what they need when they need it.
+
+## What is a content strategy?
+
+A content strategy is the deliberate plan for how you organize, structure, and connect your documentation to serve specific user needs. It answers questions like: Where does a new user start? What's the fastest path to productivity? How do users navigate from learning basics to solving advanced problems? How do different content types (tutorials, references, how-tos) support the user journey?
+
+Without a strategy, you end up with a sprawling collection of pages where users spend more time searching than learning.
+
+## The core principles
+
+**User journey mapping** — Document the paths users actually follow, not the paths you think they should take. A new developer's journey differs from an operations engineer's journey. Your structure should serve both.
+
+**Discoverability through hierarchy** — Organize content in meaningful categories with clear progression. Deep nesting frustrates users; flat structures confuse them. Balance is key.
+
+**Content types, not topic buckets** — Don't just organize by subject area. Create separate lanes for tutorials (guided learning), how-to guides (task-based), references (contract documentation), and explanations (conceptual). Each serves a different cognitive need.
+
+**Consistent navigation patterns** — Once users understand how to move through one section, they should understand how to move through any section. Predictability reduces cognitive load.
+
+## Why it matters for AI-ready documentation
+
+When you're making documentation AI-consumable—through llms.txt, semantic search, or RAG pipelines—structure becomes even more critical. An LLM retrieval system returns snippets. If those snippets aren't nested in clear context, the model hallucinates connections that don't exist. When your content has explicit structure, RAG systems can surface not just matching text, but the surrounding context that makes that text meaningful.
+
+A strong content strategy is the foundation. Everything else—tooling, AI integration, metrics—depends on it.
+
+## Next steps
+
+Audit your current documentation through a user's eyes. What content serves which journeys? Where do users get lost? What structure would make discoverability better?
+
+---
+
+# Writing & Style Fundamentals
+
+Source: https://ivanwalsh.com/tutorial-basics/writing-style-fundamentals
+
+# Writing & Style Fundamentals
+
+Good documentation isn't mysterious. It follows deliberate choices about voice, tone, structure, and clarity. Master the fundamentals, and everything else becomes easier—whether you're writing for APIs, regulated systems, or AI systems.
+
+## What makes technical writing effective?
+
+Technical writing isn't literary writing. Its job is to transfer knowledge efficiently from the writer to the reader. That means clarity is non-negotiable. Elegance comes second.
+
+**Clarity means:** No ambiguity. No hidden assumptions. No cargo-cult explanations. If your reader can misunderstand you, they will.
+
+**Efficiency means:** Every sentence earns its place. Remove filler. Cut jargon unless it's necessary and defined. Lead with the most important information.
+
+**Accuracy means:** Your documentation is a contract. If it's wrong, it breaks trust immediately. Treat every technical claim as provable.
+
+## Core principles
+
+**Active voice** — Use the active voice. "The system writes the log file" beats "The log file is written by the system." Active voice clarifies who is doing what.
+
+**Short sentences** — One idea per sentence. Long sentences force readers to backtrack and reparse. Short sentences move them forward.
+
+**Define on first use** — Don't assume readers know your acronyms, jargon, or terminology. Define it the first time it appears, then use it consistently.
+
+**Show, then tell** — Examples before explanation. A reader skimming your documentation should grasp the idea from the example before reading the explanation. If your explanation adds nothing to the example, remove it.
+
+**Consistent terminology** — If it's "user," don't later call it "developer" or "client" in a way that creates ambiguity. One concept, one term. Build a glossary and stick to it.
+
+## Voice and tone
+
+**Voice** is your personality: how you express ideas. Do you sound conversational or formal? Playful or serious?
+
+**Tone** is your attitude about the subject: Are you explaining with confidence? Humility? Urgency?
+
+Choose both deliberately. Technical documentation usually works better with a calm, confident, helpful voice—like a knowledgeable colleague explaining something clearly, not a textbook droning facts or a marketer overselling.
+
+## The disciplined approach
+
+The fundamentals apply everywhere: API docs, user guides, release notes, architecture documentation. Master them, and your writing becomes a reliable tool for teaching. Skip them, and all the AI tooling in the world won't save you.
+
+---
+
+# Documentation Metrics
+
+Source: https://ivanwalsh.com/tutorial-basics/documentation-metrics
+
+# Documentation Metrics
+
+Documentation exists to serve users. If you're not measuring whether it's actually working, you're flying blind.
+
+## Why measure documentation?
+
+It's tempting to treat documentation as a "set it and forget it" deliverable. Ship the docs, move to the next feature. But like any tool, documentation degrades silently. Pages go out of date. API examples break. Users stop finding what they need and start asking support questions that documentation should have answered.
+
+Measurement tells you where the gaps are and whether your effort is actually moving the needle.
+
+## What to measure
+
+**Discovery metrics** — Can users find what they're looking for?
+- Search query patterns: What are users searching for? Are they finding answers or bouncing?
+- Time-to-answer: How many clicks before a user finds the relevant page?
+- Search zero-results: Are searches returning nothing? That's a content gap.
+
+**Engagement metrics** — Are users actually reading?
+- Page view counts and traffic patterns: Which pages get traffic? Which collect dust?
+- Bounce rate: Readers arriving and leaving immediately suggest the page doesn't match their need.
+- Time on page: Are readers staying long enough to learn, or leaving in frustration?
+
+**Outcome metrics** — Is documentation reducing friction?
+- Support ticket volume by category: Do docs reduce "how do I..." tickets?
+- Feature adoption rates: Do new features with good docs get adopted faster?
+- User satisfaction: Direct feedback—do users feel the docs helped?
+
+**Freshness metrics** — Is documentation aging gracefully?
+- Last updated timestamps: Flagging docs that haven't been reviewed in 6+ months.
+- Breaking change tracking: Which docs reference deprecated APIs?
+
+## How to implement measurement
+
+Start simple. Add tracking to your documentation site (Google Analytics is a baseline). Track what users search for and which pages they visit. Correlate doc changes with support volume changes.
+
+Don't wait for perfect data. Incremental measurement beats no measurement.
+
+## Using metrics to iterate
+
+Measurement only matters if you act on it. High bounce rate on a page? Rewrite it. Heavy search volume for a topic with no doc? Create one. Metrics tell you where to invest next.
+
+Documentation metrics aren't optional—they're the only honest way to know if your work is actually helping.
+
+---
+
+# LLM Optimization
+
+Source: https://ivanwalsh.com/tutorial-basics/llm-optimization
+
+# LLM Optimization
+
+As documentation becomes AI-consumable, how you structure and format information fundamentally changes. LLM optimization is the discipline of making documentation work better for machine reading without sacrificing human readability.
+
+## Why documentation needs AI optimization
+
+Language models retrieve and reason about documentation differently than humans do. A human reads your page top-to-bottom, building context as they go. An LLM retrieval system might grab a snippet from the middle, strip it of context, and ask the model to make sense of it. If your documentation wasn't written with that extraction in mind, the model hallucinates connections or misses nuance.
+
+AI-ready documentation is intentional about structure, context, and clarity in ways that serve both human and machine readers.
+
+## The llms.txt standard
+
+`llms.txt` is a simple format for exposing documentation to LLMs in a structured way. It's like `robots.txt` for language models—a manifest file that tells retrieval systems what your documentation contains, how it's organized, and what context matters.
+
+A well-structured `llms.txt` file includes:
+- Clear hierarchical organization of documentation topics
+- Priority indicators for what matters most
+- Boundaries around what shouldn't be in LLM context (legal disclaimers, outdated content)
+- Links to the authoritative source for each section
+
+The format is human-readable and simple to maintain. It's not a replacement for good documentation structure—it's a layer on top that makes that structure explicit to AI systems.
+
+## AI context quality
+
+LLM hallucinations often stem from poor context. The model is asked to reason about something, given insufficient or contradictory information, and fills the gap with plausible-sounding fiction.
+
+Optimize for context quality by:
+- Making dependencies explicit: "This API requires authentication (see: Auth Guide)"
+- Providing examples alongside explanations
+- Using consistent terminology throughout
+- Flagging assumptions: "This assumes you've set up the development environment"
+- Providing version clarity: "This applies to API v3. For v2, see..."
+
+## Reducing hallucination
+
+Hallucinations decrease when you:
+1. Ground documentation in source of truth (specs, actual code)
+2. Provide explicit constraints in the context ("Only document endpoints present in the OpenAPI spec")
+3. Use structured data where possible (JSON, YAML, tables)
+4. Create clear boundaries around what is known vs. what requires inference
+
+The goal: an LLM processing your documentation should have enough context to explain it accurately, with visible gaps if information is missing.
+
+---
+
+# AI-Assisted API Documentation
+
+Source: https://ivanwalsh.com/tutorial-basics/ai-assisted-api-documentation
+
+# AI-Assisted API Documentation
+
+AI is a powerful tool for API documentation. It's also a source of hallucinated endpoints, invented parameters, and quietly wrong examples. The difference between these outcomes is process.
+
+## The opportunity
+
+API documentation is repetitive and specification-driven. An LLM, given the right constraints and context, can:
+- Draft tutorial content quickly
+- Generate code samples across multiple languages
+- Refactor prose for consistency and clarity
+- Create examples from OpenAPI specs
+- Flag inconsistencies between the spec and the documentation
+
+These are multiplier activities. AI handles the mechanical work; humans focus on accuracy and nuance.
+
+## The constraint: guardrails are non-negotiable
+
+AI output on API docs requires guardrails at every step. The OpenAPI spec is your source of truth. The LLM is a drafting tool, not a decision-maker.
+
+**Core rule:** If the LLM is describing an endpoint, it must be given the exact specification of that endpoint from the OpenAPI spec. It should never be allowed to invent endpoints, parameters, or status codes from training data memory.
+
+**Practical implementation:**
+1. Lint the OpenAPI spec before the LLM ever sees it (Spectral or similar)
+2. Provide the exact spec as context, never abstract descriptions
+3. Use strict prompts with explicit "do not invent" constraints
+4. Require human review before any AI-generated content ships
+5. Execute examples against a sandbox to verify they actually work
+
+## Where AI works best in API docs
+
+- **Tutorials**: AI drafts learning paths. Humans verify the steps work end-to-end.
+- **Code samples**: AI generates samples in multiple languages. Humans review, test, and ensure they compile/run.
+- **Consistency passes**: AI refactors existing prose for voice and tone consistency.
+- **Examples from specs**: AI extracts example request/response pairs from the spec and formats them.
+
+## Where AI is risky
+
+- **Contract documentation**: Reference docs must be exact. AI can draft; humans must review and verify.
+- **Undocumented behavior**: If the spec is incomplete, AI will fill gaps with plausible fiction.
+
+## Integration into your workflow
+
+AI is a co-pilot inside a carefully orchestrated pipeline. The human context—the actual behavior of the API, the real users, the trust at stake—never leaves the human reviewer.
+
+Run AI fast, verify everything, ship nothing unreviewed.
+
+---
+
+# View as Markdown
+
+Source: https://ivanwalsh.com/tutorial-basics/view-as-markdown
+
+# View as Markdown
+
+Every page on this site is also available as raw Markdown. The rendered pages live at `ivanwalsh.com`, and the Markdown source for each one lives in the public GitHub repo that builds the site. That means you can read, copy, or hand any page directly to an AI tool without scraping HTML or stripping navigation and styles.
+
+## Why this matters
+
+Documentation is increasingly read by machines as well as humans. Pasting a rendered web page into an LLM forces it to work around menus, footers, and layout markup. Raw Markdown removes that noise. The model sees exactly the structure the author wrote — headings, lists, code blocks, and links — and nothing else.
+
+For readers, it is also handy when you want to:
+
+- Quote a section accurately in another document
+- Feed a page into a RAG pipeline or a personal knowledge base
+- Read the source while writing a translation or adaptation
+- Check how a piece of content was actually structured
+
+## Where the source lives
+
+The site is built from the [`ivanwalsh/techdocs`](https://github.com/ivanwalsh/techdocs) repository on GitHub. Tutorials live under `docs/tutorial-basics/` and blog posts live under `blog/`. Every Markdown file in those folders can be fetched directly from GitHub's raw content host:
+
+```
+https://raw.githubusercontent.com/ivanwalsh/techdocs/main/<path-to-file>.md
+```
+
+The URL is the branch (`main`), followed by the same folder layout you see in the repo.
+
+## How to find a page as Markdown
+
+Map the rendered URL to the matching file in the repo:
+
+- A tutorial at `ivanwalsh.com/tutorial-basics/<name>` is at `docs/tutorial-basics/<name>.md` in the repo
+- A blog post at `ivanwalsh.com/blog/<slug>` is at `blog/<filename>.md` in the repo (the filename usually matches the slug, but not always — blog filenames sometimes include a date prefix)
+
+Then prepend the raw GitHub URL.
+
+## Examples
+
+A few pages shown first as the rendered URL and then as the Markdown source on GitHub:
+
+- Agile tutorial
+  - Page: `https://ivanwalsh.com/tutorial-basics/agile`
+  - Markdown: `https://raw.githubusercontent.com/ivanwalsh/techdocs/main/docs/tutorial-basics/agile.md`
+- LLM Optimization
+  - Page: `https://ivanwalsh.com/tutorial-basics/llm-optimization`
+  - Markdown: `https://raw.githubusercontent.com/ivanwalsh/techdocs/main/docs/tutorial-basics/llm-optimization.md`
+- AI-Assisted API Documentation
+  - Page: `https://ivanwalsh.com/tutorial-basics/ai-assisted-api-documentation`
+  - Markdown: `https://raw.githubusercontent.com/ivanwalsh/techdocs/main/docs/tutorial-basics/ai-assisted-api-documentation.md`
+- Documentation Metrics
+  - Page: `https://ivanwalsh.com/tutorial-basics/documentation-metrics`
+  - Markdown: `https://raw.githubusercontent.com/ivanwalsh/techdocs/main/docs/tutorial-basics/documentation-metrics.md`
+
+Blog posts follow the same pattern, pointing at the `blog/` folder instead:
+
+- Post: `https://ivanwalsh.com/blog/what-is-an-mcp-server`
+- Markdown: `https://raw.githubusercontent.com/ivanwalsh/techdocs/main/blog/2026-04-05-mcp-server-documentation.md`
+
+If you are not sure of the exact filename for a blog post, browse the [`blog/`](https://github.com/ivanwalsh/techdocs/tree/main/blog) folder on GitHub and click the file you want — the **Raw** button on GitHub gives you the same URL.
+
+## Fetching from the command line
+
+Once you have the raw URL, `curl` works directly against it:
+
+```bash
+curl https://raw.githubusercontent.com/ivanwalsh/techdocs/main/docs/tutorial-basics/llm-optimization.md
+```
+
+Pipe the output into a file, a diff, or an LLM client of your choice:
+
+```bash
+curl -s https://raw.githubusercontent.com/ivanwalsh/techdocs/main/docs/tutorial-basics/llm-optimization.md > llm-optimization.md
+```
+
+## A note on what you get
+
+The Markdown on GitHub is the source the page was written from. It includes the frontmatter, headings, and links exactly as authored. It does not include the site navigation, footer, or any JavaScript-rendered components — which is usually what you want when you are feeding content to another system. Because it is served straight from the `main` branch, it stays in sync with the live site.
+
+If you only want a discovery index rather than the full content, see [llms.txt](/llms.txt) for a lightweight list of the main pages on the site.
+
+---
+
+# MCP server documentation — the five things most teams get wrong
+
+Source: https://ivanwalsh.com/blog/mcp-documentation-mistakes
+
+I have been thinking about this a lot recently.
+
+We are in the middle of a wave of MCP server development. Teams across the industry are building connectors, tools, and integrations at pace, pushing them to GitHub, sharing them in developer communities, and expecting adoption to follow. Some of it does. But a lot of it does not, and when I look at why, the answer is almost always the same.
+
+The documentation is not there.
+
+<!--truncate-->
+
+Not absent entirely — most MCP servers have a README of some kind. But the README explains how to install the server, not how to use it effectively. It tells you how to get it running, not what happens when the model calls a tool with a malformed input. It assumes the reader already understands what the server does and why.
+
+An AI model does not make that assumption. Neither does the developer who inherits the codebase six months from now.
+
+I have seen well-engineered MCP servers get no uptake because nobody could figure out what the tools actually did. I have seen integrations fail in production because error codes were undocumented and the model had no recovery path. And I have seen compliance reviews stall because the permission model existed in the code but not in any document a regulator could read.
+
+The five mistakes below are not the result of teams being careless. They are the result of teams applying the wrong mental model to a new kind of documentation problem. Here is what I see most often, and what to do about it.
+
+## 1. Writing the tool description for a developer rather than a model
+
+This is the mistake with the most immediate consequences, and the one I see most often.
+
+When I document a REST API endpoint, I write for a developer who will read the description, understand the intent, and make a judgement call. A description like "Returns account balance information" is workable because the developer can infer the rest from context.
+
+When you write an MCP tool description, the primary reader is an AI model. The model cannot infer. It cannot ask a follow-up question. It reads the description and decides, based on that description alone, whether this tool matches what it is trying to do.
+
+A description like "Returns account balance information" will cause the model to misuse the tool, skip it when it should use it, or call it with malformed inputs. A description that works for a model looks more like this:
+
+*"Returns the current cleared balance and available balance for a specified account, in GBP. Use this tool when the user asks about their account balance, available funds, or how much they can spend. Do not use this tool for pending transactions or credit limits."*
+
+The difference is specificity: when to use the tool, when not to use it, and what the output actually contains. This is not natural to write if you are thinking about a human reader. It becomes natural when you remember the primary reader has no context beyond what you give it.
+
+## 2. Treating the input schema as self-documenting
+
+Teams publish an input schema that shows field names and types, and consider the job done.
+
+```json
+{
+  "account_id": "string",
+  "currency": "string",
+  "date": "string"
+}
+```
+
+This tells a developer the field names. It tells an AI model almost nothing useful. What format does `date` expect? Is `currency` an ISO 4217 code or a free-text field? What happens if `account_id` does not exist in the system? Is `currency` required or does it default to something?
+
+A model constructing a request from this schema will guess. Sometimes it will guess correctly. Often it will not, and the failure will be silent.
+
+The documentation that actually works looks like this:
+
+```
+account_id: string, required
+  The internal account identifier. Format: ACC- followed by 8 digits.
+  Example: ACC-00123456
+
+currency: string, optional, default: GBP
+  ISO 4217 currency code. Supported values: GBP, USD, EUR.
+
+date: string, optional, default: today
+  Valuation date in YYYY-MM-DD format.
+  Cannot be a future date.
+```
+
+Every parameter needs a type, a requirement status, a format, a default value where applicable, valid values where the field is constrained, and what happens at the boundaries. This is the minimum an AI model needs to construct a valid request reliably.
+
+## 3. Leaving error codes undocumented
+
+For a developer, an undocumented error code is an inconvenience. They read the response body, search the codebase, and figure it out.
+
+For an AI model, an undocumented error code is a dead end. The model receives an unexpected response, has no documented recovery path, and either fails silently, retries indefinitely, or surfaces a confusing error to the end user.
+
+Every error code an MCP tool can return needs three things documented: what caused it, what the model should do next, and whether the condition is recoverable.
+
+```
+ERROR_ACCOUNT_NOT_FOUND
+Cause: The account_id does not exist in the system.
+Action: Do not retry. Ask the user to confirm the account number.
+Recoverable: No.
+
+ERROR_RATE_LIMIT_EXCEEDED
+Cause: More than 10 requests in the last minute.
+Action: Wait 60 seconds and retry once.
+Recoverable: Yes, automatically after the rate limit window resets.
+```
+
+In financial services this section also needs to specify which errors should be surfaced to end users and which should be handled silently. A balance lookup that fails because of a system timeout is handled differently from one that fails because the account is frozen. The model needs to know the difference, which means the documentation needs to state it explicitly.
+
+## 4. Omitting the permission model
+
+Teams document that a Bearer token is required. They do not document which scopes are needed for which tools, what happens when a token has insufficient permissions, or whether certain tools are restricted to specific user roles.
+
+For a developer, this is annoying but solvable. For an AI model operating in an automated workflow, insufficient permissions produce an error the model cannot resolve without human intervention. If the error code is also undocumented, nobody knows why the workflow stopped.
+
+In regulated environments, the permission model is also a compliance document. If an AI tool can initiate a transaction or access sensitive account data, the permission boundaries need to be documented explicitly so that compliance teams can verify the right controls are in place. An implicit permission model is, from a regulatory perspective, no permission model at all.
+
+For each tool, document clearly: which scope or role is required to call it, what is returned when the caller lacks permission, and whether permission is granted at the user level, the application level, or both.
+
+## 5. Publishing no usage examples
+
+This is the simplest mistake and the most widespread. Teams document the schema and consider the job done. Usage examples are treated as a nice-to-have that will be added later.
+
+Later rarely arrives.
+
+A usage example does three things that schema documentation cannot. It shows what a realistic input looks like in practice. It shows what a successful response looks like, so the model knows what to expect. And it anchors the abstract schema to a real-world scenario, which significantly improves the model's ability to match the right tool to the right situation.
+
+For each tool, publish at least one complete worked example: a realistic input with real-looking values, not placeholder strings, and the full expected response including any fields that only appear in certain conditions.
+
+If the tool behaves differently for edge cases — a null field, a boundary value, a conditional response — document those as separate examples. The investment is small. The impact on model reliability is significant.
+
+***
+
+## The pattern underneath all five mistakes
+
+Every mistake on this list has the same root cause: teams are writing MCP documentation for the wrong reader.
+
+REST API documentation is written for a developer who can read, infer, and experiment. MCP documentation is written for an AI model that can do none of those things. The model reads what is written and acts on it directly. Getting it wrong has the same consequences as getting the code wrong — except the failure is often invisible until something goes wrong in production.
+
+This is why getting MCP documentation right before you ship is not a nice-to-have. It is the difference between a server that gets adopted and one that sits on GitHub with two stars and no integrations.
+
+***
+
+## MCP server documentation audit checklist
+
+Use this checklist to audit any MCP server README or setup guide. Work through it tool by tool — a server that exposes five tools needs five passes.
+
+**Tool descriptions**
+
+- [ ] Every tool has a plain-language description of what it does
+- [ ] The description states when to use this tool
+- [ ] The description states when not to use this tool
+- [ ] The description specifies what the tool returns in plain terms
+- [ ] The description is written for a model reader, not a developer reader
+
+**Input schema**
+
+- [ ] Every parameter has a documented type
+- [ ] Every parameter states whether it is required or optional
+- [ ] Optional parameters document their default values
+- [ ] Constrained fields document their valid values or formats
+- [ ] Date and time fields specify the expected format
+- [ ] Numeric fields document minimum and maximum values where applicable
+- [ ] Null behaviour is documented for every optional parameter
+- [ ] At least one realistic example value is provided per parameter
+
+**Output schema**
+
+- [ ] The success response is fully documented with all fields described
+- [ ] Conditional fields (those that only appear in some responses) are identified
+- [ ] The response format is specified (JSON, plain text, structured object)
+
+**Error codes**
+
+- [ ] Every error code the tool can return is listed
+- [ ] Each error code documents its cause
+- [ ] Each error code specifies the recommended recovery action
+- [ ] Each error code states whether the condition is recoverable
+- [ ] Errors that should be surfaced to end users are identified
+- [ ] Errors that should be handled silently are identified
+
+**Authentication and permissions**
+
+- [ ] Required authentication method is documented
+- [ ] Required scope or role is documented per tool
+- [ ] The response when permissions are insufficient is documented
+- [ ] How to obtain credentials in development and production environments is explained
+
+**Usage examples**
+
+- [ ] At least one complete worked example exists per tool
+- [ ] Example inputs use realistic values, not placeholder strings
+- [ ] The full expected response is shown for each example
+- [ ] Edge case behaviour is illustrated with separate examples where it differs from the standard case
+
+**Scoring**
+
+Count the ticked boxes as a percentage of the total. A server scoring below 60 percent has documentation gaps significant enough to affect model reliability. A server scoring below 40 percent should be considered undocumented for practical purposes, regardless of what the README contains.
+
+## One last thing
+
+I am genuinely curious about what you are seeing out there.
+
+Are your teams documenting MCP servers as part of the build, or is it something that gets picked up later — if at all? Are product managers including it in the Definition of Done, or is it still treated as optional? And if you have found an approach that works, I would love to hear about it.
+
+Connect with me on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/) and let me know. I read every reply, and the conversations I have had off the back of these articles have been some of the most interesting I have had in years.
+
+If you found the checklist useful, share it with your team. It takes two minutes to run through and tends to start the right conversations.
+
+**About the author**
+
+Ivan Walsh is a Technical Writer based in Dublin, Ireland, specialising in AI-ready documentation for regulated financial platforms. He works with global financial institutions on API documentation, RAG-ready content, and chatbot integration guides for systems where precision and compliance are non-negotiable.
+
+[Connect with Ivan on LinkedIn](https://www.linkedin.com/in/ivanwalsh/)
+
+---
+
+# What Is an AI Model Card? A Plain-Language Guide for Technical Writers
+
+Source: https://ivanwalsh.com/blog/what-is-an-ai-model-card
+
+When your organisation deploys an AI model, who is responsible for explaining what it does, what it should not do, and what happens when it gets something wrong?
+
+If the answer is "nobody," that is a problem. And it is a problem that is landing, increasingly, on the desks of technical writers.
+
+AI models are being built and deployed at a pace that has outrun their documentation. Teams can tell you how a model performs on a benchmark. They are far less prepared to explain its training data, its known failure modes, or whether it has been tested against the populations it will actually affect. That gap is closing, slowly, under pressure from regulators, enterprise procurement teams, and the growing expectation of transparency around AI systems.
+
+The document that closes that gap has a name: a **model card**.
+
+If you have not encountered one yet, you will. This article explains what model cards are, why they matter, and what you need to know to start writing one.
+
+{/* truncate */}
+
+## What Is a Model Card?
+
+A model card is a short, structured document that describes an AI model. Think of it as the product specification sheet for a machine learning system.
+
+Google DeepMind defines them simply as <q>simple, structured overviews of how an advanced AI model was designed and evaluated.</q> That description is deliberately plain. A model card is not a research paper, a marketing brochure, or a legal disclaimer. It is a transparent, factual summary intended to help anyone who uses or deploys a model understand what it does, how it was built, and where it has known limitations.
+
+The concept was introduced in a 2018 research paper by Margaret Mitchell and colleagues at Google, and it has since become a widely adopted standard across the AI industry. Major organisations including Google DeepMind, Hugging Face, Meta, and Anthropic now publish model cards for their publicly released models.
+
+## What Does a Model Card Contain?
+
+There is no single mandatory template, but most model cards cover a consistent set of topics. Looking at the structure Google DeepMind uses for models like Gemini, a well-formed model card typically includes the following sections.
+
+**Model information** covers the basics: what the model is, what inputs it accepts (text, images, audio, video), what outputs it produces, and how it relates to earlier versions. This section answers the question: what are we actually looking at?
+
+**Training data** explains where the model learned from. This section describes the datasets used, how the data was processed or filtered, and any significant gaps or exclusions. For regulated industries, this is a critical section because data provenance directly affects fairness and compliance.
+
+**Evaluation and benchmarks** presents how the model was tested and how it performed. This section includes benchmark scores, the methodology behind them, and comparisons against other models or baseline standards. Importantly, a good model card does not cherry-pick only positive results.
+
+**Intended use and limitations** is arguably the most important section for practitioners. It specifies what the model was designed for, what it should not be used for, and what known failure modes exist. For example, a model trained on English-language financial text may perform poorly on multilingual queries or informal language.
+
+**Ethics and safety** covers potential harms, bias evaluations, safety testing results, and the mitigations the development team put in place. Google DeepMind's model cards include detailed safety evaluation tables, red-teaming findings, and results from automated content safety tests.
+
+**Distribution information** explains how and where the model is available, under what terms, and through which channels.
+
+Some model cards, particularly for frontier models, also include a **frontier safety** section that addresses risks unique to highly capable systems, such as misuse for cybersecurity attacks or the generation of dangerous content.
+
+## Why Do Model Cards Matter?
+
+Model cards exist because AI systems are not self-explanatory. Unlike traditional software, where you can read the source code to understand what a program does, a machine learning model is a statistical artefact. Its behaviour emerges from patterns in data, not from instructions anyone wrote explicitly. Without documentation, users have no way to evaluate whether a model is appropriate for their use case.
+
+There are three reasons model cards matter, and they become even more important in regulated sectors like financial services.
+
+**Transparency.** A model card makes an organisation's design choices visible. It forces the team to articulate what data they used, what assumptions they made, and what trade-offs they accepted. Transparency builds trust with users and regulators alike.
+
+**Accountability.** When something goes wrong with an AI system, a model card creates a documented record of what was intended and what was known at the time of release. This is not just good practice; in many jurisdictions it is becoming a regulatory expectation. The EU AI Act, for example, requires technical documentation for high-risk AI systems that covers much of what a model card contains.
+
+**Informed deployment.** Many AI failures happen not because a model is bad, but because it is deployed in a context it was never designed for. A model card that clearly states intended use cases and known limitations gives the teams deploying the model the information they need to make responsible choices.
+
+For technical writers specifically, model cards represent an opportunity. They sit at the intersection of technical accuracy, regulatory compliance, and plain-language communication. Getting them right requires exactly the skills that experienced technical writers already have.
+
+## Who Reads a Model Card?
+
+A model card has multiple audiences, and a good one serves all of them.
+
+**Developers and engineers** use model cards to evaluate whether a model is suitable for a specific application, to understand integration constraints, and to anticipate edge cases.
+
+**Product and compliance teams** use them to assess regulatory risk, document due diligence, and respond to audit requests.
+
+**Researchers** use them to compare models, replicate evaluations, and identify gaps in existing work.
+
+**End users and the public** increasingly expect to be able to find out something meaningful about the AI systems affecting their lives, particularly in high-stakes domains like healthcare, finance, and hiring.
+
+Writing for all these audiences simultaneously is a challenge that sits firmly in the technical writer's domain.
+
+## A Brief Look at a Real Model Card
+
+Google DeepMind publishes model cards for its entire Gemini family, as well as for specialist models like Veo, Imagen, and Lyria. You can browse the full index at [deepmind.google/models/model-cards](https://deepmind.google/models/model-cards/).
+
+Looking at the Gemini 3.1 Pro model card, a few things stand out as examples of good practice.
+
+The document is structured with a clear table of contents covering eight named sections. Each section uses consistent, predictable headings. The evaluation section presents benchmark results in a comparative table alongside competitor models, including cases where Gemini does not rank first. The safety section distinguishes between automated evaluations and human red-teaming results, and it explicitly notes where regressions occurred rather than reporting only improvements. The frontier safety section maps each risk domain to a specific critical capability level and states clearly whether that level was or was not reached.
+
+This level of structured honesty is what separates a genuine model card from a marketing document wearing the same name.
+
+## How Model Cards Connect to Broader AI Documentation
+
+A model card does not exist in isolation. It connects to a wider documentation ecosystem that technical writers working in AI need to understand.
+
+A model card is the top-level summary. Underneath it, you might find evaluation methodology documents that explain in detail how benchmarks were designed and run, safety framework reports that describe the overarching approach to harm prevention, and API documentation that covers the technical integration. Above it, you might find plain-language product pages or regulatory submissions that draw on the model card as a source.
+
+Thinking of model cards as part of a documentation hierarchy, rather than a standalone document, helps you plan what level of detail belongs in each layer.
+
+## Getting Started: A Framework for Your First Model Card
+
+If you are new to model cards, the simplest approach is to start with the questions the document needs to answer. Before you write a word, work through the following with the model development team.
+
+What does this model do, and what does it not do? What data was used to train it, and where did that data come from? How was it evaluated, and by whom? What are the known failure modes or edge cases? What populations or use cases were explicitly excluded from testing? What should a deploying team know before going live?
+
+These questions will surface the information you need. Your job as a technical writer is then to translate the answers into clear, precise, auditable prose that serves the full range of readers.
+
+In the next article in this series, we will look at the structure of a model card in detail and work through a practical template you can adapt for your own projects.
+
+**Series: AI Model Cards for Technical Writers**
+
+This is the first article in a series covering model cards from first principles through to production-ready documentation.
+
+- **Part 1:** What Is an AI Model Card? (this article)
+- Part 2: The Anatomy of a Model Card: Section by Section
+- Part 3: Writing the Intended Use and Limitations Section
+- Part 4: Documenting Bias Evaluations and Safety Testing
+- Part 5: Model Cards in Regulated Industries: What Compliance Teams Need
+
+*Have questions about model cards or AI documentation? Connect on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/).
+
+---
+
+# LLM Knowledge Bases
+
+Source: https://ivanwalsh.com/blog/llm-knowledge-bases
+
+# The Wiki That Writes Itself
+
+*Why I'm rebuilding how my team captures knowledge — and why an LLM is doing most of the work.*
+
+When Andrej Karpathy shared his approach to LLM-powered personal knowledge bases, something clicked. Not because the idea was entirely novel — knowledge management has been a cottage industry for decades, from Zettelkasten cards to Confluence wikis to Notion databases. What struck me was the specific inversion he described: the LLM doesn't just *query* your knowledge, it *authors and maintains* it. That distinction matters enormously, especially in fintech, where the gap between raw data and structured understanding is both large and expensive.
+
+I've spent the last several weeks designing a version of this system for my own work — a knowledge base sitting at the intersection of payments infrastructure, regulatory compliance, and emerging AI tooling in financial services. Here's what I've found, what I'm building with, and why I think this approach genuinely outperforms every knowledge capture method I've used before.
+
+<!-- truncate -->
+
+## The problem it's solving
+
+In fintech, knowledge is perishable and fragmented. Regulatory guidance from the Central Bank of Ireland lands in a PDF. A thread about PSD3 implications lives in Slack. A competitor's API documentation sits in a browser tab someone bookmarked six months ago. A post-mortem from a failed payment rail integration is buried in a Jira ticket nobody reads. The tools we've used to manage this — Confluence, Notion, shared Google Drives — are fundamentally *passive containers*. They store what you put in, they don't synthesise, cross-reference, or surface connections.
+
+> "The tools we've used are fundamentally passive containers. They store what you put in — they don't synthesise, cross-reference, or surface connections."
+
+The Karpathy model flips this. Raw inputs flow into a directory. An LLM compiles them into a living wiki: structured articles, backlinks, concept maps. The wiki isn't a destination you occasionally update — it's a continuously compiled artefact. For a fintech context, this means that a new EBA opinion paper, a GitHub repo exploring SEPA Instant integration, and a competitor teardown can all become interconnected nodes in a single coherent knowledge graph, maintained without manual effort.
+
+## How I'm implementing it
+
+My implementation centres on a `raw/` directory that ingests source material: regulatory documents, research papers, internal architecture notes (anonymised), RSS feeds from financial regulators, and curated news summaries. I'm using **Claude Code** as my primary agent layer for compilation tasks — it runs against the directory, incrementally building and updating a `wiki/` directory of markdown files organised by domain: payments, compliance, open banking, infrastructure, market intelligence.
+
+For the IDE layer — the place where I read and navigate the compiled wiki — I'm not using Obsidian. I want something that fits more naturally into my existing development workflow. My current shortlist is **Logseq** (which offers a graph view and robust markdown support with an open, local-first architecture), **Foam** (a VS Code extension that turns a markdown directory into a wiki with backlinks and graph visualisation — perfect since I'm already living in VS Code), or simply a lightweight local web server rendering the markdown directory via **Markwhen** or a custom Next.js viewer. For visualising relationships between concepts — say, how DORA requirements intersect with third-party risk management obligations — I'm experimenting with **Mermaid diagrams** auto-generated by the LLM and embedded directly into wiki articles.
+
+For output, instead of Marp slide formats, I'm generating structured briefs in markdown that I can pipe into a simple HTML template, producing clean one-pagers I can share with stakeholders. The LLM also generates comparative summaries when I'm evaluating technology choices — think: "compare these four payment orchestration platforms across latency, fee structure, and PSD2 compliance posture."
+
+## Strengths and weaknesses
+
+### Strengths
+
+- Synthesises fragmented sources automatically
+- Cross-references regulatory and technical content
+- Queries scale with the knowledge base, not your memory
+- Every exploration enriches future queries
+- No manual tagging or organisation overhead
+- LLM health checks catch gaps and inconsistencies
+
+### Weaknesses
+
+- Source quality determines wiki quality entirely
+- LLM compilation can introduce subtle errors
+- Sensitive data governance requires careful scoping
+- Token costs grow with wiki scale
+- No native team collaboration layer yet
+- Requires ongoing prompt engineering discipline
+
+The data governance point deserves particular attention in a fintech context. Not everything can go into the raw directory. Customer data, anything under NDA, internal pricing models — these require a separate, carefully scoped knowledge base or must be excluded entirely. I'm treating the wiki as a strategically curated intelligence layer, not a dump of everything I've ever touched.
+
+## The toolset
+
+| Tool | Role |
+|------|------|
+| **Claude Code** | Agent layer for wiki compilation and Q&A |
+| **Foam / VS Code** | IDE and wiki navigation with graph view |
+| **Logseq** | Local-first wiki viewer, backlink graph |
+| **Mermaid** | Auto-generated concept and flow diagrams |
+| **Markdownlint + LLM** | Health checks, gap analysis, integrity linting |
+| **n8n / Make** | Automated ingest pipelines from regulatory feeds |
+
+## Why this beats everything else I've tried
+
+I've tried most of the canonical approaches. Notion databases collapse under their own taxonomy weight — every new document forces a decision about where it belongs, and those decisions compound into a system nobody navigates naturally. Confluence is where knowledge goes to age quietly. Shared Google Drives are organised by whoever set them up, which is usually optimised for storage, not retrieval. Even dedicated tools like Roam Research, which I used for two years, require constant manual curation to maintain their graph's coherence.
+
+The LLM-compiled wiki solves the curation problem by removing the human from the maintenance loop. I decide what goes into `raw/`. The LLM decides how it connects, what it means in context, and how it should be presented. My role shifts from librarian to editor — I review the wiki periodically, course-correct the compilation prompts, and add source material. The cognitive overhead drops dramatically.
+
+More importantly, the knowledge compounds. When I ask a complex question — "what are the second-order implications of the EU AI Act on algorithmic credit scoring within PSD3's open finance framework?" — the answer draws on dozens of articles the wiki has compiled and cross-referenced. No single Slack thread, Notion page, or Google Doc could answer that. The wiki can, because it was built to connect things, not just contain them.
+
+Karpathy noted there's room for an incredible product here, not just a collection of scripts. I'd agree — but until that product exists, the scripts are producing genuine value. This is knowledge infrastructure, and in fintech, infrastructure compounds.
+
+You can read Karpathy's post here: [x.com/karpathy/status/2039805659525644595](https://x.com/karpathy/status/2039805659525644595).
+
+
+
+*This article is an independent opinion piece. All implementation details reflect personal and exploratory workflows, not production systems.*
+
+---
+
+# What is an MCP server and why does it need documentation?
+
+Source: https://ivanwalsh.com/blog/what-is-an-mcp-server
+
+Most teams shipping AI products in 2026 are focused on the model. Which one to use, how to fine-tune it, how to evaluate its outputs. What they are not focused on, almost universally, is the layer that connects the model to everything else.
+
+That layer is the MCP server. And almost nobody is documenting it.
+
+This is a problem. Not an inconvenience but a genuine technical risk, and in regulated industries, a compliance risk too. A developer joining a project finds an MCP server in the codebase with no tool reference, no input schema, no error documentation. The model is using it. Nobody knows exactly how. The person who built it left six months ago.
+
+<!-- truncate -->
+
+## Where technical writers fit in
+
+Here is what makes this problem different from every other documentation gap in software development: by the time a technical writer is typically brought in, it is too late.
+
+In most software projects, documentation happens after the build. A writer gets access to a finished product, interviews the developers, and works backwards to produce something useful. This approach is imperfect but workable for conventional software. The product does not change its behaviour based on what the writer produces.
+
+MCP servers break this model entirely. The documentation is not a description of how the system works. It is an input to how the system works. The tool descriptions, the input schemas, the parameter constraints are all read by the AI model at runtime and directly shape its behaviour. If a technical writer reviews a finished MCP server and finds the descriptions vague, rewriting them is not a documentation task. It is a product change.
+
+This means technical writers need to be involved during development, not after it. Specifically, they need to be in the room when tool schemas are being defined, asking the questions the AI model will implicitly need answered. What does this tool do in plain terms? What happens when this parameter is missing? What does a valid response look like when the upstream system is unavailable?
+
+These are documentation questions. They are also product design questions. A technical writer who understands MCP is doing both simultaneously.
+
+## A note for Product Managers
+
+If you are a Product Manager delivering AI products, the Definition of Done for any user story that involves an MCP server should include documentation sign-off. Not as a checkbox, but as a quality gate.
+
+Specifically, the DoD should require:
+
+- Every tool exposed by the MCP server has a description precise enough for the AI model to select it correctly
+- Every input parameter has a documented type, requirement status, valid range, and null behaviour
+- Every error code has a documented meaning and expected handling path
+- A worked example exists for every tool, showing a realistic input and expected output
+- Authentication and permission requirements are documented explicitly, not assumed
+
+The rationale is simple. A user story that ships an undocumented MCP tool is not done. The model's behaviour with that tool is undefined. In regulated industries, that unpredictability carries a compliance cost that typically exceeds the cost of writing the documentation in the first place.
+
+Treat MCP documentation the same way you treat automated tests. Not something that happens after the sprint, but something that gates the story closing.
+
+## What an MCP server actually is
+
+MCP stands for Model Context Protocol, an open standard developed by Anthropic that defines how AI models communicate with external tools, data sources, and services.
+
+An MCP server is a program that implements this protocol. It exposes a set of capabilities that an AI model can discover and use at runtime. Think of it as the bridge between an AI system and the outside world, the thing that lets a model check a database, call an API, read a file, or trigger an action in another system.
+
+If a REST API is a waiter who takes your order and brings food, an MCP server is a waiter who also reads the menu aloud, tells the AI which dishes are available today, and describes each one in enough detail for the AI to decide what to order.
+
+An MCP server exposes three types of primitives:
+
+- Tools: actions the AI can take, such as calling an API, running a calculation, or submitting a form
+- Resources: data the AI can read, such as files, database records, or live feeds
+- Prompts: reusable templates the AI can invoke for structured tasks
+
+Each of these needs to be documented. But the way they need to be documented is different from anything most technical writers have encountered before.
+
+## Why MCP documentation is harder than API documentation
+
+When you document a REST API, your primary reader is a developer. A developer can read the docs, ask a question on Slack, experiment in Postman, and iterate until something works. The documentation is a starting point, not the final word.
+
+When you document an MCP server, your primary reader is an AI model.
+
+The model cannot ask questions. It cannot experiment. It reads the tool schema at runtime and makes decisions based entirely on what is written there. If the description is vague, the model picks the wrong tool. If the input schema is incomplete, the model formats the request incorrectly. If error codes are undocumented, the model cannot handle failures gracefully.
+
+None of this produces an obvious error. The model does not throw an exception when it misunderstands a tool description. It simply behaves incorrectly, and the root cause is documentation quality, not model capability.
+
+This reframes what documentation means in an AI system. The description field in an MCP tool schema is not metadata. It is a runtime instruction. Writing it poorly has direct consequences for how the product behaves.
+
+In regulated industries, those consequences can extend beyond bad user experience into compliance exposure. A tool that processes a transaction without a clearly documented permission model is not just a documentation gap. It is an audit gap.
+
+## The five things every MCP server document needs
+
+Based on working with AI systems in regulated financial environments, there are five components that every MCP server document needs to contain.
+
+**1. Tool inventory.** A complete list of every tool the server exposes, with a one-line description of what each one does. This is the table of contents for the AI model, the first thing it reads to understand what is available.
+
+**2. Input schema per tool.** Every parameter, its type, whether it is required, and what a valid value looks like. Include edge cases. What happens if a parameter is null? What is the valid range for a numeric field? A schema that says `amount: number` is not sufficient. `amount: number, required, minimum 0, maximum 10,000,000, GBP value` is.
+
+**3. Output schema per tool.** What the tool returns on success, what it returns on failure, and what each error code means. AI models need to interpret responses, not just send requests. Undocumented error codes produce silent failures where the model receives an unexpected response and has no documented path for handling it.
+
+**4. Authentication and permissions.** How the server authenticates requests, and which tools require which permission levels. This section is often omitted from internal MCP servers on the assumption that everyone already knows. In financial services, the permission model for an AI tool frequently has direct regulatory implications, so assuming prior knowledge is not an option.
+
+**5. Usage examples.** At least one worked example per tool: a realistic input and the expected output. This is the section AI models use most heavily during inference. A concrete example anchors the abstract schema to real-world use and significantly reduces the likelihood of malformed requests.
+
+## A note for financial services teams
+
+The five components above apply to any MCP server, but in financial services each one carries additional weight. A tool description that omits a rate-limiting clause can produce behaviour that breaches a trading rule. An undocumented error code can create a gap in an audit trail. Documentation in this context is part of the control framework, not an afterthought.
+
+## Do this today
+
+If your team has built an MCP server, do one thing before the end of the week. Open the server code and count how many tools it exposes. Then open the documentation, whatever exists, and check whether each tool has a description, a complete input schema, a documented output, and at least one worked example.
+
+In most teams, the answer will be that some tools are partially documented and several have nothing at all. That gap is not a documentation backlog. It is an active risk to product quality, to developer onboarding, and in regulated environments, to compliance.
+
+If you are a technical writer, use that audit as the basis for a conversation with your engineering and product leads this week. Bring the list of undocumented tools and a proposed documentation standard. Frame it not as a writing task but as a product quality issue, because that is what it is.
+
+If you are a Product Manager, add MCP documentation to your Definition of Done before the next sprint starts. One line in the DoD now prevents weeks of remediation later.
+
+If you are an engineering lead, block half a day in the next sprint to work through the tool inventory with your technical writer present. The output should be an agreed documentation standard for every MCP tool your team ships, established before anyone writes another line of schema code.
+
+The teams that get this right now will have a significant operational advantage over those who treat documentation as something to sort out later. In AI product development, later rarely arrives.
+
+**About the author**
+
+Ivan Walsh is a Technical Writer based in Dublin, Ireland, specialising in AI-ready documentation for regulated financial platforms. He works with global financial institutions on API documentation, RAG-ready content, and chatbot integration guides for systems where precision and compliance are non-negotiable.
+
+Connect with Ivan on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/)
+
+---
+
+# Why I Added an llms.txt to My Documentation Site — and You Should Too
+
+Source: https://ivanwalsh.com/blog/why-i-added-llms-txt-to-my-docs-site
+
+# Why I Added an llms.txt to My Documentation Site — and You Should Too
+
+> **Technical Writing · Documentation · April 2026**
+
+Your docs are already being read by AI. The question is whether they're being read well — or whether a language model is piecing together a garbled summary from whatever it can scrape.
+
+A few months ago I audited how several popular LLMs described our product's API. The results were humbling. Outdated endpoint names. Deprecated parameters presented as current. Hallucinated response shapes. The AI wasn't lying — it was doing its best with fragmented, unstructured context pulled from a dozen cached pages across our docs site.
+
+The fix turned out to be surprisingly small: a single plain-text file called `llms.txt`, placed at the root of our documentation domain. Since adding it, AI-assisted developer support tickets citing our docs have become markedly more accurate. Here's everything I learned building it.
+
+<!-- truncate -->
+
+## What exactly is llms.txt?
+
+The `llms.txt` standard — proposed by Jeremy Howard and the fast.ai team — is an open convention for giving AI models a clean, navigable map of your site's content. It lives at `yourdomain.com/llms.txt` and follows a simple Markdown structure:
+
+- A short description of what the site is and who it's for
+- An optional list of blocked or low-quality sections
+- An organised set of links to your most important content, each with a one-line description
+
+Think of it as `robots.txt` for AI context — not access control, but a curated index that helps models understand your site's structure and prioritise which content to pull into their context window.
+
+> **Why not just use a sitemap.xml?**
+>
+> Sitemaps enumerate every URL — they're optimised for crawlers, not comprehension. An `llms.txt` is a semantic map: it tells a model not just what exists, but what matters, how it's organised, and how pages relate to each other. A sitemap with 4,000 URLs gives a model nothing to work with. An `llms.txt` with 40 annotated links gives it a mental model of your product.
+
+## The benefits — from a documentation perspective
+
+### 1. You control the canonical narrative
+
+When a developer asks ChatGPT, Claude, or Gemini how to authenticate with your API, the model will synthesise an answer from whatever it has. Without `llms.txt`, that context is arbitrary — cached HTML, GitHub issues, Stack Overflow posts, maybe a two-year-old blog post. With `llms.txt`, you give models a curated shortlist of authoritative pages to prioritise. You become the source of record.
+
+### 2. Reduced hallucination on your product
+
+The leading cause of AI hallucination about a specific product isn't model capability — it's context quality. A model working from your clearly structured, well-described core pages will produce far more accurate answers than one piecing together fragments. This directly reduces incorrect answers in AI-assisted developer tools, IDE copilots, and chat interfaces.
+
+### 3. Better RAG performance for any downstream system
+
+If you or your users are building RAG pipelines on top of your docs, `llms.txt` gives the retriever a pre-vetted, description-annotated index to work from. Instead of retrieving 12 tangentially relevant chunks, it retrieves the 3 most relevant sections because the index descriptions acted as better matching anchors.
+
+### 4. It forces a documentation audit
+
+Curating your `llms.txt` requires you to ask: what are the 20 pages a developer most needs to succeed with this product? That question is uncomfortable and valuable. It surfaces gaps, dead ends, and content that exists but shouldn't.
+
+## General vs. specific: the two-file approach
+
+The standard supports two complementary files, and understanding the distinction is important:
+
+| File | Purpose |
+|---|---|
+| `llms.txt` | The primary index. Markdown links with short descriptions. Intended for models operating under tight context constraints — this is what they load first when "grounding" on your docs. |
+| `llms-full.txt` | The full content dump. Contains the complete text of your core documentation pages, concatenated. For models with large context windows doing deep research tasks, or for RAG ingestion pipelines. |
+
+For most documentation teams, the right approach is to implement both: `llms.txt` as the fast-loading navigational map, and `llms-full.txt` as the complete content corpus. Link from your `llms.txt` to your `llms-full.txt` so models and pipelines can discover it.
+
+> **A word of caution:** Don't dump every page into `llms-full.txt`. Changelogs, legal notices, marketing copy, and autogenerated API reference blobs add noise. Be as curated with the full file as with the index. Quality of context beats quantity every time.
+
+## Anatomy of a well-formed llms.txt
+
+Here's a complete, annotated example for a fictional developer tools product:
+
+```markdown
+# Acme API Documentation
+
+> Acme is a payments infrastructure API for SaaS companies.
+> Docs cover REST endpoints, webhooks, SDKs (Node, Python, Go),
+> and integration guides. All code examples target API v3.
+
+## Getting Started
+
+- [Quick Start](https://docs.acme.com/quickstart): Authenticate and make your first charge in under 5 minutes.
+- [Authentication](https://docs.acme.com/auth): API keys, OAuth flows, and token scoping.
+- [Environments](https://docs.acme.com/environments): Test vs. production modes and sandbox credentials.
+
+## Core Concepts
+
+- [Payment Intents](https://docs.acme.com/payment-intents): The primary object for initiating and tracking payments.
+- [Customers](https://docs.acme.com/customers): Storing and managing customer records and payment methods.
+- [Webhooks](https://docs.acme.com/webhooks): Event types, payload shapes, and signature verification.
+
+## SDKs & Libraries
+
+- [Node.js SDK](https://docs.acme.com/sdk/node): Full reference for @acme/node v4.x.
+- [Python SDK](https://docs.acme.com/sdk/python): Full reference for acme-python v3.x.
+
+## Optional (extended content)
+
+- [llms-full.txt](https://docs.acme.com/llms-full.txt): Complete documentation corpus for large-context models.
+```
+
+Key formatting rules to follow: the H1 is your site name, the blockquote is your context description, H2s are section groupings, and each list item is a Markdown link followed by a colon and a one-line description. Keep descriptions under 100 characters — they're hints, not summaries.
+
+## Keeping it fresh: the auto-update script
+
+A static `llms.txt` you write once and forget will drift out of date within weeks. The right solution is a build-time script that regenerates the file every time content changes. Here's how to implement that.
+
+### The core generator
+
+`scripts/generate-llms-txt.js`
+
+```javascript
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter'); // npm i gray-matter
+
+// Config — adjust paths to match your docs structure
+const CONFIG = {
+  baseUrl: 'https://docs.yoursite.com',
+  docsDir: './content/docs',
+  outputPath: './public/llms.txt',
+  fullOutputPath: './public/llms-full.txt',
+  siteDescription: `Your product description here. Keep it to 2-3
+sentences covering what the product does, who it's for,
+and what version the docs target.`,
+  // Sections to exclude from llms.txt (but maybe include in full)
+  excludeFromIndex: ['changelog', 'legal', 'internal'],
+  // Sections to exclude entirely
+  excludeAlways: ['drafts', 'archived'],
+};
+
+// Recursively find all markdown files
+function findMarkdownFiles(dir) {
+  let files = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files = files.concat(findMarkdownFiles(fullPath));
+    } else if (entry.name.endsWith('.md') || entry.name.endsWith('.mdx')) {
+      files.push(fullPath);
+    }
+  }
+  return files;
+}
+
+// Convert a file path to a URL slug
+function fileToUrl(filePath) {
+  const relative = path.relative(CONFIG.docsDir, filePath);
+  const slug = relative
+    .replace(/\.(md|mdx)$/, '')
+    .replace(/\/index$/, '')
+    .replace(/\\/g, '/'); // Windows path fix
+  return `${CONFIG.baseUrl}/${slug}`;
+}
+
+// Group pages by their top-level directory (section)
+function groupBySection(pages) {
+  const sections = {};
+  for (const page of pages) {
+    const relative = path.relative(CONFIG.docsDir, page.filePath);
+    const section = relative.split(path.sep)[0] || 'General';
+    const label = section.replace(/-/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+    if (!sections[label]) sections[label] = [];
+    sections[label].push(page);
+  }
+  return sections;
+}
+
+async function generate() {
+  const allFiles = findMarkdownFiles(CONFIG.docsDir);
+  const pages = [];
+  const fullContentParts = [];
+
+  for (const filePath of allFiles) {
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const { data, content } = matter.read(filePath);
+    const url = fileToUrl(filePath);
+
+    // Skip drafts and always-excluded sections
+    if (data.draft) continue;
+    const isExcluded = CONFIG.excludeAlways.some(s =>
+      filePath.includes(`/${s}/`)
+    );
+    if (isExcluded) continue;
+
+    const page = {
+      filePath,
+      url,
+      title: data.title || 'Untitled',
+      description: data.description || data.excerpt || '',
+      order: data.sidebar_position ?? data.order ?? 999,
+      content,
+    };
+
+    pages.push(page);
+
+    // Collect content for llms-full.txt
+    fullContentParts.push(
+      `# ${page.title}\n\nSource: ${page.url}\n\n${content}\n\n---\n`
+    );
+  }
+
+  // Sort each section by sidebar order
+  pages.sort((a, b) => a.order - b.order);
+
+  // Build llms.txt index
+  const sections = groupBySection(pages);
+  const indexLines = [
+    `# ${require('../package.json').name || 'Documentation'}`,
+    '',
+    `> ${CONFIG.siteDescription.trim()}`,
+    '',
+  ];
+
+  for (const [section, sectionPages] of Object.entries(sections)) {
+    const isIndexExcluded = CONFIG.excludeFromIndex.some(s =>
+      section.toLowerCase().includes(s)
+    );
+    if (isIndexExcluded) continue;
+
+    indexLines.push(`## ${section}`, '');
+    for (const page of sectionPages) {
+      const desc = page.description
+        ? `: ${page.description.substring(0, 100)}`
+        : '';
+      indexLines.push(`- [${page.title}](${page.url})${desc}`);
+    }
+    indexLines.push('');
+  }
+
+  // Add link to full content file
+  indexLines.push(
+    '## Optional', '',
+    `- [llms-full.txt](${CONFIG.baseUrl}/llms-full.txt): Complete documentation corpus for large-context models.`
+  );
+
+  fs.writeFileSync(CONFIG.outputPath, indexLines.join('\n'));
+  fs.writeFileSync(CONFIG.fullOutputPath, fullContentParts.join('\n'));
+
+  console.log(`Generated llms.txt (${pages.length} pages)`);
+}
+
+generate();
+```
+
+### Wiring it into your build
+
+Add the script to your `package.json` build step. The exact hook depends on your framework:
+
+```json
+{
+  "scripts": {
+    "build:llms": "node scripts/generate-llms-txt.js",
+
+    // Next.js:
+    "build": "npm run build:llms && next build",
+
+    // Docusaurus:
+    "build": "npm run build:llms && docusaurus build",
+
+    // VitePress:
+    "build": "npm run build:llms && vitepress build docs"
+  }
+}
+```
+
+### Frontmatter your scripts will rely on
+
+The generator reads three frontmatter fields. Make sure every doc page includes them:
+
+```markdown
+title: "Webhook Events Reference"
+description: "Complete list of event types, payload schemas, and delivery guarantees."
+sidebar_position: 3
+
+Your content here...
+```
+
+### Validating the output
+
+Add a lightweight CI check to catch regressions — empty descriptions, broken URLs, or a file that's grown too large:
+
+`scripts/validate-llms-txt.js`
+
+```javascript
+const fs = require('fs');
+const content = fs.readFileSync('./public/llms.txt', 'utf-8');
+const lines = content.split('\n');
+const linkLines = lines.filter(l => l.startsWith('- ['));
+const noDesc = linkLines.filter(l => !l.includes(': '));
+
+if (noDesc.length > 0) {
+  console.warn(`Warning: ${noDesc.length} entries missing descriptions`);
+  noDesc.forEach(l => console.warn(' ', l));
+}
+
+if (linkLines.length < 5) {
+  console.error('ERROR: llms.txt has fewer than 5 entries — something went wrong');
+  process.exit(1);
+}
+
+console.log(`llms.txt valid: ${linkLines.length} entries`);
+```
+
+
+## A few things worth knowing
+
+The `llms.txt` convention is new enough that support is still maturing. As of early 2026, several AI assistants and developer tools explicitly look for it, but it's not yet a W3C standard or anything requiring server-side configuration — it's just a file at a well-known path.
+
+> **On discoverability:** Mention your `llms.txt` in your docs README, in your site's footer, and in your developer changelog. Tool builders working on top of your docs will find and use it. You can also submit your site to the llms.txt directory at `llmstxt.directory`.
+
+The maintenance burden is genuinely low once the generator is in place. The only ongoing work is ensuring every new doc page has a meaningful `description` frontmatter field — which is good practice regardless. If your team is already doing SEO meta descriptions, you likely have this covered.
+
+For teams running their own internal documentation RAG systems — common in larger engineering orgs — the `llms-full.txt` file becomes an extremely convenient ingestion target. One URL, complete content, always fresh. It's worth the five minutes to set up.
+
+---
+
+# Using Antora to Manage Complex Technical Documentation Websites
+
+Source: https://ivanwalsh.com/blog/antora-setup
+
+What's the best tool for managing technical documentation websites?
+
+You've probably seen something like this on LinkedIn or Reddit. And the answer is, as always, 'it depends'. 
+
+For example, this site is run on Docusaurus, which is pretty easy to setup and maintain. It also works very nicely with Git and our web hosting provider, so for a relatively simple site, it's fine. I should add that you can Docusaurus is not just for lightweight document sites as it has quite a lot of rich features, themes, and a very active community. So, worth a peek if you're looking to get started. 
+
+However, there are a few things it doesn't offer. At least, not out of the box. This leads us to Antora.
+
+<!-- truncate -->
+
+# Antora for Complex Tech Document Websites
+
+What's the best tool for managing technical documentation websites?
+
+You've probably seen something like this on LinkedIn or Reddit. And the answer is, as always, 'it depends'. 
+
+For example, this site is run on Docusaurus, which is pretty easy to setup and maintain. It also works very nicely with Git and our web hosting provider, so for a relatively simple site, it's fine. I should add that you can Docusaurus is not just for lightweight document sites as it has quite a lot of rich features, themes, and a very active community. So, worth a peek if you're looking to get started. 
+
+However, there are a few things it doesn't offer. At least, not out of the box. This leads us to Antora. 
+
+## What is Antora? 
+
+Antora is a static site generator designed specifically for technical documentation. Created by the team behind AsciiDoc, it treats your document set as a collection of 'versioned content sources' rather than a traditional website structure. This allows you to setup "documentation sites" that can aggregate content from multiple repos, branches, and versions into a single website.
+
+In other words, instead of pulling your documents from a single repo, which is what I'm doing here, you could ingest material from X number of repos and organize them in a seamless manner on the website. 
+
+Versioning is also one of its strong points. For instance, if you want to maintain multiple versions of your documentation simultaneously. You can do something like this in Docusaurus, btw. 
+
+[Antora documentation](https://docs.antora.org/antora/latest/)
+
+## Antora Use Cases
+
+As mentioned above, while you can use tools like Docusaurus, Hugo, and Sphinx, from what I've seen its strength is in the following areas: 
+
+### Multi-version Documentation Management
+
+Once setup, you can maintain documentation for multiple product versions simultaneously. This allows you to pull content from different Git branches/repositories and publish them as separate versions in a single UI. 
+
+### Distributed Documentation Teams
+
+If you work on large projects or have distributed teams with multiple repos, you can aggregate the content from various sources into a single site while maintaining ownership and contribution workflows. While it does take time to configure, you'll see the gains in the long term.
+
+### Open Source Projects
+
+It's a good fit for products that require community contributions, versioning, and integration with Git workflows.
+
+### Component-Based Architecture
+
+For tech docs teams that work on require cross-referencing between different products and versions, you can use its component-based architecture to coordinate your content workflows. 
+
+For context, Antora's component-based architecture treats documentation as a collection of independent, reusable "components" rather than a monolithic website. As a result, each self-contained documentation unit can be mixed, matched, and assembled into different sites while maintaining their individual identity and versioning.
+
+Each component has:
+
+- Its own repository (or can share a repository with other components)
+- Independent versioning (version 1.0, 2.0, etc.)
+- Modular structure (modules containing pages, assets, and partials)
+- Separate navigation and content organization
+
+The following example provides a sample layout:
+
+```
+Company Documentation Site
+├── API Gateway (Component)
+│   ├── Version 3.0
+│   ├── Version 2.1
+│   └── Version 1.5
+├── User Management System (Component)
+│   ├── Version 2.2
+│   └── Version 2.0
+└── Analytics Dashboard (Component)
+    ├── Version 1.8
+    └── Version 1.5
+```
+
+In this scenario, each component lives in its own Git repo, maintained by different teams, but appears as a unified documentation site to users.
+
+## Antora Limitations
+
+There are a few limitations that you need to be aware of. 
+
+### Learning curve 
+
+Compared to other tools, there is a bit of a learning curve. If you're familiar with static site generators, you'll understand how it's designed. However, if you're new to this area, it can be a bit tricky to get up and running. There's also a smaller community to help troubleshoot issues, which is unfortunate. Concepts (i.e. playbooks, components, modules, pages) can be overwhelming for tech writers coming from Flare/RoboHelp or less complex tech document tools. 
+
+### AsciiDoc
+
+Probably the main limitation is that you need to write (or migrate) your docs in AsciiDoc. 
+
+The team who created Antora felt that tech writers need a flavor of markdown with more advanced capabilities. While Markdown is fine for simple documentation, it has limitations for more complex technical material that requires advanced formatting, conditional text, and cross-referencing. However, I suspect this puts off many tech writers and developers who are used to writing in Markdown and may be reluctant to put time aside to skill up and migrate existing markdown.  
+
+### Configuration Management 
+
+If you're new to SSGs, you may find the playbook configuration too complex for your sites. Troubleshooting issues regarding Antora's architecture and Git integration deter people from switching over. 
+
+### Dynamic Features
+
+I haven't explored this too much but from what I understand, it lacks built-in support for features such as user authentication, commenting systems, or implementing real-time content updates without additional tooling.
+
+### Deployment Complexity
+
+Depending on your Git skill level, you may find its CI/CD pipelines and deployment strategies overly complex. 
+
+### Plugin Ecosystem 
+
+Part of the reason, I use Docusaurus is because there is so much choice in terms of themes, plug-ins and community support. And it's all in markdown which everyone knows. 
+
+In contrast, Antora has a much smaller ecosystem of plugins and extensions.
+
+## Static Site Generator Comparison
+
+The following table identifies the strengths and weakness of Antora and some of the leading SSGs. 
+
+| Feature/Aspect | **Antora** | **Docusaurus** | **GitBook** | **VuePress/VitePress** |
+|----------------|------------|----------------|-------------|------------------------|
+| **Primary Focus** | Multi-repo technical docs | Developer documentation | Team knowledge base | Vue.js ecosystem docs |
+| **Content Format** | AsciiDoc only | Markdown + React/MDX | Markdown + blocks | Markdown + Vue |
+| **Learning Curve** | Steep (new concepts + AsciiDoc) | Moderate (familiar React patterns) | Easy (WYSIWYG + Markdown) | Moderate (Vue knowledge helpful) |
+| **Multi-Version Support** | Excellent (built-in, sophisticated) | Good (built-in versioning) | Limited (manual organization) | Manual implementation required |
+| **Multi-Repository** | Native support (core feature) | Single repo only | Single workspace model | Single repo focus |
+| **Cross-References** | Powerful (cross-component/version) | Basic (within single repo) | Good (within workspace) | Basic linking |
+| **Content Reuse** | Advanced (includes, partials, attributes) | Limited (MDX components) | Basic (snippets, templates) | Limited (Vue components) |
+| **Team Collaboration** | Excellent (distributed teams, Git-native) | Good (GitHub integration) | Excellent (real-time editing) | Good (Git-based) |
+| **Setup Complexity** | High (playbooks, components, modules) | Low (npm create, config file) | Very low (web interface) | Low (Vue CLI or manual) |
+| **Build Performance** | Can be slow (multi-repo aggregation) | Fast (optimized for speed) | Fast (cloud-based) | Very fast (Vite/modern tooling) |
+| **Theming/Customization** | Limited themes, complex customization | Many themes, React-based custom | Limited (premium plans for custom) | Flexible (Vue-based theming) |
+| **Plugin Ecosystem** | Small, specialized | Large, active community | Growing but limited | Good (Vue ecosystem) |
+| **Search Integration** | Good (Lunr, external options) | Excellent (Algolia built-in) | Excellent (built-in) | Good (built-in + external) |
+| **Hosting Options** | Flexible (any static host) | Flexible (Netlify, Vercel, etc.) | Managed hosting included | Flexible (any static host) |
+| **Community Size** | Small, niche | Large, active (Facebook/Meta) | Large, growing | Medium (Vue community) |
+| **Documentation Quality** | Comprehensive but complex | Excellent, beginner-friendly | Excellent, user-friendly | Good, Vue-focused |
+| **Mobile Experience** | Good (responsive default theme) | Excellent (optimized) | Excellent (native apps) | Good (responsive) |
+| **Real-time Features** | None (static only) | Limited (comments via plugins) | Real-time editing, comments | None (static only) |
+| **Content Management** | Git-only (technical users) | Git-based (some CMS integrations) | Web-based editor | Git-based |
+| **Internationalization** | Good (attribute-based) | Excellent (built-in i18n) | Good (multi-language spaces) | Good (Vue i18n integration) |
+| **Cost** | Free (open source) | Free (open source) | Free tier limited, paid plans | Free (open source) |
+
+### Decision Framework
+
+**Choose Antora if:**
+- Multi-repository documentation is essential
+- Team can invest in learning AsciiDoc
+- Large-scale documentation challenges
+
+**Choose Docusaurus if:**
+- Single repository setup is sufficient
+- Developer-focused documentation
+- Need proven, widely-adopted solution
+
+**Choose GitBook if:**
+- Non-technical team members need to contribute
+- Real-time collaboration is important
+- Managed solution preferred over self-hosting
+
+**Choose VuePress/VitePress if:**
+- Build speed is critical
+- Flexible theming requirements
+- Technical team comfortable with Vue
+
+## One last thing
+
+If you're running a relatively small tech document team with a single product, I'd suggest looking at tools, such as Docusaurus, Hugo, Sphinx, and Github Pages. This will allow you get started with publishing your tech docs. 
+
+Once comfortable with the process, you can then look at more complex workflows. 
+
+In the coming weeks, I'll go into more depth about how to setup a tech document website, tool usage, metrics and common pitfalls to avoid.
+
+As always, drop me a line if you'd like to know more. My inbox is always open.
+
+---
+
+# Getting Started with Agile for Technical Writers
+
+Source: https://ivanwalsh.com/blog/agile-tech-writing-getting-started
+
+# Getting Started with Agile for Technical Writers #1
+
+## How can technical writers use Agile in software development projects?
+
+As this question, and variations of it, have popped up on Reddit and LinkedIn, I thought I'd share a few observations about my experience of working with Agile/Scrum as a tech writer. 
+
+One thing to say before we start, is that just became a company says it's Agile, doesn't mean it's applying all of the framework. Rather, they may be selectively picking pieces of it, such as using Daily Stand Ups, but not fully embracing the spirit of Agile development. In many cases, they're probably 'Agilefall' (Agile + Waterfall).
+
+<!-- truncate -->
+
+## What is Agile technical documentation?
+
+Agile technical documentation is a framework that applies Agile principles to the documentation process itself. Instead of creating monolithic documentation sets that may become outdated before the product is released, Agile documentation provides incremental deliverables per sprint that support current needs while remaining flexible enough to adapt with the project.
+
+## Agile Documentation Principles
+
+"I want thin documents, and fast." The CEO of a leasing company told me this when I presented him with our Documentation Plan for the next release. This was more than 15 years ago before Agile became mainstream. He was encouraging us to write only what was needed (cut the fluff) and get docs out to review/customers asap. 
+
+So, if you're new to writing in an Agile environment, here are some things to consider: 
+
+**Iterative content development** – create units of documentation that can be written, reviewed and signed off per sprint. Then, if the software changes, update accordingly. The aim is to get pieces of the docs delivered per 2- or 3-week sprints, rather than one single document at the very end. 
+
+**Collaboration** – develop a collaborative approach with developers, testers and product managers, so docs are worked on during each sprint. Before you adopt this approach, talk to the team and explain how/why you plan to deliver the docs in increments.
+
+**Responding to change** – prepare your documents in such a way that it's easy to update, review, and republish. Flexibility is a key part of Agile. Make sure your document process is aligned accordingly
+
+## Agile Documentation Strategies
+
+In terms of setting up Agile documents, you have several options. Here's a few to consider:
+
+### User story-driven content
+
+Learn how to write user story for the features you plan to document. Of course, you can write user stories for other document tasks as well. The point is to learn how to craft user stories so you're in sync with your company's Agile mindset, and also that each increment you deliver meets the Definition of Done. That is, it meets the problem statement and acceptance criteria for each ticket. 
+
+### Tech Documentation user story example
+
+The following is a simple example of a documentation user story:
+
+- **As a** new API developer integrating with our ecommerce system
+- **I want** step-by-step authentication setup instructions with working code examples
+- **So that** I can authenticate API calls within 15 minutes without contacting support
+
+**Acceptance Criteria:**
+- Include prerequisite requirements (API key, development environment)
+- Provide code samples in at least 3 programming languages (Python, JavaScript, cURL)
+- Show expected request/response format with real examples
+- Include common error codes and troubleshooting steps
+- Include rate limiting information
+
+**Definition of Done:**
+- Content reviewed by Developer who hasn't worked on the API
+- Verified code examples 
+- Tested by Product team
+
+### Sprint-based documentation cycles
+
+You have several options here. One suggestion is to add a Tech Document ticket to the Dev sprint board per sprint. For me, this creates noise and I'd suggest to avoid it. Instead, create your own board and cut a ticket for each product feature. Then, in the last sprint, you can add a formal tech document ticket the sprint board to ensure it gets prioritized and delivered in time with the release. 
+
+### Living documentation approaches
+
+In this context, 'living' means that the docs develop naturally with the product rather than you having to make manual updates. For instance, if you're using Swagger/OpenAPI specs to generate interactive API documentation, setup your document publishing system so that the correct documents are automatically generated. The same applies if you're integrating content from Git or database schemas generated from databases.
+
+### Continuous feedback loops
+
+Setup your docs process so that you can identify gaps, errors, and omissions in the docs. In sprint retrospectives ask product/developers if there's anything that can be improved. Likewise, arrange stakeholder check-ins to assess whether docs meet their needs. Ask Product to help understand customer pain points. Again, I feel a mindset change is often required here. Instead of writing in isolation, look for ways to proactively get feedback so your docs provide maximum value. 
+
+## First Steps
+
+Instead of 'boiling the ocean', I'd suggest to start small and by degrees move your tech document team to an Agile mindset. Creating a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend to print out the Scrum Guide and become familiar with the framework.
+
+In the coming weeks, I'll go into more depth about tool usage, metrics and some of the common pitfalls to avoid.
+
+As always, drop me a line if you'd like to know more. My inbox is always open.
+
+---
+
+# How to use Truth Tables for Technical Documentation
+
+Source: https://ivanwalsh.com/blog/truth-tables-technical-documentation
+
+# Truth Tables for Technical Documentation
+
+When we're in the role of a 'reader' we tend to skim over the 'happy path' in user guides and other types of documentation. Quite often we only turn to documentation when lost, confused, or uncertain. For instance, someone changed a parameter setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it? What should I search for? 
+
+I mention this as last week, I started to listen to Roger Penrose's 'The Emperor's New Mind' and came across a section where he discusses 'truth tables' in the context of classical logic and computation, and also their limitations in terms of understanding 'human' consciousness.
+
+On the way home from my walk, I began to think if I could apply this concept to technical documentation.
+
+<!-- truncate -->
+
+Truth tables offer a systematic approach to move beyond "happy path" documentation that assumes everything works perfectly. 
+
+When you encounter a problem (say configuring RoboHelp), then search online for the answer, most traditional doc sets will fail to address the complex combinations of conditions that may have created the unexpected outcome. 
+
+Instead, if you as a tech writer treat conditions as *boolean* inputs and map all possible combinations to specific outputs, you can document the edge cases that generate these issues.
+
+However, truth tables aren't universally applicable. They work best for scenarios with 2-3 binary variables that affect clear outcomes, such as API responses, permission matrices, or feature availability. Once you go higher than that, the tables become increasingly complex and overwhelm the reader; hierarchical decision trees provide better user experience in this scenario. 
+
+In terms of cost benefits, truth tables can potentially reduce support costs if implemented correctly. Instead of leaving users to figure out unexpected errors and creating support tickets in frustration, you can anticipate their concerns and provide the necessary information.
+
+In this article, we'll look at when *boolean thinking* adds value to your docs and when it can overcomplicate simpler processes. Let's get started.
+
+## Downside of happy paths
+
+As mentioned, traditional documents follow a happy path. However, this can frustrate users when they step outside this path: the generic 'one size fits all' instructions offer only limited usefulness.
+
+- Traditional documents assume ideal conditions. Everything must work perfectly, like an AND operation where all inputs must be true
+- Real-world scenarios demand resilience. Users need help when ANY condition fails, like an OR operation that provides alternatives
+- Truth tables help expose edge cases that are often overlooked
+
+**Note**: If most users can work out the happy path by themselves, focus your documentation efforts on the failure scenarios and edge cases where users actually get stuck
+ 
+## When to use Truth Tables in Tech Docs
+
+Here are some things to keep in mind when determining potential truth table candidates.
+
+Use truth tables in tech docs when:
+
+- Multiple conditions affect the same outcome
+- Users frequently meet 'unexpected' results
+- Support tickets related to specific feature combinations
+- Permissions or config settings interact in non-obvious ways
+
+To give a little more context, consider the following:
+
+**Potential candidate**: "When does the 'Export' button appear on the 'Sales Report' screen?"
+- Variables: Admin rights (Y/N), Data exists (Y/N), Feature enabled (Y/N)
+- Clear binary outcomes, affects user workflow
+
+**Poor candidate**: "How to write burndown report"
+- Too subjective, no clear binary conditions
+- Better served by traditional writing guidelines
+
+Here are four potential use cases:
+
+- **API documents** – identify what may occur if the user changes multiple settings and how this will affect the response.
+- **Permissions** – rather than listing all permissions, use a matrix to illustrate which set of permissions gives you access to which parts of the product.
+- **Troubleshooting and Configuration** – illustrate what happens if/when you change one or more settings. For instance, if the configuration likely to create a non-obvious response or error message that may be hard to troubleshoot without context.
+- **FAQs** – most FAQS give atomic answers but often lack context. Increase value by anticipating how the user may have created this issue in the first place. Was it due to a permission, config setting, set of parameter changes, or some non-obvious setting they may have changed
+
+## When NOT use Truth Tables in Tech Docs
+
+To be clear, you don't need to use truth tables for every piece of documentation.
+
+Here are some examples of where they're not required:
+
+- Linear processes with no branching. For example, "Update your password"
+- Single-variable outcomes. For instance, if a feature is only available with a specific plan.
+- Well-understood happy paths that rarely fail.
+- Processes with multiple variables. Instead, develop a set of procedures or work instructions to cover different scenarios.
+
+## How to Manage Complex Truth Tables
+
+When you have multiple inputs, the size of the table can become unwieldy. Here's how to address this.
+
+Imagine access to a premium dashboard depends on three conditions:
+- A = Active subscription
+- B = Account verified
+- C = Admin permissions
+
+### The 8-Row Truth Table
+
+| Subscription | Verified | Admin | Dashboard Access | User Experience |
+|--------------|----------|-------|------------------|-----------------|
+| Yes | Yes | Yes | Yes | Full access granted |
+| Yes | Yes | No | No | "Contact admin for permissions" |
+| Yes | No | Yes | No | "Please verify your account" |
+| Yes | No | No | No | "Verify account and contact admin" |
+| No | Yes | Yes | No | "Subscription required" |
+| No | Yes | No | No | "Subscription required" |
+| No | No | Yes | No | "Subscription required" |
+| No | No | No | No | "Subscription required" |
+
+### Result: Overly Complex Table
+
+This table is difficult to scan. Seven scenarios result in "No access," but with different explanations. This provides little value to users as they'll have to process multiple variables simultaneously to understand their situation.
+
+### Alternative Approach: Hierarchical Decision Tree
+
+Instead of one overwhelming truth table, break it into a logical sequence:
+
+**Step 1: Check Subscription**
+```
+Has Active Subscription?
+├── No → "Upgrade to access premium features" [STOP]
+└── Yes → Continue to Step 2
+```
+
+**Step 2: Check Verification**
+```
+Account Verified?
+├── No → "Verify your account to continue" [STOP]
+└── Yes → Continue to Step 3
+```
+
+**Step 3: Check Permissions**
+```
+Has Admin Permissions?
+├── No → "Contact your administrator for dashboard access"
+└── Yes → "Dashboard access granted"
+```
+
+Using this approach, users only need to process one condition at a time. Each "No" provides specific next steps. This also makes it easier to update individual decision points.
+
+### Avoid Complexity
+
+With 2 or 3 variables, truth tables work well; use decision trees when you have 4+ variables (16+ scenarios).
+
+If you find yourself writing mostly 'No' outcomes with similar error messages, consider restructuring your approach.
+
+## Truth Table Simple Example
+
+Here's a simple example of a truth table for a user getting access to a software product.
+
+The user can access a premium feature only if they:
+
+- A = Have an active subscription
+- B = Have completed account verification
+
+| Has Subscription | Verified Account | Can Access Feature |
+|------------------|------------------|--------------------|
+| Yes | Yes | Yes |
+| Yes | No | No |
+| No | Yes | No |
+| No | No | No |
+
+This shows all possible combinations and their outcomes. Only when both conditions are met (row 1) can the user access the feature.
+
+**Takeaway**: Truth tables help us think systematically about all possible scenarios, not just the "happy path" where everything works perfectly.
+
+## How to Start
+
+If you want to get past the happy path, so to speak, here's how you can setup a simple truth table for your next document set.
+
+The goal is to map all the possible inputs to a specific output.
+
+1. **Define the Scope** – identify all of the variables/conditions that affect the outcome.
+2. **Map all possibilities** – create a matrix that captures all potential conditions (yes/no, true/false). For two variables, that's four rows. For three variables, it's eight. Make sure you don't miss any scenarios.
+3. **Predict the outcome** – for each row, identify the exact, predictable outcome. Does the user see the 'Add to Cart' button? When is this button greyed out? This forces you to explicitly clarify when and why each user interface control appears, and under which condition features/controls appears in the UI/API/Data feed etc.
+
+### Start with a specific use case
+
+To implement this concept effectively, I'd suggest you identify a high-priority document that directly affects user success. For instance, an 'On-boarding Guide' with multiple configuration settings.
+
+Begin with one specific section, rather than trying to boil the ocean. Create your truth table for that section, then walk the on-boarding team through the revised document. Ask specific questions: Does this resolve issue faster? What parts could be refined? Are decision points clear? Does it simplify or complicate the instructions.
+
+This small-scale pilot will give you concrete data on whether truth tables improve your documentation. Once you validate the approach, you can systematically apply it to other complex sections where multiple conditions affect user outcomes.
+
+## Summary
+
+When technical documentation assumes everything works perfectly (i.e. all conditions are true), it will fail users who encounter partial failures or missing prerequisites.
+
+To resolve this, use truth tables to document what happens when conditions aren't met—the scenarios your users actually face.
+
+## Further reading
+
+- [Review of Roger Penrose, The Emperor's New Mind](https://web-archive.southampton.ac.uk/cogprints.org/432/1/penrose.htm)
+- [BBC: Truth Tables](https://www.bbc.co.uk/bitesize/guides/zr33rwx/revision/4)
+- [UXPin: What is a Happy Path](https://www.uxpin.com/studio/blog/what-is-happy-path-in-ux-design/)
+
+---
+
+# The Human Task
+
+Source: https://ivanwalsh.com/blog/human-task
+
+# The Human Task
+
+AI isn't coming for your job.
+
+It's coming for the *tasks* that make up your job.
+
+This isn’t a new story. 
+
+If you’ve ever read a James Bond novel, you’ll remember the typing pool. Highly trained typists who could type super-fast and send confidential reports to the four corners of the world to stymie the latest villain. You don’t see too many typing tools any more. When the typewriter arrived, the typing pool as we knew vanished.
+
+<!-- truncate -->
+
+Likewise, when telephone systems improved, the job of the manual switchboard operator (‘I’ll put you through now’) disappeared. 
+
+These innovations were far from painless for those who lost their jobs. 
+
+Change is rarely clean.
+
+So, what impact will AI have on those who work in technical documentation? 
+
+One way of approaching this is to consider the difference between ‘jobs’ and ‘tasks’.
+
+## AI Impact Matrix for Technical Writers
+
+As mentioned above, technology doesn't replace people; it replaces tasks. And today, the tasks being replaced are cognitive.
+
+So, tor those in tech docs, this means taking stock of human work v mechanical work. 
+
+To make this actionable, I've created a matrix to identify the human tasks which will be hard (or harder) for AI to replicate. 
+
+| Task Category | Example Tasks | AI Impact Score | Human Value-Add | Your Strategic Action |
+|--------------|---------------|-----------------|-----------------|----------------------|
+| Content Development | Drafts, generic text, summaries. | High | Context, tone, and brand voice. | Automate & Refine: Use AI for drafts, then add your domain expertise. |
+| Research | Reviewing specs, feedback, code. | High | Synthesizing data and strategic insights. | Collaborate with AI: Let AI handle the data, you focus on the "why." |
+| Formatting & Editing | Style guides, grammar, converting docs. | High | Audience understanding and narrative flow. | Automate: Use tools to automate workflows so you can focus on more specialist areas. |
+| User Interaction | Interviews, feedback sessions, human connections. | Low | Empathy, active listening, and trust. | Lean into these human interactions. Refine them to become the essential link between the Dev, Product and Users. |
+| Planning | Content strategy, information architecture. | Low | Creative problem-solving and long-term vision. | Develop your vision of how the docs should be structured, planned, improved. AI can assist, but not lead. |
+| Stakeholder Management | Presenting plans, negotiating, resolving conflicts. | Very Low | Communication, persuasion, EQ. | The human touch is impossible for AI to replicate. |
+
+Instead of: "Will AI take my job?"
+
+Ask: "Which parts of my job are human, and which are mechanical?"
+
+I feel we’re now at an inflection point where technical writers no longer need to *write* everything but need to pivot and own the more human tasks.

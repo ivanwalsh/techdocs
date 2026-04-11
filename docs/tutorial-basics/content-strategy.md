@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: How to structure and organize documentation for discoverability, coherent user flow, and findability across every product surface and audience.
 ---
 
 # Content Strategy

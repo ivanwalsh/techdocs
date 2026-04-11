@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: How I weave AI into writing, review, and publishing workflows for regulated financial platforms — and why the documentation layer is the real product.
 ---
 
 # AI-Ready Documentation for Regulated Financial Platforms

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 10
+description: Making documentation work for machine reading — llms.txt, structure, context quality, and hallucination reduction — without sacrificing human readability.
 ---
 
 # LLM Optimization

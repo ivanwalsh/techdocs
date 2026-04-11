@@ -35,8 +35,17 @@ const footerLinks = [
         <path d="M12 2a1 1 0 011 1v1.07A8.001 8.001 0 0119.93 11H21a1 1 0 110 2h-1.07A8.001 8.001 0 0113 19.93V21a1 1 0 11-2 0v-1.07A8.001 8.001 0 014.07 13H3a1 1 0 110-2h1.07A8.001 8.001 0 0111 4.07V3a1 1 0 011-1zm0 4a6 6 0 100 12 6 6 0 000-12zm0 3a3 3 0 110 6 3 3 0 010-6z" />
       </svg>
     ),
-    label: 'LLM? Read llms.txt',
-    href: 'https://ivanwalsh.com/llm.txt',
+    label: 'llms.txt (AI index)',
+    href: 'https://ivanwalsh.com/llms.txt',
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{verticalAlign: 'middle'}}>
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 12h8v2H8v-2zm0 4h8v2H8v-2zm0-8h5v2H8V8z" />
+      </svg>
+    ),
+    label: 'llms-full.txt (full content)',
+    href: 'https://ivanwalsh.com/llms-full.txt',
   },
 ];
 

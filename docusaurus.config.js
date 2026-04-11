@@ -99,8 +99,15 @@ const config = {
 		},			
         { to: '/Ivan', label: 'About Ivan', position: 'left' },
         {
-          href: '/llm.txt',
-          label: 'LLM.txt',
+          href: '/llms.txt',
+          label: 'llms.txt (AI index)',
+          position: 'right',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        },
+        {
+          href: '/llms-full.txt',
+          label: 'llms-full.txt (full content)',
           position: 'right',
           target: '_blank',
           rel: 'noopener noreferrer',

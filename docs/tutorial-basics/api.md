@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: How to orchestrate AI into API documentation as a co-pilot — without hallucinated endpoints, invented parameters, or silently wrong references.
 ---
 
 # API Documentation in the Age of AI

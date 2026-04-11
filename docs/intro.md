@@ -99,3 +99,12 @@ Explore the core concepts of AI-Ready Technical Documentation:
 <p>The role and responsibilities of a docs manager</p>
 </a>
 </div>
+
+### View as Markdown
+
+<div className="card-grid">
+<a href="/tutorial-basics/view-as-markdown" className="card-item">
+<h4>View as Markdown</h4>
+<p>Every page on this site is also available as raw Markdown — append <code>.md</code> to any URL to copy, quote, or feed a page straight into an AI tool.</p>
+</a>
+</div>

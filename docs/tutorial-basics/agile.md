@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: Running a remote tech docs team inside Agile and Scrum — the ceremonies I keep, the tools I use, and the metrics I actually care about.
 ---
 
 # Agile Technical Documentation

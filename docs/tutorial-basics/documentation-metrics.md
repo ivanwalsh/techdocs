@@ -1,5 +1,6 @@
 ---
 sidebar_position: 9
+description: How to measure whether your documentation is actually working, with metrics that go beyond page views and support deflection proxies.
 ---
 
 # Documentation Metrics

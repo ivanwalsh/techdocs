@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: The working set of documentation tools I reach for on AI and regulated banking projects — LangChain, Claude, Markdown, Git — and the criteria each one has to meet.
 ---
 
 # Doc Tools
