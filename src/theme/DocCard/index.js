@@ -195,11 +195,12 @@ function CardContainer({className, href, children}) {
       href={href}
       className={clsx('card padding--lg', className)}
       style={{
-        background: '#e8e9eb',
+        background: '#ffffff',
         borderRadius: '10px',
-        border: 'none',
+        border: '1px solid #d0d7de',
+        boxShadow: 'none',
         textDecoration: 'none',
-        transition: 'box-shadow 0.2s ease, transform 0.2s ease',
+        transition: 'box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease',
       }}>
       {children}
     </Link>

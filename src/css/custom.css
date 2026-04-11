@@ -42,7 +42,7 @@ article a,
 .theme-doc-markdown a,
 .main-wrapper .container a[href] {
     text-decoration: none;
-    color: #007C89;
+    color: #0969da;
 }
 
 .markdown a:hover,
@@ -50,7 +50,63 @@ article a:hover,
 .theme-doc-markdown a:hover,
 .main-wrapper .container a[href]:hover {
     text-decoration: underline;
-    color: #005F6B;
+    color: #0550ae;
+}
+
+/* Blog post author byline — quiet dark gray, blue on hover only */
+.avatar__name a,
+.avatar__name a:visited,
+a.avatar__name,
+a.avatar__name:visited {
+    color: #1a1a1a !important;
+    text-decoration: none !important;
+}
+
+.avatar__name a:hover,
+a.avatar__name:hover {
+    color: #0969da !important;
+    text-decoration: none !important;
+}
+
+[data-theme='dark'] .avatar__name a,
+[data-theme='dark'] a.avatar__name {
+    color: #e6e6e6 !important;
+}
+
+/* Headings wrapped in links (e.g., blog post titles on list pages)
+   should keep the heading color, not inherit the link blue. */
+.markdown a h1, .markdown a h2, .markdown a h3, .markdown a h4, .markdown a h5,
+article a h1, article a h2, article a h3, article a h4, article a h5,
+a h1, a h2, a h3, a h4, a h5,
+h1 a, h2 a, h3 a, h4 a, h5 a {
+    color: #1a1a1a !important;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+    color: #0969da !important;
+}
+
+/* Neutralize tag pills — gray by default, blue on hover */
+a.badge,
+a.tag,
+a[class*="tag_"] {
+    color: #57606a !important;
+    background: transparent;
+    border-color: #d0d7de !important;
+}
+
+a.badge:hover,
+a.tag:hover,
+a[class*="tag_"]:hover {
+    color: #0969da !important;
+    border-color: #0969da !important;
+}
+
+[data-theme='dark'] a.badge,
+[data-theme='dark'] a.tag,
+[data-theme='dark'] a[class*="tag_"] {
+    color: #8b949e !important;
+    border-color: #30363d !important;
 }
 
 /* Footer styling */
@@ -64,7 +120,7 @@ article a:hover,
 }
 
 .footer a:hover {
-    color: #007C89;
+    color: #0969da;
 }
 
 [data-theme='dark'] .footer {
@@ -80,6 +136,27 @@ article a:hover,
     color: #29d5b0;
 }
 
+/* Reduce blog post title size */
+article header h1,
+.theme-blog-post-page article h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    article header h1,
+    .theme-blog-post-page article h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* DocCard (generated category index) hover effect */
+article .card.padding--lg:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border-color: #0969da !important;
+    transform: translateY(-2px);
+}
+
 /* Card grid for Start Here section */
 .card-grid {
     display: grid;
@@ -90,17 +167,18 @@ article a:hover,
 
 .card-item {
     display: block;
-    background: #e8e9eb;
+    background: #ffffff;
+    border: 1px solid #d0d7de;
     border-radius: 10px;
     padding: 1.25rem 1.5rem;
     text-decoration: none !important;
     color: inherit !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .card-item:hover {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #0969da;
     transform: translateY(-2px);
     text-decoration: none !important;
     color: inherit !important;
@@ -120,7 +198,8 @@ article a:hover,
 }
 
 [data-theme='dark'] .card-item {
-    background: #1a1a2e;
+    background: #0d1117;
+    border-color: #30363d;
 }
 
 [data-theme='dark'] .card-item h4 {
@@ -148,4 +227,26 @@ a.badge,
 a.tag,
 a[class*="tag_"] {
     text-decoration: none;
+}
+
+/* Blog sidebar (Recent posts) and table of contents links in black */
+.theme-doc-toc-desktop a,
+.theme-doc-toc-desktop a:visited,
+.table-of-contents a,
+.table-of-contents a:visited,
+aside[class*="blogSidebar"] a,
+aside[class*="blogSidebar"] a:visited {
+    color: #1a1a1a;
+}
+
+.theme-doc-toc-desktop a:hover,
+.table-of-contents a:hover,
+aside[class*="blogSidebar"] a:hover {
+    color: #0969da;
+}
+
+[data-theme='dark'] .theme-doc-toc-desktop a,
+[data-theme='dark'] .table-of-contents a,
+[data-theme='dark'] aside[class*="blogSidebar"] a {
+    color: #e6e6e6;
 }
