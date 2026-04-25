@@ -109,4 +109,4 @@ The teams that get this right now will have a significant operational advantage 
 
 Ivan Walsh is a Technical Writer based in Dublin, Ireland, specialising in AI-ready documentation for regulated financial platforms. He works with global financial institutions on API documentation, RAG-ready content, and chatbot integration guides for systems where precision and compliance are non-negotiable.
 
-Connect with Ivan on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/)
+Connect with Ivan on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/).

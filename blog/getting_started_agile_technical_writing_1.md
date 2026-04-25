@@ -7,13 +7,11 @@ description: How to get started with Agile for Technical Writers
 
 ---
 
-# Getting Started with Agile for Technical Writers #1
-
 ## How can technical writers use Agile in software development projects?
 
 As this question, and variations of it, have popped up on Reddit and LinkedIn, I thought I'd share a few observations about my experience of working with Agile/Scrum as a tech writer. 
 
-One thing to say before we start, is that just became a company says it's Agile, doesn't mean it's applying all of the framework. Rather, they may be selectively picking pieces of it, such as using Daily Stand Ups, but not fully embracing the spirit of Agile development. In many cases, they're probably 'Agilefall' (Agile + Waterfall).
+One thing to say before we start, is that just because a company says it's Agile, doesn't mean it's applying all of the framework. Rather, they may be selectively picking pieces of it, such as using Daily Stand Ups, but not fully embracing the spirit of Agile development. In many cases, they're probably 'Agilefall' (Agile + Waterfall).
 
 <!-- truncate -->
 
@@ -67,15 +65,15 @@ You have several options here. One suggestion is to add a Tech Document ticket t
 
 ### Living documentation approaches
 
-In this context, 'living' means that the docs develop naturally with the product rather than you having to make manual updates. For instance, if you're using Swagger/OpenAPI specs to generate interactive API documentation, setup your document publishing system so that the correct documents are automatically generated. The same applies if you're integrating content from Git or database schemas generated from databases.
+In this context, 'living' means that the docs develop naturally with the product rather than you having to make manual updates. For instance, if you're using Swagger/OpenAPI specs to generate interactive API documentation, set up your document publishing system so that the correct documents are automatically generated. The same applies if you're integrating content from Git or database schemas generated from databases.
 
 ### Continuous feedback loops
 
-Setup your docs process so that you can identify gaps, errors, and omissions in the docs. In sprint retrospectives ask product/developers if there's anything that can be improved. Likewise, arrange stakeholder check-ins to assess whether docs meet their needs. Ask Product to help understand customer pain points. Again, I feel a mindset change is often required here. Instead of writing in isolation, look for ways to proactively get feedback so your docs provide maximum value. 
+Set up your docs process so that you can identify gaps, errors, and omissions in the docs. In sprint retrospectives ask product/developers if there's anything that can be improved. Likewise, arrange stakeholder check-ins to assess whether docs meet their needs. Ask Product to help understand customer pain points. Again, I feel a mindset change is often required here. Instead of writing in isolation, look for ways to proactively get feedback so your docs provide maximum value. 
 
 ## First Steps
 
-Instead of 'boiling the ocean', I'd suggest to start small and by degrees move your tech document team to an Agile mindset. Creating a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend to print out the Scrum Guide and become familiar with the framework.
+Instead of 'boiling the ocean', I'd suggest to start small and by degrees move your tech document team to an Agile mindset. Setting up a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend to print out the Scrum Guide and become familiar with the framework.
 
 In the coming weeks, I'll go into more depth about tool usage, metrics and some of the common pitfalls to avoid.
 

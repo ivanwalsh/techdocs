@@ -3,7 +3,11 @@
     "allow": [
       "Bash(git commit -m ':*)",
       "Bash(npx docusaurus:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npm start:*)",
+      "Bash(rm c:/docusaurus/techdocs-docs/scripts/generate-llm-txt.js)",
+      "Bash(node scripts/generate-llms-txt.js)",
+      "Bash(ls c:/docusaurus/techdocs-docs/docs/tutorial-basics/*.md c:/docusaurus/techdocs-docs/docs/tutorial-basics/*.mdx)"
     ]
   }
 }

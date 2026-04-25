@@ -1,0 +1,73 @@
+npx afdocs check https://ivanwalsh.com --format scorecard
+
+C:\Users\ivan>npx afdocs check https://ivanwalsh.com --format scorecard
+Running checks on ivanwalsh.com...
+
+Agent-Friendly Docs Scorecard
+==============================
+
+https://ivanwalsh.com · 4/11/2026, 3:44:07 PM
+
+  Overall Score: 59 / 100 (F)
+  (Capped: llms-txt-exists — No llms.txt found. Agents lose primary navigation.)
+
+  Category Scores:
+    Content Discoverability               41 / 100 (F)
+    Markdown Availability                  0 / 100 (F)
+    Page Size and Truncation Risk         90 / 100 (A)
+    Content Structure                    100 / 100 (A+)
+    URL Stability and Redirects          100 / 100 (A+)
+    Observability and Content Health     100 / 100 (A+)
+    Authentication and Access            100 / 100 (A+)
+
+  Check Results:
+
+    Content Discoverability
+      FAIL  llms-txt-exists                No llms.txt found at any candidate location (https://ivanwalsh.com/llms.txt, https://ivanwalsh.com/docs/llms.txt)
+            Fix: Create an llms.txt file at your site root containing an H1 title, a blockquote summary, and markdown links to your key documentation pages. This is the single highest-impact improvement for agent access to your docs.
+      SKIP  llms-txt-valid                 Skipped: dependency check did not pass
+      SKIP  llms-txt-size                  Skipped: dependency check did not pass
+      SKIP  llms-txt-links-resolve         Skipped: dependency check did not pass
+      SKIP  llms-txt-links-markdown        Skipped: dependency check did not pass
+      PASS  llms-txt-directive             llms.txt directive found in all 44 pages, near the top of content
+
+https://ivanwalsh.com/llms.txt
+https://ivanwalsh.com/llm.txt
+
+
+    Markdown Availability
+      FAIL  markdown-url-support           No pages support .md URLs (0/44 tested)
+            Fix: Your pages don't return markdown when .md is appended to the URL. Configure your docs platform to serve .md variants for all documentation pages.
+      FAIL  content-negotiation            Server ignores Accept: text/markdown header (0/44 pages return markdown)
+            Fix: Your server ignores Accept: text/markdown and returns HTML. Some agents (Claude Code, Cursor, OpenCode) request markdown this way. Configure your server to honor content negotiation.
+
+    Page Size and Truncation Risk
+      PASS  rendering-strategy             All 44 pages contain server-rendered content
+      SKIP  page-size-markdown             Skipped: dependency check did not pass
+      PASS  page-size-html                 All 44 pages convert under 50K chars (median 8K, 71% boilerplate)
+      FAIL  content-start-position         5 of 44 pages have content starting past 50% (worst 96%)
+            Fix: 5 of 44 pages have content starting past 50% of the converted output. Agents may never see the documentation content. Move or remove inline CSS/JS that precedes the content area.
+
+    Content Structure
+      PASS  tabbed-content-serialization   No tabbed content detected across 44 pages
+      PASS  section-header-quality         No tabbed content found; header quality check not applicable
+      SKIP  markdown-code-fence-validity   Site does not serve markdown content; nothing to analyze
+
+    URL Stability and Redirects
+      PASS  http-status-codes              All 44 pages return proper error codes for bad URLs
+      PASS  redirect-behavior              All 43 redirect(s) across 44 pages are same-host HTTP redirects
+
+    Observability and Content Health
+      SKIP  llms-txt-freshness             Skipped: dependency check did not pass
+      SKIP  markdown-content-parity        Skipped: dependency check did not pass
+      PASS  cache-header-hygiene           All 44 endpoints have appropriate cache headers
+
+    Authentication and Access
+      PASS  auth-gate-detection            All 44 pages are publicly accessible
+      SKIP  auth-alternative-access        All docs pages are publicly accessible; no alternative access paths needed
+
+Full spec: https://agentdocsspec.com/spec/
+
+
+C:\Users\ivan>
+

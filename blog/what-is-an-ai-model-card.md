@@ -17,7 +17,7 @@ The document that closes that gap has a name: a **model card**.
 
 If you have not encountered one yet, you will. This article explains what model cards are, why they matter, and what you need to know to start writing one.
 
-{/* truncate */}
+<!-- truncate -->
 
 ## What Is a Model Card?
 
@@ -111,4 +111,4 @@ This is the first article in a series covering model cards from first principles
 - Part 4: Documenting Bias Evaluations and Safety Testing
 - Part 5: Model Cards in Regulated Industries: What Compliance Teams Need
 
-*Have questions about model cards or AI documentation? Connect on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/).
+*Have questions about model cards or AI documentation? Connect on [LinkedIn](https://www.linkedin.com/in/ivanwalsh/).*

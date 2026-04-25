@@ -1,0 +1,191 @@
+---
+id: portfolio-roadmap
+title: "Portfolio roadmap: next steps after the pipeline"
+description: Concrete next steps to demonstrate expertise as a technical writer with deep AI knowledge, ordered by signal-to-effort for hiring managers at fintech and AI companies.
+sidebar_label: Portfolio roadmap
+tags: [portfolio, roadmap, rag, mcp, ai-documentation, career]
+last_reviewed: 2026-04-11
+---
+
+# Portfolio roadmap: next steps after the pipeline
+
+After setting up the AI fintech documentation pipeline, the next job is to
+prove you can operate at the intersection of **regulated finance, AI systems,
+and docs-as-code** in ways most technical writers cannot. This roadmap is
+ordered by highest signal-to-effort for a hiring manager at a fintech or AI
+company.
+
+## Where the repo stands today
+
+The current repo already demonstrates:
+
+- OpenAPI 3.1 spec with Redoc rendering
+- Docusaurus site with model-release versioning
+- Model card for an AI risk model
+- CI with Vale, Redocly, and link checking
+- RAG-ready content structure
+
+That is a strong baseline. What is missing is **evidence you can reason about
+AI systems, not just document them**.
+
+---
+
+## Tier 1 — High-impact additions (do these first)
+
+### 1. A working RAG evaluation harness
+
+This is the single most differentiating piece. Most writers talk about
+"AI-ready docs"; almost none measure it.
+
+Build `scripts/rag-eval/` with:
+
+- [ ] A small eval set (~30 questions) in `questions.yaml` — real questions
+      a developer or risk officer would ask, for example: *"What is the
+      haircut for a BB-rated corporate bond under ISDA 2016?"* or *"Which
+      asset classes does CollateralRiskScore not support?"*
+- [ ] A retrieval script that chunks your docs, embeds them (use `voyage-3`
+      or `text-embedding-3-small`), and scores recall@k
+- [ ] An answer-generation script using the Claude API (`claude-sonnet-4-6`)
+      with retrieved chunks as context
+- [ ] An LLM-as-judge evaluator scoring faithfulness, completeness, and
+      citation accuracy
+- [ ] A markdown report committed to the repo at
+      `docs/pipeline/rag-eval-results.md`
+
+**Why this wins:** it is the concrete artifact of "docs optimized for AI
+retrieval." You can point to the score going up as you refactor chunk
+boundaries, add frontmatter, and split long procedures.
+
+### 2. A "docs refactor for retrieval" case study
+
+Pick three pages in the repo and write a before/after post at
+`docs/pipeline/retrieval-case-study.md`:
+
+- [ ] Show the original chunking (measure it)
+- [ ] Show the eval score
+- [ ] Refactor: add semantic headers, split long procedures, add
+      disambiguating context
+- [ ] Show the new score and explain *why* each change mattered
+
+This maps writer craft directly to measurable AI outcomes — a portfolio piece
+most writers cannot produce.
+
+### 3. An MCP server that exposes the docs
+
+Build a small MCP server at `mcp-server/` that wraps the OpenAPI spec and
+model cards as MCP tools and resources. Anthropic, Cursor, Windsurf, and every
+serious AI tooling company is now shipping MCP. A technical writer who has
+built one is rare.
+
+Keep it small:
+
+- [ ] `list_endpoints`
+- [ ] `get_endpoint_schema`
+- [ ] `get_model_card`
+- [ ] `search_docs`
+- [ ] Document it at `docs/pipeline/mcp-server.md` with a "try it in Claude
+      Desktop" walkthrough
+
+---
+
+## Tier 2 — Depth-of-expertise pieces
+
+### 4. A regulatory traceability matrix
+
+Add `docs/compliance/traceability.md` mapping each section of the model card
+to:
+
+- [ ] **EU AI Act** article (Annex IV for high-risk systems)
+- [ ] **SR 11-7** (Fed model risk guidance) sections
+- [ ] **PRA SS1/23** (UK model risk management)
+
+This is the kind of artifact that makes a regulated-finance hiring manager
+sit up. Most AI model cards online ignore this entirely.
+
+### 5. A prompt library for the docs workflow
+
+Create a `prompts/` directory with versioned prompts for:
+
+- [ ] Generating first-draft changelog entries from git diffs
+- [ ] Rewriting endpoint descriptions for clarity (with a rubric)
+- [ ] Checking a page against a house style guide
+- [ ] Generating RAG eval questions from a new page
+
+Each prompt as its own `.md` file with frontmatter: model, temperature, input
+schema, eval notes, and known failure modes. This shows you treat prompts as
+engineering artifacts.
+
+### 6. A changelog generator using the Claude API
+
+`scripts/generate-changelog.js` — takes a git range, summarizes API-affecting
+changes, classifies as breaking/feature/fix, and produces a Keep-a-Changelog
+formatted entry.
+
+- [ ] Script implementation
+- [ ] GitHub Action that posts a draft to PRs
+- [ ] Write-up of the prompt engineering choices at
+      `docs/pipeline/ai-changelog.md`
+
+---
+
+## Tier 3 — Showcase and narrative
+
+### 7. A proper README that sells the repo
+
+The current README is functional. Rewrite it as a portfolio piece:
+
+- [ ] One-paragraph positioning: *"An end-to-end example of docs-as-code for
+      a regulated AI product, including retrieval evaluation, MCP tooling,
+      and compliance traceability."*
+- [ ] Architecture diagram (Mermaid)
+- [ ] Table of artifacts with links: OpenAPI spec, model card, RAG eval,
+      MCP server, prompt library, traceability matrix
+- [ ] A "what this demonstrates" section explicitly listing skills: OpenAPI,
+      docs-as-code CI, RAG evaluation, MCP, EU AI Act, model cards, prompt
+      engineering
+
+### 8. A written "lessons learned" post
+
+`docs/blog/building-ai-ready-docs.md` — 1,500 to 2,500 words on what you
+learned building this.
+
+- [ ] Concrete numbers (retrieval scores before and after)
+- [ ] Concrete trade-offs
+- [ ] Concrete mistakes
+- [ ] Cross-post to your site or LinkedIn
+
+This is what people actually read when deciding whether to interview you.
+
+### 9. A second, smaller repo
+
+A one-afternoon companion repo like `claude-docs-review-action` — a reusable
+GitHub Action that runs Claude against a PR and leaves structured review
+comments on docs changes (style, clarity, factual consistency against an
+OpenAPI spec).
+
+- [ ] Scaffold the Action
+- [ ] Wire it to a test PR in this repo
+- [ ] Publish to the GitHub Marketplace
+
+Having *two* public AI-docs repos signals this is not a one-off.
+
+---
+
+## Suggested ordering
+
+If you only do three things, do:
+
+1. **#1 — RAG evaluation harness**
+2. **#3 — MCP server**
+3. **#7 — README rewrite**
+
+Those three, sitting in a public repo, put you in a very small group of
+technical writers.
+
+## Progress tracking
+
+Use the checkboxes above as a living to-do list. As each item ships, link to
+the commit or PR next to its checkbox so this page becomes its own portfolio
+artifact — a roadmap and a receipt in one place.
+
+

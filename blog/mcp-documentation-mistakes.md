@@ -114,8 +114,6 @@ For each tool, publish at least one complete worked example: a realistic input w
 
 If the tool behaves differently for edge cases — a null field, a boundary value, a conditional response — document those as separate examples. The investment is small. The impact on model reliability is significant.
 
-***
-
 ## The pattern underneath all five mistakes
 
 Every mistake on this list has the same root cause: teams are writing MCP documentation for the wrong reader.
@@ -123,8 +121,6 @@ Every mistake on this list has the same root cause: teams are writing MCP docume
 REST API documentation is written for a developer who can read, infer, and experiment. MCP documentation is written for an AI model that can do none of those things. The model reads what is written and acts on it directly. Getting it wrong has the same consequences as getting the code wrong — except the failure is often invisible until something goes wrong in production.
 
 This is why getting MCP documentation right before you ship is not a nice-to-have. It is the difference between a server that gets adopted and one that sits on GitHub with two stars and no integrations.
-
-***
 
 ## MCP server documentation audit checklist
 
