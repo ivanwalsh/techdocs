@@ -2,7 +2,7 @@
 slug: human-task
 title: The Human Task
 authors: [ivanwalsh]
-tags: [Technical_Documentation]
+tags: [technical-writing, ai]
 description: Why AI isn't coming for your job but the *tasks* that make up your job.
 
 ---

@@ -6,7 +6,7 @@ authors: [ivanwalsh]
 tags:
   - claude
   - documentation
-  - AI-readability
+  - ai-readability
   - technical-writing
 category: "Documentation Engineering"
 slug: "why-i-added-llms-txt-to-my-docs-site"

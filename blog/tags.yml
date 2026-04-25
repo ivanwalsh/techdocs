@@ -1,5 +1,5 @@
 # blog/tags.yml
-Agile:
+agile:
   label: Agile
   permalink: /agile
   description: Posts related to Agile and Scrum for Technical Documentation.
@@ -39,12 +39,14 @@ technical-writing:
   permalink: /technical-writing
   description: Posts about technical writing and documentation strategy.
 
-Google NotebookLM:
+google-notebooklm:
   label: Google NotebookLM
+  permalink: /google-notebooklm
   description: Posts related to Google NotebookLM.
-  
-Google:
+
+google:
   label: Google
+  permalink: /google
   description: Posts related to Google.
 
 facebook:
@@ -56,24 +58,33 @@ docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus tag description
-  
-Publishing:
+
+publishing:
   label: Publishing
   permalink: /publishing
   description: Publish technical documentation
-  
-Technical_Documentation:
-  label: Technical Documentation
-  permalink: /technical_documentation
-  description: Technical Documentation
 
 claude:
   label: Claude
   permalink: /claude
   description: Posts related to Claude AI.
 
-AI-readability:
+ai-readability:
   label: AI Readability
   permalink: /ai-readability
   description: Posts about making documentation readable and useful for AI models.
-  
+
+model-cards:
+  label: Model Cards
+  permalink: /model-cards
+  description: Posts about AI model cards and structured model documentation.
+
+ai-documentation:
+  label: AI Documentation
+  permalink: /ai-documentation
+  description: Posts about documentation for AI systems.
+
+responsible-ai:
+  label: Responsible AI
+  permalink: /responsible-ai
+  description: Posts about responsible AI, transparency, and accountability.

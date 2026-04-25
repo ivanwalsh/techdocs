@@ -76,8 +76,12 @@ const config = {
 			  to: '/blog/tags/ai',
 			},
 			{
-			  label: 'API Documentation',
-			  to: '/tutorial-basics/api',
+			  label: 'Claude',
+			  to: '/blog/tags/claude',
+			},
+			{
+			  label: 'Documentation',
+			  to: '/blog/tags/documentation',
 			},
 			{
 			  label: 'FinTech',
@@ -88,6 +92,10 @@ const config = {
 			  to: '/blog/tags/mcp',
 			},
 			{
+			  label: 'Product Management',
+			  to: '/blog/tags/product-management',
+			},
+			{
 			  label: 'Publishing',
 			  to: '/blog/tags/publishing',
 			},
@@ -96,7 +104,7 @@ const config = {
 			  to: '/blog/tags/technical-writing',
 			},
 		  ],
-		},			
+		},
         { to: '/Ivan', label: 'About Ivan', position: 'left' },
         {
           href: '/llms.txt',

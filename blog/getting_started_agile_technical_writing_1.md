@@ -2,7 +2,7 @@
 slug: agile-tech-writing-getting-started
 title: Getting Started with Agile for Technical Writers
 authors: [ivanwalsh]
-tags: [Agile]
+tags: [agile, technical-writing]
 description: How to get started with Agile for Technical Writers
 
 ---
