@@ -29,15 +29,15 @@ So, if you're new to writing in an Agile environment, here are some things to co
 
 **Collaboration** – develop a collaborative approach with developers, testers and product managers, so docs are worked on during each sprint. Before you adopt this approach, talk to the team and explain how/why you plan to deliver the docs in increments.
 
-**Responding to change** – prepare your documents in such a way that it's easy to update, review, and republish. Flexibility is a key part of Agile. Make sure your document process is aligned accordingly
+**Responding to change** – prepare your documents in such a way that it's easy to update, review, and republish. Flexibility is a key part of Agile. Make sure your document process is aligned accordingly.
 
 ## Agile Documentation Strategies
 
-In terms of setting up Agile documents, you have several options. Here's a few to consider:
+In terms of setting up Agile documents, you have several options. Here are a few to consider:
 
 ### User story-driven content
 
-Learn how to write user story for the features you plan to document. Of course, you can write user stories for other document tasks as well. The point is to learn how to craft user stories so you're in sync with your company's Agile mindset, and also that each increment you deliver meets the Definition of Done. That is, it meets the problem statement and acceptance criteria for each ticket. 
+Learn how to write a user story for the features you plan to document. Of course, you can write user stories for other document tasks as well. The point is to learn how to craft user stories so you're in sync with your company's Agile mindset, and also that each increment you deliver meets the Definition of Done. That is, it meets the problem statement and acceptance criteria for each ticket. 
 
 ### Tech Documentation user story example
 
@@ -61,7 +61,7 @@ The following is a simple example of a documentation user story:
 
 ### Sprint-based documentation cycles
 
-You have several options here. One suggestion is to add a Tech Document ticket to the Dev sprint board per sprint. For me, this creates noise and I'd suggest to avoid it. Instead, create your own board and cut a ticket for each product feature. Then, in the last sprint, you can add a formal tech document ticket the sprint board to ensure it gets prioritized and delivered in time with the release. 
+You have several options here. One suggestion is to add a Tech Document ticket to the Dev sprint board per sprint. For me, this creates noise and I'd suggest avoiding it. Instead, create your own board and cut a ticket for each product feature. Then, in the last sprint, you can add a formal tech document ticket the sprint board to ensure it gets prioritized and delivered in time with the release. 
 
 ### Living documentation approaches
 
@@ -73,7 +73,7 @@ Set up your docs process so that you can identify gaps, errors, and omissions in
 
 ## First Steps
 
-Instead of 'boiling the ocean', I'd suggest to start small and by degrees move your tech document team to an Agile mindset. Setting up a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend to print out the Scrum Guide and become familiar with the framework.
+Instead of 'boiling the ocean', I'd suggest starting small and by degrees moving your tech document team to an Agile mindset. Setting up a simple Agile board either in Jira, Trello, or another tool is enough to get started. I'd highly recommend printing out the Scrum Guide and becoming familiar with the framework.
 
 In the coming weeks, I'll go into more depth about tool usage, metrics and some of the common pitfalls to avoid.
 

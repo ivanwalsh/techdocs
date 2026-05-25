@@ -13,8 +13,6 @@ slug: "why-i-added-llms-txt-to-my-docs-site"
 draft: false
 ---
 
-# Why I Added an llms.txt to My Documentation Site — and You Should Too
-
 > **Technical Writing · Documentation · April 2026**
 
 Your docs are already being read by AI. The question is whether they're being read well — or whether a language model is piecing together a garbled summary from whatever it can scrape.

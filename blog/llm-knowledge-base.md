@@ -7,7 +7,7 @@ authors: [ivanwalsh]
 date: 2026-04-05
 ---
 
-# The Wiki That Writes Itself
+## The Wiki That Writes Itself
 
 *Why I'm rebuilding how my team captures knowledge — and why an LLM is doing most of the work.*
 
