@@ -13,7 +13,7 @@ We are in the middle of a wave of MCP server development. Teams across the indus
 
 The documentation is not there.
 
-<!--truncate-->
+<!-- truncate -->
 
 Not absent entirely — most MCP servers have a README of some kind. But the README explains how to install the server, not how to use it effectively. It tells you how to get it running, not what happens when the model calls a tool with a malformed input. It assumes the reader already understands what the server does and why.
 

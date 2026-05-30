@@ -7,7 +7,7 @@ description: How to use Truth Tables for Technical Documentation Part 1
 
 ---
 
-# Truth Tables for Technical Documentation
+## Truth Tables for Technical Documentation
 
 When we're in the role of a 'reader' we tend to skim over the 'happy path' in user guides and other types of documentation. Quite often we only turn to documentation when lost, confused, or uncertain. For instance, someone changed a parameter setting and we can't figure out how to fix it. So, we crack open the docs, search, and go hunting for the answer. But where is it? What should I search for? 
 
