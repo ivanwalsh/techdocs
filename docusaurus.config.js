@@ -13,7 +13,12 @@ const config = {
   projectName: 'techdocs', // GitHub repo
 
   onBrokenLinks: 'throw', // Fail the build if any internal link is broken
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    format: 'detect', // .md files are plain Markdown, .mdx files are MDX
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
